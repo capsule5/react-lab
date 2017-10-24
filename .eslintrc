@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": "jobteaser",
+  "globals": {
+    "$": true,
+    "_": true,
+    "JT": true,
+    "Mentreprises": true,
+    "dataLayer": true
+  },
+  "rules": {}
+}

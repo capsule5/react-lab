@@ -1,7 +1,14 @@
 import React, { Component } from "react"
+import styled from "styled-components"
+import ExReactAnimation from "./examples/ExReactAnimation"
 
 
-class MyComponent extends Component {
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`
+
+class Examples extends Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -9,9 +16,11 @@ class MyComponent extends Component {
 
   render() {
     return (
-      <div />
+      <Wrapper>
+        <ExReactAnimation />
+      </Wrapper>
     )
   }
 }
 
-export default MyComponent
+export default Examples

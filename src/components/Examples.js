@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import ReactAnimation from "./examples/ReactAnimation"
+import ReactMotion from "./examples/ReactMotion"
 
 const Wrapper = styled.div``
 
@@ -13,7 +13,7 @@ class Examples extends Component {
   render() {
     return (
       <Wrapper>
-        <ReactAnimation />
+        <ReactMotion />
       </Wrapper>
     )
   }

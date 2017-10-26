@@ -4,26 +4,45 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   border-top: 1px solid #000;
-  height:500px;
   text-align:left;
-  padding: 10px;
+  padding: 20px;
 
-  h1{}
-  .sources{
+  ul{
+    padding:0;
+    li{
+      padding:0;
+      list-style:none;
+      margin-bottom:5px;
+    }
+  }
+  .data{
     margin-bottom:20px;
   }
+  .tags{
+    a{
+      text-decoration:none;
+      color:#CCC;
+      &:hover{
+        color:#333;
+      }
+    }
+  }
   .content{
-    color:#CCC;
+    border-left:5px solid #EEE;
+    padding-left:20px;
   }
 `
 
 const Example = ({ data, children }) => (
   <Wrapper>
     <h1>{data.title}</h1>
-    <div className="sources">
-      { data.sources.map((source, index) => (<a href={ source } target="_blank" rel="noopener noreferrer" key={ `source_${index}` }>{source}</a>)) }
+    <div className="data tags">
+      { data.tags.map((tag, index) => (<a href={ `#${tag}` } key={ `tag_${index}` }>#{tag}</a>)) }
     </div>
-    { children}
+    <ul className="data">
+      { data.sources.map((source, index) => (<li><a href={ source } target="_blank" rel="noopener noreferrer" key={ `source_${index}` }>{source}</a></li>)) }
+    </ul>
+    <div className="content">{ children}</div>
   </Wrapper>
 )
 

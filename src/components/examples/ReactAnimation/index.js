@@ -1,6 +1,6 @@
 import React from "react"
 import Example from "../Example"
-import Content from "./content"
+import ReactAnimationExample from "./ReactAnimationExample"
 
 const DATA = {
   title: "React Animation",
@@ -11,7 +11,7 @@ const DATA = {
 
 const ReactAnimation = () => (
   <Example data={ DATA }>
-    <Content />
+    <ReactAnimationExample />
   </Example>
 )
 

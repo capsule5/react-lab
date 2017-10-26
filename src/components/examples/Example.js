@@ -1,9 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { ExampleStyle } from "./styles"
 
-const Wrapper = styled.div` ${ExampleStyle}`
+const Wrapper = styled.div`
+  border-top: 1px solid #000;
+  height:500px;
+  text-align:left;
+  padding: 10px;
+
+  h1{}
+  .sources{
+    margin-bottom:20px;
+  }
+  .content{
+    color:#CCC;
+  }
+`
 
 const Example = ({ data, children }) => (
   <Wrapper>

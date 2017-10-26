@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react"
 
-class ReactAnimationContent extends PureComponent {
+class ReactAnimationExample extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {}
@@ -8,9 +8,9 @@ class ReactAnimationContent extends PureComponent {
 
   render() {
     return (
-      <div>ReactAnimationContent</div>
+      <div>ReactAnimationExample</div>
     )
   }
 }
 
-export default ReactAnimationContent
+export default ReactAnimationExample

@@ -2,9 +2,8 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 import styled from "styled-components"
 import Layout from "./Layout"
-import SideNav from "./SideNav"
-import ReactMotion from "./examples/ReactMotion"
-import UnmountAnimation from "./examples/UnmountAnimation"
+import SideNav from "./examples/SideNav"
+import { EXAMPLES } from "../store/examples"
 
 const Wrapper = styled.div`
   display:flex;
@@ -16,11 +15,21 @@ const Wrapper = styled.div`
 const Examples = () => (
   <Layout>
     <Wrapper>
-      <SideNav />
+      <SideNav examples={ EXAMPLES } />
       <div className="content">
         <Switch>
-          <Route path="/examples/react-motion" component={ ReactMotion } />
-          <Route path="/examples/unmount-animation" component={ UnmountAnimation } />
+          {
+            EXAMPLES.map((ex) => {
+              const { component, ...others } = ex
+              return (
+                <Route
+                  key={ ex.id }
+                  path={ ex.path }
+                  component={ () => <ex.component data={ others } /> }
+                />
+              )
+            })
+          }
         </Switch>
       </div>
     </Wrapper>

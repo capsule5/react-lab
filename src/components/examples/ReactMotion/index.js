@@ -1,23 +1,12 @@
 import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { Motion, spring } from "react-motion"
 import styled from "styled-components"
 import Example from "../Example"
-import { TAGS } from "../../../utils/tags"
 
 const Count = styled.div`
   font-size:60px;
 `
-
-const DATA = {
-  title: "React Motion",
-  tags: [
-    TAGS.animation,
-  ],
-  sources: [
-    "https://github.com/chenglou/react-motion",
-    "https://react.rocks/tag/react-motion",
-  ],
-}
 
 class ReactMotion extends PureComponent {
   constructor(props) {
@@ -27,7 +16,7 @@ class ReactMotion extends PureComponent {
 
   render() {
     return (
-      <Example data={ DATA }>
+      <Example data={ this.props.data }>
         <h3>Simple value animation</h3>
         <Motion defaultStyle={ { x: 0 } } style={ { x: spring(10) } }>
           {value => <Count>{value.x}</Count>}
@@ -35,6 +24,10 @@ class ReactMotion extends PureComponent {
       </Example>
     )
   }
+}
+
+ReactMotion.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default ReactMotion

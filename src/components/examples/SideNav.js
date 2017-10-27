@@ -16,11 +16,14 @@ const Nav = styled.nav`
   }
 `
 
-const SideNav = () => (
+const SideNav = ({ examples }) => (
   <Nav>
     <ul>
-      <li><Link to="/examples/react-motion">React Motion</Link></li>
-      <li><Link to="/examples/unmount-animation">Unmount Animation</Link></li>
+      {
+        examples.map(example => (
+          <li key={ example.id }><Link to={ example.path }>{ example.title }</Link></li>
+        ))
+      }
     </ul>
   </Nav>
 )

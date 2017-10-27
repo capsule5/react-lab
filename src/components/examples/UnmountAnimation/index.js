@@ -1,17 +1,7 @@
 import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import Example from "../Example"
-import { TAGS } from "../../../utils/tags"
 import Child from "./child"
-
-const DATA = {
-  title: "Unmount Animation",
-  tags: [
-    TAGS.animation,
-  ],
-  sources: [
-    "https://stackoverflow.com/questions/40064249/react-animate-mount-and-unmount-of-a-single-component",
-  ],
-}
 
 class Parent extends PureComponent {
   constructor(props) {
@@ -28,12 +18,17 @@ class Parent extends PureComponent {
   }
   render() {
     return (
-      <Example data={ DATA }>
+      <Example data={ this.props.data }>
         <Child onTransitionEnd={ this.transitionEnd } mounted={ this.state.showChild } />
         <button onClick={ this.buttonClick }>{this.state.showChild ? "Unmount" : "Mount"}</button>
       </Example>
     )
   }
 }
+
+Parent.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 
 export default Parent

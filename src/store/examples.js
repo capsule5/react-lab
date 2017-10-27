@@ -1,3 +1,4 @@
+import { slugify } from "strman"
 import { TAGS } from "./tags"
 import ReactMotion from "../components/examples/ReactMotion"
 import UnmountAnimation from "../components/examples/UnmountAnimation"
@@ -8,7 +9,6 @@ const EXAMPLES_SOURCE = [
   {
     component: ReactMotion,
     title: "React Motion",
-    path: "react-motion",
     tags: [
       TAGS.animation,
     ],
@@ -20,7 +20,6 @@ const EXAMPLES_SOURCE = [
   {
     component: UnmountAnimation,
     title: "Unmount Animation",
-    path: "unmount-animation",
     tags: [
       TAGS.animation,
     ],
@@ -33,5 +32,5 @@ const EXAMPLES_SOURCE = [
 export const EXAMPLES = EXAMPLES_SOURCE.map((example, index) => ({
   ...example,
   id: `${example}${index}`,
-  path: `${EXAMPLES_URL}${example.path}`,
+  path: `${EXAMPLES_URL}${slugify(example.title)}`,
 }))

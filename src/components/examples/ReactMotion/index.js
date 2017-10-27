@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react"
 import { Motion, spring } from "react-motion"
-import Example from "./Example"
-import { TAGS } from "../../utils/tags"
+import Example from "../Example"
+import { TAGS } from "../../../utils/tags"
 
 const DATA = {
   title: "React Motion",

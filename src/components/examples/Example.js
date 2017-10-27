@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import keyIndex from "react-key-index"
 
 const Wrapper = styled.div`
   border-top: 1px solid #000;
@@ -33,22 +34,27 @@ const Wrapper = styled.div`
   }
 `
 
-const Example = ({ data, children }) => (
-  <Wrapper>
-    <h1>{data.title}</h1>
-    <div className="data tags">
-      { data.tags.map((tag, index) => (<a href={ `#${tag}` } key={ `tag_${index}` }>#{tag}</a>)) }
-    </div>
-    <ul className="data">
-      { data.sources.map((source, index) => (<li><a href={ source } target="_blank" rel="noopener noreferrer" key={ `source_${index}` }>{source}</a></li>)) }
-    </ul>
-    <div className="content">{ children}</div>
-  </Wrapper>
-)
+const Example = ({ data, children }) => {
+  const tags = keyIndex(data.tags, 1)
+  const sources = keyIndex(data.sources, 1)
+
+  return (
+    <Wrapper>
+      <h1>{data.title}</h1>
+      <div className="data tags">
+        { tags.map(tag => (<a href={ `#${tag.value}` } key={ tag.id }>#{tag.value}</a>)) }
+      </div>
+      <ul className="data">
+        { sources.map(source => (<li key={ source.id }><a href={ source.value } target="_blank" rel="noopener noreferrer" >{source.value}</a></li>)) }
+      </ul>
+      <div className="content">{ children}</div>
+    </Wrapper>
+  )
+}
 
 Example.propTypes = {
   data: PropTypes.object.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired,
 }
 
 export default Example

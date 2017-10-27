@@ -1,22 +1,13 @@
-import React, { Component } from "react"
-import styled from "styled-components"
+import React from "react"
 import ReactMotion from "./examples/ReactMotion"
+import UnmountAnimation from "./examples/UnmountAnimation"
 
-const Wrapper = styled.div``
 
-class Examples extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <ReactMotion />
-      </Wrapper>
-    )
-  }
-}
+const Examples = () => (
+  <div>
+    <ReactMotion />
+    <UnmountAnimation />
+  </div>
+)
 
 export default Examples

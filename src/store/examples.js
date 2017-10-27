@@ -11,6 +11,7 @@ const EXAMPLES_SOURCE = [
     title: "React Motion",
     tags: [
       TAGS.animation,
+      TAGS.reactmotion,
     ],
     sources: [
       "https://github.com/chenglou/react-motion",

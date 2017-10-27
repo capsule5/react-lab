@@ -12,28 +12,47 @@ const Wrapper = styled.div`
   }
 `
 
-const Examples = () => (
-  <Layout>
-    <Wrapper>
-      <SideNav examples={ EXAMPLES } />
-      <div className="content">
-        <Switch>
+const Examples = ({ ...props }) => {
+  const tag = props.match.params.tag
+  const filteredExamples = tag ? EXAMPLES.filter(e => (e.tags.includes(tag))) : EXAMPLES
+
+  return (
+    <Layout>
+      <Wrapper>
+        <SideNav examples={ filteredExamples } />
+        <div className="content">
           {
-            EXAMPLES.map((ex) => {
-              const { component, ...others } = ex
-              return (
-                <Route
-                  key={ ex.id }
-                  path={ ex.path }
-                  component={ () => <ex.component data={ others } /> }
-                />
-              )
-            })
+            tag ?
+              <div>
+                {
+                  filteredExamples.map((ex) => {
+                    const { component, ...moreData } = ex
+                    return (
+                      <ex.component key={ ex.id } data={ moreData } />
+                    )
+                  })
+                }
+              </div> :
+              <Switch>
+                {
+                  filteredExamples.map((ex) => {
+                    const { component, ...moreData } = ex
+                    return (
+                      <Route
+                        key={ ex.id }
+                        path={ ex.path }
+                        component={ () => <ex.component data={ moreData } /> }
+                      />
+                    )
+                  })
+                }
+              </Switch>
           }
-        </Switch>
-      </div>
-    </Wrapper>
-  </Layout>
-)
+          
+        </div>
+      </Wrapper>
+    </Layout>
+  )
+}
 
 export default Examples

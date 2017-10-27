@@ -60,7 +60,7 @@ class Child extends PureComponent {
   }
   
   render() {
-    return this.state.show && <h1 style={ this.state.style } onTransitionEnd={ this.transitionEnd }>Unmount me!</h1>
+    return this.state.show && <div style={ this.state.style } onTransitionEnd={ this.transitionEnd }>Unmount me!</div>
   }
 }
 

@@ -5,6 +5,7 @@ import styled from "styled-components"
 const Nav = styled.nav`
   text-align:left;
   padding:20px;
+  min-width:150px;
 
   ul{
     list-style:none;
@@ -13,6 +14,13 @@ const Nav = styled.nav`
   }
   li{
     margin-bottom:10px;
+    a{
+      text-decoration:none;
+      color:#000;
+      &:hover{
+        text-decoration:underline;
+      }
+    }
   }
 `
 

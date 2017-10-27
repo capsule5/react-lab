@@ -4,10 +4,12 @@ import styled from "styled-components"
 import keyIndex from "react-key-index"
 
 const Wrapper = styled.div`
-  border-top: 1px solid #000;
   text-align:left;
   padding: 20px;
 
+  h1{
+    margin-top:0px;
+  }
   ul{
     padding:0;
     li{
@@ -29,8 +31,8 @@ const Wrapper = styled.div`
     }
   }
   .content{
-    border-left:5px solid #EEE;
-    padding-left:20px;
+    padding-top:20px;
+    border-top:2px solid #EEE;
   }
 `
 

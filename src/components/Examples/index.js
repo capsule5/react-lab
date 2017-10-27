@@ -1,9 +1,9 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 import styled from "styled-components"
-import Layout from "./Layout"
-import SideNav from "./examples/SideNav"
-import { EXAMPLES } from "../store/examples"
+import Layout from "../Layout"
+import SideNav from "./SideNav"
+import { EXAMPLES } from "../../store/examples"
 
 const Wrapper = styled.div`
   display:flex;

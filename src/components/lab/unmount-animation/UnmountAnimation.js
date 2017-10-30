@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
-import Example from "components/examples/example/Example"
+import Example from "components/core/examples/example/Example"
 import Child from "./Child"
 
 class UnmountAnimation extends PureComponent {

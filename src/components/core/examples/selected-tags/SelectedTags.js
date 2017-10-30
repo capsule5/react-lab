@@ -5,7 +5,7 @@ import ButtonTag from "./ButtonTag"
 
 const Wrapper = styled.div`
 display:flex;
-padding: 0 0 20px 20px;
+padding: 0 0 30px 20px;
 `
 
 const SelectedTags = ({ tags }) => (

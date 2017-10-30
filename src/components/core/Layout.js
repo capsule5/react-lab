@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Header from "./Header"
 
 const Wrapper = styled.div`
-  padding-top:20px;
+  padding-top:30px;
 `
 
 const Layout = ({ children }) => (

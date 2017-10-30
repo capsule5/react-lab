@@ -38,7 +38,7 @@ const SideNav = ({ examples }) => (
       </li>
       {
         examples.map(example => (
-          <li key={ example.id }><Link to={ example.path }>{ example.title }</Link></li>
+          <li key={ example.id }>› <Link to={ example.path }>{ example.title }</Link></li>
         ))
       }
     </ul>

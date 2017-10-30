@@ -23,7 +23,7 @@ const Examples = ({ selectedTags }) => {
 
   return (
     <Layout>
-      <SelectedTags tags={ selectedTags } />
+      { selectedTags.length > 0 && <SelectedTags tags={ selectedTags } />}
       <Wrapper>
         <SideNav examples={ filteredExamples } />
         <div className="content">

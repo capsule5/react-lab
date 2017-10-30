@@ -4,7 +4,7 @@ import styled from "styled-components"
 import withButtonTag from "./withButtonTag"
 
 const Wrapper = styled.div`
-  background: #EEE;
+  background: #7ED8F7;
   border-radius:3px;
   padding: 8px;
   margin-right:10px;

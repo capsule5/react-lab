@@ -1,3 +1,23 @@
+## Quick start
+Install dependencies
+```sh
+yarn
+```
+
+Launch server
+```sh
+yarn start
+```
+
+## Adding a new example
+- Add new component in src/components/lab
+- Import new component in src/api/examples.js
+- Update EXAMPLES_SOURCE
+
+
+<br><br><br>
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

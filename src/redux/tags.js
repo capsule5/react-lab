@@ -1,12 +1,11 @@
 const initialState = {
-  tags: [],
   selected: [],
 }
 
 const SET_SELECTED_TAGS = "SET_SELECTED_TAGS"
 
 // Reducer
-export default function reducer(state = initialState, action) {
+export const tagsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SELECTED_TAGS:
       return {
@@ -23,3 +22,17 @@ export const setSelectedTags = tags => ({
   type: SET_SELECTED_TAGS,
   payload: tags,
 })
+
+
+export const selectTag = tag => (dispatch, getState) => {
+  const newTags = getState().tags.selected.slice()
+  if (!newTags.some(t => t.value === tag.value)) {
+    newTags.push(tag)
+    dispatch(setSelectedTags(newTags))
+  }
+}
+
+export const deselectTag = tag => (dispatch, getState) => {
+  const newTags = getState().tags.selected.filter(t => t.value !== tag.value)
+  dispatch(setSelectedTags(newTags))
+}

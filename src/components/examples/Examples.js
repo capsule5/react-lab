@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { EXAMPLES } from "api/examples"
+import withExamples from "./withExamples"
 import Layout from "../Layout"
 import SideNav from "./SideNav"
-import List from "./List"
+import SelectedTags from "./selected-tags/SelectedTags"
 import ExamplesRouter from "./ExamplesRouter"
-import { EXAMPLES } from "../../api/examples"
+
 
 const Wrapper = styled.div`
   display:flex;
@@ -14,19 +16,18 @@ const Wrapper = styled.div`
   }
 `
 
-const Examples = ({ match }) => {
-  const tag = match.params.tag // router param
-  const filteredExamples = tag ? EXAMPLES.filter(e => (e.tags.includes(tag))) : EXAMPLES
+const Examples = ({ selectedTags }) => {
+  const filteredExamples = selectedTags.length > 0 ?
+    EXAMPLES.filter(e => (selectedTags.map(t => t.value).every(t => e.tags.includes(t)))) :
+    EXAMPLES
 
   return (
     <Layout>
+      <SelectedTags tags={ selectedTags } />
       <Wrapper>
         <SideNav examples={ filteredExamples } />
         <div className="content">
-          { tag ?
-            <List examples={ filteredExamples } /> :
-            <ExamplesRouter examples={ filteredExamples } />
-          }
+          <ExamplesRouter examples={ filteredExamples } />
         </div>
       </Wrapper>
     </Layout>
@@ -34,7 +35,7 @@ const Examples = ({ match }) => {
 }
 
 Examples.propTypes = {
-  match: PropTypes.object.isRequired,
+  selectedTags: PropTypes.array.isRequired,
 }
 
-export default Examples
+export default withExamples(Examples)

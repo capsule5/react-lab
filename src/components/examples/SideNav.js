@@ -1,10 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { EXAMPLES_URL } from "api/examples"
 
 const Nav = styled.nav`
   text-align:left;
-  padding:20px;
+  padding:0 20px;
   min-width:150px;
 
   ul{
@@ -27,6 +29,9 @@ const Nav = styled.nav`
 const SideNav = ({ examples }) => (
   <Nav>
     <ul>
+      <li>
+        <Link to={ `${EXAMPLES_URL}all` }> <span>≡</span>  All</Link>
+      </li>
       {
         examples.map(example => (
           <li key={ example.id }><Link to={ example.path }>{ example.title }</Link></li>
@@ -35,5 +40,9 @@ const SideNav = ({ examples }) => (
     </ul>
   </Nav>
 )
+
+SideNav.propTypes = {
+  examples: PropTypes.array.isRequired,
+}
 
 export default SideNav

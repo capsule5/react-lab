@@ -2,7 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import keyIndex from "react-key-index"
-import { Link } from "react-router-dom"
+import withExample from "./withExample"
+// import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`
   text-align:left;
@@ -55,7 +56,7 @@ const Header = styled.div`
   padding:20px;
 `
 
-const Example = ({ data, children }) => {
+const Example = ({ data, children, onSelectTag }) => {
   const tags = keyIndex(data.tags, 1)
   const sources = keyIndex(data.sources, 1)
 
@@ -66,8 +67,9 @@ const Example = ({ data, children }) => {
         <div className="data tags">
           {
             tags.map(tag => (
-              <span>
-                <Link to={ `/examples/tags/${tag.value}` } key={ tag.id }>#{tag.value}</Link>&nbsp;
+              <span key={ tag.id }>
+                {/* <Link to={ `/examples/tags/${tag.value}` } key={ tag.id }>#{tag.value}</Link>&nbsp; */}
+                <a href="" onClick={ e => onSelectTag(tag, e) } >#{tag.value} </a>
               </span>
             ))
           }
@@ -75,7 +77,9 @@ const Example = ({ data, children }) => {
         <ul className="data sources">
           {
             sources.map(source => (
-              <li key={ source.id }><a href={ source.value } target="_blank" rel="noopener noreferrer" >{source.value}</a></li>
+              <li key={ source.id }>
+                <a href={ source.value } target="_blank" rel="noopener noreferrer" >{source.value}</a>
+              </li>
             ))
           }
         </ul>
@@ -89,6 +93,7 @@ const Example = ({ data, children }) => {
 Example.propTypes = {
   data: PropTypes.object.isRequired,
   children: PropTypes.array.isRequired,
+  onSelectTag: PropTypes.func.isRequired,
 }
 
-export default Example
+export default withExample(Example)

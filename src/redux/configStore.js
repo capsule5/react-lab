@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import thunkMiddleware from "redux-thunk"
 import { createLogger } from "redux-logger"
 // reducers
-import potagers from "./potagers/potagersReducer"
+import { tagsReducer as tags } from "./tags"
 
 
 const middlewares = [ thunkMiddleware ]
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const rootReducer = combineReducers({
-  potagers,
+  tags,
 })
 
 export default function configureStore(initialState) {

@@ -1,9 +1,9 @@
 import { slugify } from "strman"
 import { TAGS } from "./tags"
-import ReactMotion from "../components/examples/react-motion/ReactMotion"
-import UnmountAnimation from "../components/examples/unmount-animation/UnmountAnimation"
+import ReactMotion from "../components/examples/lab/react-motion/ReactMotion"
+import UnmountAnimation from "../components/examples/lab/unmount-animation/UnmountAnimation"
 
-const EXAMPLES_URL = "/examples/"
+export const EXAMPLES_URL = "/examples/"
 
 const EXAMPLES_SOURCE = [
   {

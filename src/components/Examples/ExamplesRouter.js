@@ -1,6 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Switch, Route } from "react-router-dom"
+import { EXAMPLES_URL } from "api/examples"
+import List from "./List"
+
 
 const ExamplesRouter = ({ examples }) => (
   <Switch>
@@ -16,6 +19,10 @@ const ExamplesRouter = ({ examples }) => (
         )
       })
     }
+    <Route
+      path={ `${EXAMPLES_URL}all` }
+      component={ () => <List examples={ examples } /> }
+    />
   </Switch>
 )
 

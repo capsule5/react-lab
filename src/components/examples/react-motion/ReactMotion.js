@@ -2,7 +2,7 @@ import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { Motion, spring } from "react-motion"
 import styled from "styled-components"
-import Example from "components/Examples/Example"
+import Example from "../Example"
 
 const Count = styled.div`
   font-size:60px;

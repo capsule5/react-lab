@@ -1,7 +1,7 @@
 import { slugify } from "strman"
 import { TAGS } from "./tags"
-import ReactMotion from "../components/Examples/ReactMotion"
-import UnmountAnimation from "../components/Examples/UnmountAnimation"
+import ReactMotion from "../components/examples/react-motion/ReactMotion"
+import UnmountAnimation from "../components/examples/unmount-animation/UnmountAnimation"
 
 const EXAMPLES_URL = "/examples/"
 

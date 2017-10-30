@@ -1,6 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
-import Examples from "./components/Examples"
+import Examples from "./components/examples/Examples"
 import "./App.css"
 
 const App = () => (

@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import Example from "../Example"
-import Child from "./child"
+import Child from "./Child"
 
-class Parent extends PureComponent {
+class UnmountAnimation extends PureComponent {
   constructor(props) {
     super(props)
     this.buttonClick = this.buttonClick.bind(this)
@@ -26,9 +26,9 @@ class Parent extends PureComponent {
   }
 }
 
-Parent.propTypes = {
+UnmountAnimation.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
 
-export default Parent
+export default UnmountAnimation

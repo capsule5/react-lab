@@ -6,7 +6,6 @@ import "./App.css"
 const App = () => (
   <main className="App">
     <Switch>
-      <Route path="/examples/tags/:tag" component={ Examples } />
       <Route path="/" component={ Examples } />
     </Switch>
   </main>

@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import keyIndex from "react-key-index"
 import withExample from "./withExample"
-// import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`
   text-align:left;
@@ -68,7 +67,6 @@ const Example = ({ data, children, onSelectTag }) => {
           {
             tags.map(tag => (
               <span key={ tag.id }>
-                {/* <Link to={ `/examples/tags/${tag.value}` } key={ tag.id }>#{tag.value}</Link>&nbsp; */}
                 <a href="" onClick={ e => onSelectTag(tag, e) } >#{tag.value} </a>
               </span>
             ))

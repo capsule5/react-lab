@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import Layout from "../Layout"
 import SideNav from "./SideNav"
@@ -13,8 +14,8 @@ const Wrapper = styled.div`
   }
 `
 
-const Examples = (props) => {
-  const tag = props.match.params.tag // router param
+const Examples = ({ match }) => {
+  const tag = match.params.tag // router param
   const filteredExamples = tag ? EXAMPLES.filter(e => (e.tags.includes(tag))) : EXAMPLES
 
   return (
@@ -30,6 +31,10 @@ const Examples = (props) => {
       </Wrapper>
     </Layout>
   )
+}
+
+Examples.propTypes = {
+  match: PropTypes.object.isRequired,
 }
 
 export default Examples

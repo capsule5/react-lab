@@ -5,7 +5,7 @@ import Layout from "../Layout"
 import SideNav from "./SideNav"
 import List from "./List"
 import ExamplesRouter from "./ExamplesRouter"
-import { EXAMPLES } from "../../store/examples"
+import { EXAMPLES } from "../../api/examples"
 
 const Wrapper = styled.div`
   display:flex;

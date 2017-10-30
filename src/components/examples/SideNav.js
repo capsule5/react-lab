@@ -16,6 +16,10 @@ const Nav = styled.nav`
   }
   li{
     margin-bottom:10px;
+    &.all{
+      margin-bottom:20px;
+      font-weight:bold
+    }
     a{
       text-decoration:none;
       color:#000;
@@ -29,8 +33,8 @@ const Nav = styled.nav`
 const SideNav = ({ examples }) => (
   <Nav>
     <ul>
-      <li>
-        <Link to={ `${EXAMPLES_URL}all` }> <span>≡</span>  All</Link>
+      <li className="all">
+        <Link to={ `${EXAMPLES_URL}all` }> View all</Link>
       </li>
       {
         examples.map(example => (

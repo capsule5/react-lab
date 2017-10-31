@@ -1,11 +1,11 @@
 import { slugify } from "strman"
 import { TAGS } from "./tags"
+
 import RMAnimatedValue from "../components/lab/rm-animated-value/RMAnimatedValue"
 import UnmountAnimation from "../components/lab/unmount-animation/UnmountAnimation"
 import RMSimpleTransition from "../components/lab/rm-simple-transition/RMSimpleTransition"
 import RMUnmountAnimation from "../components/lab/rm-unmount-animation/RMUnmountAnimation"
 import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/TransitionGroupAnimeJs"
-
 
 export const EXAMPLES_URL = "/examples/"
 
@@ -26,7 +26,6 @@ const EXAMPLES_SOURCE = [
       "http://animejs.com/",
     ],
   },
-  
   {
     component: UnmountAnimation,
     title: "Unmount Animation",
@@ -41,7 +40,6 @@ const EXAMPLES_SOURCE = [
       "https://reactjs.org/docs/events.html#transition-events",
     ],
   },
-  
   {
     component: RMUnmountAnimation,
     title: "Unmount Animation with RM",

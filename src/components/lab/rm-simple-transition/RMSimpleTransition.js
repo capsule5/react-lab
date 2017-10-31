@@ -7,8 +7,6 @@ import Example from "components/core/examples/example/Example"
 const Wrapper = styled.div`
   .demo0 {
     border-radius: 4px;
-    position: relative;
-    margin: 5px 3px 10px;
     width: 450px;
     height: 50px;
     background:#EEE;

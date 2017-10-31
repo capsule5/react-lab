@@ -7,27 +7,27 @@ export default class Container extends Component {
   }
 
   render() {
-    return (<div className="p-4">
-      <div className="mb-5">
-        <button
-          className="btn btn-secondary mr-3"
-          onClick={ () => this.setState({ items: [ 1, 2, 3, 4, 5, 6, 7, 8 ] }) }
-          hidden={ !!this.state.items.length }
-        >
-          enter animation
-        </button>
-        <button
-          className="btn btn-secondary"
-          onClick={ () => this.setState({ items: [] }) }
-          hidden={ !this.state.items.length }
-        >
-          exit animation
-        </button>
-      </div>
+    return (
       <div>
-        {React.cloneElement(this.props.children, { items: this.state.items })}
+        <div>
+          <button
+            onClick={ () => this.setState({ items: [ 1, 2, 3, 4, 5, 6, 7, 8 ] }) }
+            hidden={ !!this.state.items.length }
+          >
+          enter animation
+          </button>
+          <button
+            onClick={ () => this.setState({ items: [] }) }
+            hidden={ !this.state.items.length }
+          >
+          exit animation
+          </button>
+        </div>
+        <div>
+          {React.cloneElement(this.props.children, { items: this.state.items })}
+        </div>
       </div>
-    </div>)
+    )
   }
 }
 

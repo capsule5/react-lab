@@ -6,9 +6,7 @@ import AnimatedGridContents from "./AnimatedGridContents"
 
 const AnimatedGrid = ({ items }) => (
   <TransitionGroup>{
-    items.length
-      ? <AnimatedGridContents items={ items } key="AnimatedGridContents" />
-      : <div />
+    items.length && <AnimatedGridContents items={ items } key="AnimatedGridContents" />
   }
   </TransitionGroup>
 )

@@ -7,7 +7,7 @@ import withExample from "./withExample"
 const Wrapper = styled.div`
   text-align:left;
   
-  margin: 0 20px 40px;
+  margin: 0 30px 40px;
   background:#FFF;
 
   h1{

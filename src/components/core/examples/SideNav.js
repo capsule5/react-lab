@@ -6,7 +6,7 @@ import { EXAMPLES_URL } from "api/examples"
 
 const Nav = styled.nav`
   text-align:left;
-  padding:0 20px;
+  padding:0 30px;
   min-width:150px;
 
   ul{

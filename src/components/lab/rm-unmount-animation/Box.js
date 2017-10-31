@@ -4,11 +4,9 @@ import styled from "styled-components"
 import { TransitionMotion, spring } from "react-motion"
 
 const Wrapper = styled.div`
-
   background: yellow;
   width: 200px;
-  height: 200px;
-  line-height: 200px;
+  padding:20px;
   text-align: center;
 `
 

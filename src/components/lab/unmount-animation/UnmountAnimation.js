@@ -8,19 +8,19 @@ class UnmountAnimation extends PureComponent {
     super(props)
     this.buttonClick = this.buttonClick.bind(this)
     this.state = {
-      showChild: true,
+      isMounted: true,
     }
   }
   buttonClick() {
     this.setState({
-      showChild: !this.state.showChild,
+      isMounted: !this.state.isMounted,
     })
   }
   render() {
     return (
       <Example data={ this.props.data }>
-        <Child onTransitionEnd={ this.transitionEnd } mounted={ this.state.showChild } />
-        <button onClick={ this.buttonClick }>{this.state.showChild ? "Unmount" : "Mount"}</button>
+        <button onClick={ this.buttonClick }>{this.state.isMounted ? "Unmount" : "Mount"}</button>
+        <Child onTransitionEnd={ this.transitionEnd } isMounted={ this.state.isMounted } />
       </Example>
     )
   }

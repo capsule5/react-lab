@@ -1,71 +1,67 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
+
+const Wrapper = styled.div`
+background: yellow;
+width: 200px;
+padding:20px;
+text-align: center;
+transition: all 1s ease-out;
+opacity:0;
+&.isMounted{
+  opacity:1
+}
+`
 
 class Child extends PureComponent {
   constructor(props) {
     super(props)
     this.transitionEnd = this.transitionEnd.bind(this)
-    this.mountStyle = this.mountStyle.bind(this)
-    this.unMountStyle = this.unMountStyle.bind(this)
-    this.state = { // base css
-      show: true,
-      style: {
-        fontSize: 60,
-        opacity: 0,
-        transition: "all 2s ease",
-      },
+    this.willEnter = this.willEnter.bind(this)
+    this.willLeave = this.willLeave.bind(this)
+    this.state = {
+      isShow: true,
+      isMounted: false,
     }
   }
-  
-  componentWillReceiveProps(newProps) { // check for the mounted props
-    if (!newProps.mounted) {
-      return this.unMountStyle()
-    } // call outro animation when mounted prop is false
-    this.setState({ // remount the node when the mounted prop is true
-      show: true,
-    })
-    setTimeout(this.mountStyle, 10) // call the into animiation
-  }
-  
-  unMountStyle() { // css for unmount animation
-    this.setState({
-      style: {
-        fontSize: 60,
-        opacity: 0,
-        transition: "all 1s ease",
-      },
-    })
-  }
-  
-  mountStyle() { // css for mount animation
-    this.setState({
-      style: {
-        fontSize: 60,
-        opacity: 1,
-        transition: "all 1s ease",
-      },
-    })
-  }
-  
+
   componentDidMount() {
-    setTimeout(this.mountStyle, 10) // call the into animiation
+    setTimeout(this.willEnter, 0)
+  }
+  
+  componentWillReceiveProps(newProps) {
+    if (!newProps.isMounted) {
+      return this.willLeave()
+    }
+    this.setState({ isShow: true })
+    setTimeout(this.willEnter, 10)
+  }
+  
+  willLeave() {
+    this.setState({ isMounted: false })
+  }
+  
+  willEnter() {
+    this.setState({ isMounted: true })
   }
   
   transitionEnd() {
-    if (!this.props.mounted) { // remove the node on transition end when the mounted prop is false
-      this.setState({
-        show: false,
-      })
+    if (!this.props.isMounted) { // remove the node on transition end when the mounted prop is false
+      this.setState({ isShow: false })
     }
   }
   
   render() {
-    return this.state.show && <div style={ this.state.style } onTransitionEnd={ this.transitionEnd }>Unmount me!</div>
+    return this.state.isShow &&
+      <Wrapper className={ this.state.isMounted && "isMounted" } onTransitionEnd={ this.transitionEnd }>
+        Unmount me!
+      </Wrapper>
   }
 }
 
 Child.propTypes = {
-  mounted: PropTypes.bool.isRequired,
+  isMounted: PropTypes.bool.isRequired,
 }
 
 export default Child

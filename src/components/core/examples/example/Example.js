@@ -6,21 +6,29 @@ import withExample from "./withExample"
 
 const Wrapper = styled.div`
   text-align:left;
-  border: 1px solid #EEE;
-  margin: 0 20px 20px;
-  background:#F1F1F1;
+  
+  margin: 0 20px 40px;
+  background:#FFF;
 
   h1{
-    margin:0px 0 10px;
+    margin:0px 0 0px;
+    background:#222;
+    color:#FFF;
+    float:left;
+    font-weight:normal;
+    padding:5px 15px;
+    font-size:25px;
   }
   
   .data{
     margin-bottom:10px;
+    clear:both;
+    font-size:13px;
   }
   .tags{
     a{
       text-decoration:none;
-      color:#666;
+      color:#222;
       &:hover{
         text-decoration:underline;
       }
@@ -46,13 +54,15 @@ const Wrapper = styled.div`
   }
   .content{
     padding:20px;
-    border-top:1px solid #EEE;
-    background:#FFF;
+    border: 1px solid #EEE; 
   }
 `
 
 const Header = styled.div`
-  padding:20px;
+  clear:both;
+  padding:15px 15px;
+  
+  background:#F1F1F1;
 `
 
 const Example = ({ data, children, onSelectTag }) => {
@@ -61,8 +71,9 @@ const Example = ({ data, children, onSelectTag }) => {
 
   return (
     <Wrapper>
+      <h1>{data.title}</h1>
       <Header>
-        <h1>{data.title}</h1>
+        
         
         <div className="data tags">
           {

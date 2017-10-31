@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 4px;
-    background-color: yellow;
+    background-color: violet;
   }
 `
 

@@ -4,23 +4,29 @@ import RMAnimatedValue from "../components/lab/rm-animated-value/RMAnimatedValue
 import UnmountAnimation from "../components/lab/unmount-animation/UnmountAnimation"
 import RMSimpleTransition from "../components/lab/rm-simple-transition/RMSimpleTransition"
 import RMUnmountAnimation from "../components/lab/rm-unmount-animation/RMUnmountAnimation"
+import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/TransitionGroupAnimeJs"
+
 
 export const EXAMPLES_URL = "/examples/"
 
 const EXAMPLES_SOURCE = [
   {
-    component: RMAnimatedValue,
-    title: "Animated Value",
+    component: TransitionGroupAnimeJs,
+    title: "TransitionGroup / Anime.js",
     desc: "",
     tags: [
       TAGS.animation,
-      TAGS.reactmotion,
+      TAGS.reacttransitiongroup,
+      TAGS.animesjs,
+      TAGS.unmounting,
     ],
     sources: [
-      "https://github.com/chenglou/react-motion",
-      "https://react.rocks/tag/react-motion",
+      "https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/",
+      "https://reactjs.org/docs/animation.html",
+      "http://animejs.com/",
     ],
   },
+  
   {
     component: UnmountAnimation,
     title: "Unmount Animation",
@@ -35,6 +41,18 @@ const EXAMPLES_SOURCE = [
       "https://reactjs.org/docs/events.html#transition-events",
     ],
   },
+  
+  {
+    component: RMUnmountAnimation,
+    title: "Unmount Animation with RM",
+    desc: "",
+    tags: [
+      TAGS.animation,
+      TAGS.reactmotion,
+      TAGS.unmounting,
+    ],
+    sources: [],
+  },
   {
     component: RMSimpleTransition,
     title: "Simple Transition",
@@ -48,15 +66,17 @@ const EXAMPLES_SOURCE = [
     ],
   },
   {
-    component: RMUnmountAnimation,
-    title: "Unmount Animation with RM",
+    component: RMAnimatedValue,
+    title: "Animated Value",
     desc: "",
     tags: [
       TAGS.animation,
       TAGS.reactmotion,
-      TAGS.unmounting,
     ],
-    sources: [],
+    sources: [
+      "https://github.com/chenglou/react-motion",
+      "https://react.rocks/tag/react-motion",
+    ],
   },
 ]
 

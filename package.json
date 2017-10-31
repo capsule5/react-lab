@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animejs": "^2.2.0",
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
@@ -35,7 +36,12 @@
     "react-dom": "^16.0.0",
     "react-key-index": "^0.1.1",
     "react-motion": "^0.5.2",
+    "react-redux": "^5.0.4",
     "react-router-dom": "^4.2.2",
+    "react-transition-group": "^1.1.2",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
     "strman": "^2.0.0",
     "style-loader": "0.18.2",
     "styled-components": "^2.2.1",
@@ -44,11 +50,7 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.8.2",
     "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3",
-    "react-redux": "^5.0.4",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.1",
-    "redux-thunk": "^2.2.0"
+    "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
     "eslint-config-jobteaser": "git+https://cc3d3b982bb51ac158a4f9fce180c689dd87edc5:x-oauth-basic@github.com/jobteaser/eslint-config-jobteaser.git"

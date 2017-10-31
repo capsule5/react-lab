@@ -73,8 +73,6 @@ const Example = ({ data, children, onSelectTag }) => {
     <Wrapper>
       <h1>{data.title}</h1>
       <Header>
-        
-        
         <div className="data tags">
           {
             tags.map(tag => (

@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   .tags{
     a{
       text-decoration:none;
-      color:#333;
+      color:#666;
       &:hover{
         text-decoration:underline;
       }
@@ -63,6 +63,7 @@ const Example = ({ data, children, onSelectTag }) => {
     <Wrapper>
       <Header>
         <h1>{data.title}</h1>
+        
         <div className="data tags">
           {
             tags.map(tag => (
@@ -72,6 +73,7 @@ const Example = ({ data, children, onSelectTag }) => {
             ))
           }
         </div>
+        { data.desc && data.desc.length > 0 && <div className="data">{data.desc}</div> }
         <ul className="data sources">
           {
             sources.map(source => (

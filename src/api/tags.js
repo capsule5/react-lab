@@ -1,4 +1,6 @@
 export const TAGS = {
   animation: "animation",
-  reactmotion: "reactmotion",
+  reactmotion: "react-motion",
+  unmounting: "unmounting",
+  transitionevents: "transition-events",
 }

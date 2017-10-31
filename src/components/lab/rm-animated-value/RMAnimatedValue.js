@@ -8,7 +8,7 @@ const Count = styled.div`
   font-size:60px;
 `
 
-class ReactMotion extends PureComponent {
+class RMAnimatedValue extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {}
@@ -17,7 +17,6 @@ class ReactMotion extends PureComponent {
   render() {
     return (
       <Example data={ this.props.data }>
-        <h3>Simple value animation</h3>
         <Motion defaultStyle={ { x: 0 } } style={ { x: spring(10) } }>
           {value => <Count>{value.x}</Count>}
         </Motion>
@@ -26,8 +25,8 @@ class ReactMotion extends PureComponent {
   }
 }
 
-ReactMotion.propTypes = {
+RMAnimatedValue.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default ReactMotion
+export default RMAnimatedValue

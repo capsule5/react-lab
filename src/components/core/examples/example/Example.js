@@ -90,7 +90,7 @@ const Example = ({ data, children, onSelectTag }) => {
 
 Example.propTypes = {
   data: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.any.isRequired,
   onSelectTag: PropTypes.func.isRequired,
 }
 

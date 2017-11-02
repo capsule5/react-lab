@@ -6,10 +6,27 @@ import UnmountAnimation from "../components/lab/unmount-animation/UnmountAnimati
 import RMSimpleTransition from "../components/lab/rm-simple-transition/RMSimpleTransition"
 import RMUnmountAnimation from "../components/lab/rm-unmount-animation/RMUnmountAnimation"
 import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/TransitionGroupAnimeJs"
+import TransitionGroupGsap from "../components/lab/transition-group-gsap/TransitionGroupGsap"
 
 export const EXAMPLES_URL = "/examples/"
 
 const EXAMPLES_SOURCE = [
+  {
+    component: TransitionGroupGsap,
+    title: "TransitionGroup / GSAP",
+    desc: "",
+    tags: [
+      TAGS.animation,
+      TAGS.reacttransitiongroup,
+      TAGS.gsap,
+      TAGS.unmounting,
+    ],
+    sources: [
+      "https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/",
+      "https://reactjs.org/docs/animation.html",
+      "https://greensock.com/gsap",
+    ],
+  },
   {
     component: TransitionGroupAnimeJs,
     title: "TransitionGroup / Anime.js",

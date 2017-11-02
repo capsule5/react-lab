@@ -5,4 +5,5 @@ export const TAGS = {
   transitionevents: "transition-events",
   reacttransitiongroup: "react-transition-group",
   animesjs: "anime.js",
+  gsap: "gsap",
 }

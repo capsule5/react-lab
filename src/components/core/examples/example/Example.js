@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import keyIndex from "react-key-index"
 import withExample from "./withExample"
+import Tags from "./Tags"
+import Links from "./Links"
 
 const Wrapper = styled.div`
   text-align:left;
-  
   margin: 0 30px 40px;
   background:#FFF;
 
@@ -20,38 +21,6 @@ const Wrapper = styled.div`
     font-size:25px;
   }
   
-  .data{
-    margin-bottom:10px;
-    clear:both;
-    font-size:13px;
-  }
-  .tags{
-    a{
-      text-decoration:none;
-      color:#222;
-      &:hover{
-        text-decoration:underline;
-      }
-    }
-  }
-  
-  ul.sources{
-    padding:0;
-    margin:0;
-    li{
-
-      list-style:none;
-      margin-bottom:2px;
-    }
-    a{
-      text-decoration:none;
-      color:#999;
-      font-size:13px;
-      &:hover{
-        text-decoration:underline;
-      }
-    }
-  }
   .content{
     padding:20px;
     border: 1px solid #EEE; 
@@ -61,8 +30,12 @@ const Wrapper = styled.div`
 const Header = styled.div`
   clear:both;
   padding:15px 15px;
-  
   background:#F1F1F1;
+  .data{
+    margin-bottom:10px;
+    clear:both;
+    font-size:13px;
+  }
 `
 
 const Example = ({ data, children, onSelectTag }) => {
@@ -73,27 +46,10 @@ const Example = ({ data, children, onSelectTag }) => {
     <Wrapper>
       <h1>{data.title}</h1>
       <Header>
-        <div className="data tags">
-          {
-            tags.map(tag => (
-              <span key={ tag.id }>
-                <a href="" onClick={ e => onSelectTag(tag, e) } >#{tag.value} </a>
-              </span>
-            ))
-          }
-        </div>
+        <Tags tags={ tags } onSelectTag={ onSelectTag } />
         { data.desc && data.desc.length > 0 && <div className="data">{data.desc}</div> }
-        <ul className="data sources">
-          {
-            sources.map(source => (
-              <li key={ source.id }>
-                <a href={ source.value } target="_blank" rel="noopener noreferrer" >{source.value}</a>
-              </li>
-            ))
-          }
-        </ul>
+        <Links sources={ sources } />
       </Header>
-      
       <div className="content">{ children}</div>
     </Wrapper>
   )

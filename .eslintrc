@@ -13,5 +13,8 @@
     "Mentreprises": true,
     "dataLayer": true
   },
-  "rules": {}
+  "rules": {
+    "no-console": 1,
+    "no-param-reassign": 1
+  }
 }

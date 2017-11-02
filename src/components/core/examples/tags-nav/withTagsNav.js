@@ -1,14 +1,19 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { deselectTag } from "redux/tags"
+import { selectTag, deselectTag } from "redux/tags"
 
 export default (WrappedComponent) => {
-  class withExample extends Component {
+  class withTagsNav extends Component {
     constructor(props) {
       super(props)
+      this.onSelectTag = this.onSelectTag.bind(this)
       this.onDeselectTag = this.onDeselectTag.bind(this)
-      // console.log("[stab]", "example")
+    }
+
+    onSelectTag(tag, e) {
+      e.preventDefault()
+      this.props.selectTag(tag)
     }
 
     onDeselectTag(tag, e) {
@@ -20,6 +25,7 @@ export default (WrappedComponent) => {
       return (
         <WrappedComponent
           { ...this.props }
+          onSelectTag={ this.onSelectTag }
           onDeselectTag={ this.onDeselectTag }
         />
       )
@@ -27,15 +33,19 @@ export default (WrappedComponent) => {
   }
 
   const mapDispatchToProps = dispatch => ({
+    selectTag: (tag) => {
+      dispatch(selectTag(tag))
+    },
     deselectTag: (tag) => {
       dispatch(deselectTag(tag))
     },
   })
 
-  withExample.propTypes = {
+  withTagsNav.propTypes = {
+    selectTag: PropTypes.func.isRequired,
     deselectTag: PropTypes.func.isRequired,
   }
   
-  return connect(null, mapDispatchToProps)(withExample)
+  return connect(null, mapDispatchToProps)(withTagsNav)
 }
 

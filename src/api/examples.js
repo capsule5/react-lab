@@ -1,4 +1,5 @@
 import { slugify } from "strman"
+import keyIndex from "react-key-index"
 import { TAGS } from "./tags"
 
 import RMAnimatedValue from "../components/lab/rm-animated-value/RMAnimatedValue"
@@ -9,6 +10,7 @@ import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/
 import TransitionGroupGsap from "../components/lab/transition-group-gsap/TransitionGroupGsap"
 
 export const EXAMPLES_URL = "/examples/"
+
 
 const EXAMPLES_SOURCE = [
   {
@@ -98,6 +100,7 @@ const EXAMPLES_SOURCE = [
 
 export const EXAMPLES = EXAMPLES_SOURCE.map((example, index) => ({
   ...example,
-  id: `${example}${index}`,
+  id: `example_${index}`,
   path: `${EXAMPLES_URL}${slugify(example.title)}`,
+  sources: keyIndex(example.sources, 1),
 }))

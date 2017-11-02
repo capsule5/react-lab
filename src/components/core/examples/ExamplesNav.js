@@ -15,12 +15,14 @@ const Nav = styled.nav`
     margin:0;
   }
   li{
-    margin-bottom:10px;
+    margin-bottom:1px;
     &.all{
       margin-bottom:20px;
       font-weight:bold
     }
     a{
+      display:inline-block;
+      padding: 8px;
       text-decoration:none;
       color:#000;
       &:hover{
@@ -30,7 +32,7 @@ const Nav = styled.nav`
   }
 `
 
-const SideNav = ({ examples }) => (
+const ExamplesNav = ({ examples }) => (
   <Nav>
     <ul>
       <li className="all">
@@ -45,8 +47,8 @@ const SideNav = ({ examples }) => (
   </Nav>
 )
 
-SideNav.propTypes = {
+ExamplesNav.propTypes = {
   examples: PropTypes.array.isRequired,
 }
 
-export default SideNav
+export default ExamplesNav

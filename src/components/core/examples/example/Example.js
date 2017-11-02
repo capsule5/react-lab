@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import keyIndex from "react-key-index"
+
 import withExample from "./withExample"
 import Tags from "./Tags"
 import Links from "./Links"
@@ -39,15 +39,14 @@ const Header = styled.div`
 `
 
 const Example = ({ data, children, onSelectTag }) => {
-  const tags = keyIndex(data.tags, 1)
-  const sources = keyIndex(data.sources, 1)
+  const { title, desc, tags, sources } = data
 
   return (
     <Wrapper>
-      <h1>{data.title}</h1>
+      <h1>{title}</h1>
       <Header>
         <Tags tags={ tags } onSelectTag={ onSelectTag } />
-        { data.desc && data.desc.length > 0 && <div className="data">{data.desc}</div> }
+        { desc && desc.length > 0 && <div className="data">{desc}</div> }
         <Links sources={ sources } />
       </Header>
       <div className="content">{ children}</div>

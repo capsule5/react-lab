@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { EXAMPLES } from "api/examples"
 import withExamples from "./withExamples"
 import Layout from "../Layout"
-import SideNav from "./SideNav"
-import SelectedTags from "./selected-tags/SelectedTags"
+import ExamplesNav from "./ExamplesNav"
+import TagsNav from "./tags-nav/TagsNav"
 import ExamplesRouter from "./ExamplesRouter"
 
 
@@ -18,17 +18,17 @@ const Wrapper = styled.div`
 
 const Examples = ({ selectedTags }) => {
   const filteredExamples = selectedTags.length > 0 ?
-    EXAMPLES.filter(e => (selectedTags.map(t => t.value).every(t => e.tags.includes(t)))) :
+    EXAMPLES.filter(e => (selectedTags.map(t => t.value).every(t => e.tags.map(ta => ta.value).includes(t)))) :
     EXAMPLES
 
   return (
     <Layout>
-      { selectedTags.length > 0 && <SelectedTags tags={ selectedTags } />}
       <Wrapper>
-        <SideNav examples={ filteredExamples } />
+        <ExamplesNav examples={ filteredExamples } />
         <div className="content">
           <ExamplesRouter examples={ filteredExamples } />
         </div>
+        <TagsNav examples={ EXAMPLES } selectedTags={ selectedTags } />
       </Wrapper>
     </Layout>
   )

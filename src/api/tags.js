@@ -1,4 +1,4 @@
-export const TAGS = {
+const TAGS_SOURCE = {
   animation: "animation",
   reactmotion: "react-motion",
   unmounting: "unmounting",
@@ -7,3 +7,13 @@ export const TAGS = {
   animesjs: "anime.js",
   gsap: "gsap",
 }
+
+const withIds = (obj) => {
+  Object.keys(obj).forEach((key) => {
+    obj[key] = { value: obj[key], id: obj[key] }
+  })
+
+  return obj
+}
+
+export const TAGS = withIds(TAGS_SOURCE)

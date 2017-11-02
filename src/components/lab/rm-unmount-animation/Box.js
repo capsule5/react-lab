@@ -13,8 +13,7 @@ const Wrapper = styled.div`
 class Child extends React.Component {
   constructor(props) {
     super(props)
-
-    console.log("[stab]", "Child") //eslint-disable-line
+    this.state = {}
   }
 
   willEnter() {

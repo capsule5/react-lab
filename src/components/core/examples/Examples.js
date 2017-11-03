@@ -28,7 +28,7 @@ const Examples = ({ selectedTags }) => {
         <div className="content">
           <ExamplesRouter examples={ filteredExamples } />
         </div>
-        <TagsNav examples={ EXAMPLES } selectedTags={ selectedTags } />
+        <TagsNav examples={ filteredExamples } selectedTags={ selectedTags } />
       </Wrapper>
     </Layout>
   )

@@ -1,13 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { EXAMPLES_URL } from "api/examples"
 import List from "./List"
 
 
 const ExamplesRouter = ({ examples }) => (
-  <Switch>
-    
+  <div>
     {
       examples.map((ex) => {
         const { component, ...moreData } = ex
@@ -24,8 +23,7 @@ const ExamplesRouter = ({ examples }) => (
       path={ `${EXAMPLES_URL}all` }
       component={ () => <List examples={ examples } /> }
     />
-    <Redirect from="/" to="/examples/all" />
-  </Switch>
+  </div>
 )
 
 ExamplesRouter.propTypes = {

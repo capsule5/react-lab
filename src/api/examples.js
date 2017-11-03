@@ -8,11 +8,26 @@ import RMSimpleTransition from "../components/lab/rm-simple-transition/RMSimpleT
 import RMUnmountAnimation from "../components/lab/rm-unmount-animation/RMUnmountAnimation"
 import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/TransitionGroupAnimeJs"
 import TransitionGroupGsap from "../components/lab/transition-group-gsap/TransitionGroupGsap"
+import AnimationList from "../components/lab/animation-list/AnimationList"
 
 export const EXAMPLES_URL = "/examples/"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: AnimationList,
+    title: "Animation List",
+    desc: "",
+    tags: [
+      TAGS.animation,
+      TAGS.reacttransitiongroup,
+      TAGS.gsap,
+      TAGS.unmounting,
+    ],
+    sources: [
+      "https://greensock.com/gsap",
+    ],
+  },
   {
     component: TransitionGroupGsap,
     title: "TransitionGroup / GSAP",
@@ -98,9 +113,9 @@ const EXAMPLES_SOURCE = [
 ]
 
 
-export const EXAMPLES = EXAMPLES_SOURCE.map((example, index) => ({
+export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
   ...example,
-  id: `example_${index}`,
+  id: slugify(example.title),
   path: `${EXAMPLES_URL}${slugify(example.title)}`,
   sources: keyIndex(example.sources, 1),
 }))

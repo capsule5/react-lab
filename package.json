@@ -43,6 +43,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "strman": "^2.0.0",
     "style-loader": "0.18.2",
     "styled-components": "^2.2.1",

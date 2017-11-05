@@ -8,7 +8,6 @@ export default (WrappedComponent) => {
     constructor(props) {
       super(props)
       this.onSelectTag = this.onSelectTag.bind(this)
-      // console.log("[stab]", "example")
     }
 
     onSelectTag(tag, e) {

@@ -5,12 +5,6 @@ import ExampleAnimated from "./example/ExampleAnimated"
 
 
 class List extends PureComponent {
-  state = { }
-
-  componentWillMount() {
-    console.log("[stab]", "LIST")
-  }
-
   render() {
     return (
       <TransitionGroup>

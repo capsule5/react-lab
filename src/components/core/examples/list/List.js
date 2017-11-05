@@ -6,10 +6,6 @@ import withExamples from "../withExamples"
 
 
 class List extends PureComponent {
-  componentWillMount() {
-    console.log("[stab]", "LIST")
-  }
-
   render() {
     return (
       <TransitionGroup>

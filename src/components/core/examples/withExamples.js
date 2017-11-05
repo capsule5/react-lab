@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { examplesSelector } from "./selectors"
+import mapStateToProps from "./selectors"
 
 export default (WrappedComponent) => {
   class withExamples extends PureComponent {
@@ -18,21 +18,11 @@ export default (WrappedComponent) => {
     }
   }
 
-  const makeMapStateToProps = () => {
-    const getExamples = examplesSelector()
-    const mapStateToProps = state => ({
-      selectedTags: state.tags.selected,
-      examples: getExamples(state),
-    })
-    return mapStateToProps
-  }
-
-
   withExamples.propTypes = {
     selectedTags: PropTypes.array.isRequired,
     examples: PropTypes.array.isRequired,
   }
   
-  return connect(makeMapStateToProps)(withExamples)
+  return connect(mapStateToProps)(withExamples)
 }
 

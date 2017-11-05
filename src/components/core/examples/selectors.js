@@ -3,7 +3,7 @@ import { EXAMPLES } from "api/examples"
 
 const selectedTagsState = state => state.tags.selected
 
-export const examplesSelector = () => createSelector(
+export const examplesSelector = createSelector(
   selectedTagsState,
   (selectedTags) => {
     const examples = selectedTags.length > 0 ?
@@ -12,5 +12,14 @@ export const examplesSelector = () => createSelector(
 
     return examples
   }
+)
+
+export default createSelector(
+  selectedTagsState,
+  examplesSelector,
+  (selectedTags, examples) => ({
+    selectedTags,
+    examples,
+  })
 )
 

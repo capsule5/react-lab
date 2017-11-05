@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Route } from "react-router-dom"
 import { EXAMPLES_URL } from "api/examples"
-import List from "./list/List"
+import List from "./List"
 
 
 const ExamplesRouter = ({ examples }) => (

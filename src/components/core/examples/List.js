@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import TransitionGroup from "react-transition-group/TransitionGroup"
-import ExampleAnimated from "./ExampleAnimated"
-import withExamples from "../withExamples"
+import ItemAnimated from "./ItemAnimated"
+import withExamples from "./withExamples"
 
 
 class List extends PureComponent {
@@ -13,9 +13,9 @@ class List extends PureComponent {
           this.props.examples.map((ex) => {
             const { component, ...moreData } = ex
             return (
-              <ExampleAnimated key={ ex.id }>
+              <ItemAnimated key={ ex.id }>
                 <ex.component data={ moreData } />
-              </ExampleAnimated>
+              </ItemAnimated>
             )
           })
         }

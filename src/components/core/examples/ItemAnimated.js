@@ -21,7 +21,7 @@ const animateOut = (DOMNode, callback) => {
     .to(DOMNode, 0.4, { height: 0, autoAlpha: 0, onComplete: callback })
 }
 
-class AnimatedGridContents extends React.Component {
+class ItemAnimated extends React.Component {
   componentDidMount() {
     this.DOMNode = ReactDOM.findDOMNode(this) // eslint-disable-line react/no-find-dom-node
   }
@@ -43,8 +43,8 @@ class AnimatedGridContents extends React.Component {
   }
 }
 
-AnimatedGridContents.propTypes = {
+ItemAnimated.propTypes = {
   children: PropTypes.any.isRequired,
 }
 
-export default AnimatedGridContents
+export default ItemAnimated

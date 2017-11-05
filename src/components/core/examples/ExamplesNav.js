@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { EXAMPLES_URL } from "api/examples"
+import TransitionGroup from "react-transition-group/TransitionGroup"
+import ItemAnimated from "./ItemAnimated"
 
 const Nav = styled.nav`
   text-align:left;
@@ -38,11 +40,15 @@ const ExamplesNav = ({ examples }) => (
       <li className="all">
         ≡ <Link to={ `${EXAMPLES_URL}all` }>View all</Link>
       </li>
-      {
-        examples.map(example => (
-          <li key={ example.id }>› <Link to={ example.path }>{ example.title }</Link></li>
-        ))
-      }
+      <TransitionGroup>
+        {
+          examples.map(example => (
+            <ItemAnimated key={ example.id }>
+              <li>› <Link to={ example.path }>{ example.title }</Link></li>
+            </ItemAnimated>
+          ))
+        }
+      </TransitionGroup>
     </ul>
   </Nav>
 )

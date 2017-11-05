@@ -1,8 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import TransitionGroup from "react-transition-group/TransitionGroup"
+import ItemAnimated from "../ItemAnimated"
 import withTagsNav from "./withTagsNav"
 import ButtonTag from "./ButtonTag"
+
 
 const Nav = styled.nav`
   text-align:left;
@@ -43,19 +46,23 @@ const TagsNav = ({ examples, selectedTags, onSelectTag, onDeselectTag }) => {
   
     <Nav>
       <ul>
-        {
-          tags.map(tag => (
-            <li key={ tag.id }>
-              <ButtonTag
-                key={ tag.id }
-                tag={ tag }
-                isSelected={ tag.isSelected }
-                onSelectTag={ onSelectTag }
-                onDeselectTag={ onDeselectTag }
-              />
-            </li>
-          ))
-        }
+        <TransitionGroup>
+          {
+            tags.map(tag => (
+              <ItemAnimated key={ tag.id }>
+                <li>
+                  <ButtonTag
+                    key={ tag.id }
+                    tag={ tag }
+                    isSelected={ tag.isSelected }
+                    onSelectTag={ onSelectTag }
+                    onDeselectTag={ onDeselectTag }
+                  />
+                </li>
+              </ItemAnimated>
+            ))
+          }
+        </TransitionGroup>
       </ul>
     </Nav>
   )

@@ -11,13 +11,14 @@ const Wrapper = styled.div`
   text-align:center;
   opacity:0;
   width:0;
+  padding:10px;
 `
 
 
 const animateIn = (DOMNode, index) => {
   new TimelineLite()
     .delay(index * 0.1)
-    .to(DOMNode, 0.5, { width: "auto", padding: 10, margin: 0, autoAlpha: 1 })
+    .to(DOMNode, 0.5, { width: "auto", margin: 0, autoAlpha: 1 })
 }
 
 const animateOut = (DOMNode, index, callback) => {

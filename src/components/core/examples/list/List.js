@@ -1,10 +1,15 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import TransitionGroup from "react-transition-group/TransitionGroup"
-import ExampleAnimated from "./example/ExampleAnimated"
+import ExampleAnimated from "./ExampleAnimated"
+import withExamples from "../withExamples"
 
 
 class List extends PureComponent {
+  componentWillMount() {
+    console.log("[stab]", "LIST")
+  }
+
   render() {
     return (
       <TransitionGroup>
@@ -29,5 +34,5 @@ List.propTypes = {
 }
 
 
-export default List
+export default withExamples(List)
 

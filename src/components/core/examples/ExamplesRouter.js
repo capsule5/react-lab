@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Route } from "react-router-dom"
 import { EXAMPLES_URL } from "api/examples"
-import List from "./List"
+import List from "./list/List"
 
 
 const ExamplesRouter = ({ examples }) => (
@@ -21,7 +21,7 @@ const ExamplesRouter = ({ examples }) => (
     }
     <Route
       path={ `${EXAMPLES_URL}all` }
-      component={ () => <List examples={ examples } /> }
+      component={ List }
     />
   </div>
 )

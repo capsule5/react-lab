@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { selectTag, deselectTag } from "redux/tags"
 
 export default (WrappedComponent) => {
-  class withTagsNav extends Component {
+  class withTags extends Component {
     constructor(props) {
       super(props)
       this.onSelectTag = this.onSelectTag.bind(this)
@@ -25,12 +25,17 @@ export default (WrappedComponent) => {
       return (
         <WrappedComponent
           { ...this.props }
+          selectedTags={ this.props.selectedTags }
           onSelectTag={ this.onSelectTag }
           onDeselectTag={ this.onDeselectTag }
         />
       )
     }
   }
+
+  const mapStateToProps = state => ({
+    selectedTags: state.tags.selected,
+  })
 
   const mapDispatchToProps = dispatch => ({
     selectTag: (tag) => {
@@ -41,11 +46,12 @@ export default (WrappedComponent) => {
     },
   })
 
-  withTagsNav.propTypes = {
+  withTags.propTypes = {
+    selectedTags: PropTypes.array.isRequired,
     selectTag: PropTypes.func.isRequired,
     deselectTag: PropTypes.func.isRequired,
   }
   
-  return connect(null, mapDispatchToProps)(withTagsNav)
+  return connect(mapStateToProps, mapDispatchToProps)(withTags)
 }
 

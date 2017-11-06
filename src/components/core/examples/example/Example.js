@@ -1,8 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-
-import withExample from "./withExample"
 import Tags from "./Tags"
 import Links from "./Links"
 
@@ -38,14 +36,14 @@ const Header = styled.div`
   }
 `
 
-const Example = ({ data, children, onSelectTag }) => {
+const Example = ({ data, children }) => {
   const { title, desc, tags, links } = data
 
   return (
     <Wrapper>
       <h1>{title}</h1>
       <Header>
-        <Tags tags={ tags } onSelectTag={ onSelectTag } />
+        <Tags tags={ tags } />
         { desc && desc.length > 0 && <div className="data">{desc}</div> }
         <Links links={ links } />
       </Header>
@@ -57,7 +55,6 @@ const Example = ({ data, children, onSelectTag }) => {
 Example.propTypes = {
   data: PropTypes.object.isRequired,
   children: PropTypes.any.isRequired,
-  onSelectTag: PropTypes.func.isRequired,
 }
 
-export default withExample(Example)
+export default Example

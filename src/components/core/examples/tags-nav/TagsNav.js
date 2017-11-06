@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import TransitionGroup from "react-transition-group/TransitionGroup"
 import ItemAnimated from "../ItemAnimated"
-import withTagsNav from "./withTagsNav"
-import ButtonTag from "./ButtonTag"
+import withTags from "../withTags"
+import ButtonTag from "../ButtonTag"
 
 
 const Nav = styled.nav`
@@ -40,6 +40,7 @@ const TagsNav = ({ availableTags, onSelectTag, onDeselectTag }) => (
             <ItemAnimated key={ tag.id }>
               <li>
                 <ButtonTag
+                  className="inSideNav"
                   key={ tag.id }
                   tag={ tag }
                   isSelected={ tag.isSelected }
@@ -61,4 +62,4 @@ TagsNav.propTypes = {
   onDeselectTag: PropTypes.func.isRequired,
 }
 
-export default withTagsNav(TagsNav)
+export default withTags(TagsNav)

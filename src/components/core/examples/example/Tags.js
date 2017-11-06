@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import withTags from "../withTags"
+import ButtonTag from "../ButtonTag"
 
 const Wrapper = styled.div`
   a{
@@ -12,13 +14,18 @@ const Wrapper = styled.div`
   }
 `
 
-const Tags = ({ tags, onSelectTag }) => (
+const Tags = ({ tags, onSelectTag, onDeselectTag }) => (
   <Wrapper className="data">
     {
       tags.map(tag => (
-        <span key={ tag.id }>
-          <a href="" onClick={ e => onSelectTag(tag, e) } >#{tag.value} </a>
-        </span>
+        <ButtonTag
+          className="light"
+          key={ tag.id }
+          tag={ tag }
+          isSelected={ tag.isSelected }
+          onSelectTag={ onSelectTag }
+          onDeselectTag={ onDeselectTag }
+        />
       ))
     }
   </Wrapper>
@@ -29,6 +36,7 @@ Tags.defaultProps = {}
 Tags.propTypes = {
   tags: PropTypes.array.isRequired,
   onSelectTag: PropTypes.func.isRequired,
+  onDeselectTag: PropTypes.func.isRequired,
 }
 
-export default Tags
+export default withTags(Tags)

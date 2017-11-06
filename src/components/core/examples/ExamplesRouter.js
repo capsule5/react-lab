@@ -20,7 +20,7 @@ const ExamplesRouter = ({ examples }) => (
       })
     }
     <Route
-      path={ `${EXAMPLES_URL}all` }
+      path={ `${EXAMPLES_URL}list` }
       component={ List }
     />
   </div>

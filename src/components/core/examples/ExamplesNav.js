@@ -18,7 +18,7 @@ const Nav = styled.nav`
   }
   li{
     margin-bottom:1px;
-    &.all{
+    &.list{
       margin-bottom:20px;
       font-weight:bold
     }
@@ -37,8 +37,8 @@ const Nav = styled.nav`
 const ExamplesNav = ({ examples }) => (
   <Nav>
     <ul>
-      <li className="all">
-        ≡ <Link to={ `${EXAMPLES_URL}all` }>View all</Link>
+      <li className="list">
+        ≡ <Link to={ `${EXAMPLES_URL}list` }>List view ({examples.length})</Link>
       </li>
       <TransitionGroup>
         {

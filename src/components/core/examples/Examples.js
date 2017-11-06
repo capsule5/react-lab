@@ -15,20 +15,20 @@ const Wrapper = styled.div`
   }
 `
 
-const Examples = ({ selectedTags, examples }) => (
+const Examples = ({ examples, availableTags }) => (
   <Layout>
     <Wrapper>
       <ExamplesNav examples={ examples } />
       <div className="content">
         <ExamplesRouter examples={ examples } />
       </div>
-      <TagsNav examples={ examples } selectedTags={ selectedTags } />
+      <TagsNav availableTags={ availableTags } />
     </Wrapper>
   </Layout>
 )
 
 Examples.propTypes = {
-  selectedTags: PropTypes.array.isRequired,
+  availableTags: PropTypes.array.isRequired,
   examples: PropTypes.array.isRequired,
 }
 

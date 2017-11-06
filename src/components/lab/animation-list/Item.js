@@ -24,7 +24,7 @@ const animateIn = (DOMNode, index) => {
 const animateOut = (DOMNode, index, callback) => {
   new TimelineLite()
     .delay(index * 0.1)
-    .to(DOMNode, 0.5, { width: 0, margin: 0, autoAlpha: 0, onComplete: callback })
+    .to(DOMNode, 0.5, { width: 0, padding: 0, margin: 0, autoAlpha: 0, onComplete: callback })
 }
 
 class Item extends Component {

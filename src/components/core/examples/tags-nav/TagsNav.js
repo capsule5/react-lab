@@ -31,46 +31,32 @@ const Nav = styled.nav`
 `
 
 
-const TagsNav = ({ examples, selectedTags, onSelectTag, onDeselectTag }) => {
-  const tags = examples
-    .map(e => e.tags)
-    .reduce((a, b) => a.concat(b), [])
-    .filter((tag, index, self) => self.findIndex(t => t.value === tag.value) === index) // uniq based on value
-    .sort((a, b) => a.value > b.value)
-
-  tags.forEach((tag) => {
-    tag.isSelected = selectedTags.map(t => t.value).includes(tag.value)
-  })
-
-  return (
-  
-    <Nav>
-      <ul>
-        <TransitionGroup>
-          {
-            tags.map(tag => (
-              <ItemAnimated key={ tag.id }>
-                <li>
-                  <ButtonTag
-                    key={ tag.id }
-                    tag={ tag }
-                    isSelected={ tag.isSelected }
-                    onSelectTag={ onSelectTag }
-                    onDeselectTag={ onDeselectTag }
-                  />
-                </li>
-              </ItemAnimated>
-            ))
-          }
-        </TransitionGroup>
-      </ul>
-    </Nav>
-  )
-}
+const TagsNav = ({ availableTags, onSelectTag, onDeselectTag }) => (
+  <Nav>
+    <ul>
+      <TransitionGroup>
+        {
+          availableTags.map(tag => (
+            <ItemAnimated key={ tag.id }>
+              <li>
+                <ButtonTag
+                  key={ tag.id }
+                  tag={ tag }
+                  isSelected={ tag.isSelected }
+                  onSelectTag={ onSelectTag }
+                  onDeselectTag={ onDeselectTag }
+                />
+              </li>
+            </ItemAnimated>
+          ))
+        }
+      </TransitionGroup>
+    </ul>
+  </Nav>
+)
 
 TagsNav.propTypes = {
-  examples: PropTypes.array.isRequired,
-  selectedTags: PropTypes.array.isRequired,
+  availableTags: PropTypes.array.isRequired,
   onSelectTag: PropTypes.func.isRequired,
   onDeselectTag: PropTypes.func.isRequired,
 }

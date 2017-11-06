@@ -6,12 +6,12 @@ import mapStateToProps from "./selectors"
 export default (WrappedComponent) => {
   class withExamples extends PureComponent {
     render() {
-      const { selectedTags, examples } = this.props
+      const { availableTags, examples } = this.props
       
       return (
         <WrappedComponent
           { ...this.props }
-          selectedTags={ selectedTags }
+          availableTags={ availableTags }
           examples={ examples }
         />
       )
@@ -19,7 +19,7 @@ export default (WrappedComponent) => {
   }
 
   withExamples.propTypes = {
-    selectedTags: PropTypes.array.isRequired,
+    availableTags: PropTypes.array.isRequired,
     examples: PropTypes.array.isRequired,
   }
   

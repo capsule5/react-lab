@@ -20,12 +20,12 @@ const Wrapper = styled.div`
   }
 `
 
-const Links = ({ sources }) => (
+const Links = ({ links }) => (
   <Wrapper className="data">
     {
-      sources.map(source => (
-        <li key={ source.id }>
-          <a href={ source.value } target="_blank" rel="noopener noreferrer" >{source.value}</a>
+      links.map(link => (
+        <li key={ link.id }>
+          <a href={ link.value } target="_blank" rel="noopener noreferrer" >{link.value}</a>
         </li>
       ))
     }
@@ -35,7 +35,7 @@ const Links = ({ sources }) => (
 
 Links.defaultProps = {}
 Links.propTypes = {
-  sources: PropTypes.array.isRequired,
+  links: PropTypes.array.isRequired,
 }
 
 export default Links

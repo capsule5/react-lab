@@ -24,7 +24,7 @@ const EXAMPLES_SOURCE = [
       TAGS.gsap,
       TAGS.unmounting,
     ],
-    sources: [
+    links: [
       "https://greensock.com/gsap",
     ],
   },
@@ -38,7 +38,7 @@ const EXAMPLES_SOURCE = [
       TAGS.gsap,
       TAGS.unmounting,
     ],
-    sources: [
+    links: [
       "https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/",
       "https://reactjs.org/docs/animation.html",
       "https://greensock.com/gsap",
@@ -54,7 +54,7 @@ const EXAMPLES_SOURCE = [
       TAGS.animesjs,
       TAGS.unmounting,
     ],
-    sources: [
+    links: [
       "https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/",
       "https://reactjs.org/docs/animation.html",
       "http://animejs.com/",
@@ -69,7 +69,7 @@ const EXAMPLES_SOURCE = [
       TAGS.unmounting,
       TAGS.transitionevents,
     ],
-    sources: [
+    links: [
       "https://stackoverflow.com/questions/40064249/react-animate-mount-and-unmount-of-a-single-component",
       "https://reactjs.org/docs/events.html#transition-events",
     ],
@@ -83,7 +83,7 @@ const EXAMPLES_SOURCE = [
       TAGS.reactmotion,
       TAGS.unmounting,
     ],
-    sources: [],
+    links: [],
   },
   {
     component: RMSimpleTransition,
@@ -93,7 +93,7 @@ const EXAMPLES_SOURCE = [
       TAGS.animation,
       TAGS.reactmotion,
     ],
-    sources: [
+    links: [
       "https://github.com/chenglou/react-motion/blob/master/demos/demo0-simple-transition/index.html",
     ],
   },
@@ -105,7 +105,7 @@ const EXAMPLES_SOURCE = [
       TAGS.animation,
       TAGS.reactmotion,
     ],
-    sources: [
+    links: [
       "https://github.com/chenglou/react-motion",
       "https://react.rocks/tag/react-motion",
     ],
@@ -117,5 +117,5 @@ export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
   ...example,
   id: slugify(example.title),
   path: `${EXAMPLES_URL}${slugify(example.title)}`,
-  sources: keyIndex(example.sources, 1),
+  links: keyIndex(example.links, 1),
 }))

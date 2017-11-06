@@ -39,7 +39,7 @@ const Header = styled.div`
 `
 
 const Example = ({ data, children, onSelectTag }) => {
-  const { title, desc, tags, sources } = data
+  const { title, desc, tags, links } = data
 
   return (
     <Wrapper>
@@ -47,7 +47,7 @@ const Example = ({ data, children, onSelectTag }) => {
       <Header>
         <Tags tags={ tags } onSelectTag={ onSelectTag } />
         { desc && desc.length > 0 && <div className="data">{desc}</div> }
-        <Links sources={ sources } />
+        <Links links={ links } />
       </Header>
       <div className="content">{ children}</div>
     </Wrapper>

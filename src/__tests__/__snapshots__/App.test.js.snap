@@ -142,7 +142,652 @@ exports[`renders without crashing 1`] = `
         <div
           className="content"
         >
-          <div />
+          <div>
+            <span>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    Animation List
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-transition-group
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        gsap
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        unmounting
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://greensock.com/gsap"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://greensock.com/gsap
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <span>
+                      <div
+                        className="sc-dnqmqq eMVKko"
+                      >
+                        pilote
+                      </div>
+                      <div
+                        className="sc-dnqmqq eMVKko"
+                      >
+                        industrie
+                      </div>
+                      <div
+                        className="sc-dnqmqq eMVKko"
+                      >
+                        de
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    TransitionGroup / GSAP
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-transition-group
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        gsap
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        unmounting
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/
+                        </a>
+                        <div
+                          className="expendBtn"
+                          onClick={[Function]}
+                        >
+                          ...
+                        </div>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="https://reactjs.org/docs/animation.html"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://reactjs.org/docs/animation.html
+                        </a>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="https://greensock.com/gsap"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://greensock.com/gsap
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <div>
+                      <div>
+                        <button
+                          hidden={false}
+                          onClick={[Function]}
+                        >
+                          enter animation
+                        </button>
+                        <button
+                          hidden={true}
+                          onClick={[Function]}
+                        >
+                          exit animation
+                        </button>
+                      </div>
+                      <div>
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    TransitionGroup / Anime.js
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-transition-group
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        anime.js
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        unmounting
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/
+                        </a>
+                        <div
+                          className="expendBtn"
+                          onClick={[Function]}
+                        >
+                          ...
+                        </div>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="https://reactjs.org/docs/animation.html"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://reactjs.org/docs/animation.html
+                        </a>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="http://animejs.com/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          http://animejs.com/
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <div>
+                      <div>
+                        <button
+                          hidden={false}
+                          onClick={[Function]}
+                        >
+                          enter animation
+                        </button>
+                        <button
+                          hidden={true}
+                          onClick={[Function]}
+                        >
+                          exit animation
+                        </button>
+                      </div>
+                      <div>
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    Unmount Animation
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        unmounting
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        transition-events
+                      </a>
+                    </div>
+                    <div
+                      className="data"
+                    >
+                      Based on transition events
+                    </div>
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://stackoverflow.com/questions/40064249/react-animate-mount-and-unmount-of-a-single-component"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://stackoverflow.com/questions/40064249/react-animate-mount-and-unmount-of-a-single-component
+                        </a>
+                        <div
+                          className="expendBtn"
+                          onClick={[Function]}
+                        >
+                          ...
+                        </div>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="https://reactjs.org/docs/events.html#transition-events"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://reactjs.org/docs/events.html#transition-events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <button
+                      onClick={[Function]}
+                    >
+                      Unmount
+                    </button>
+                    <div
+                      className="sc-bZQynM dobSaP"
+                      onTransitionEnd={[Function]}
+                    >
+                      Unmount me!
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    Unmount Animation with RM
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-motion
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        unmounting
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    />
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <button
+                      onClick={[Function]}
+                    >
+                      Unmount
+                    </button>
+                    <div>
+                      <div
+                        className="sc-htoDjs gFKPzo"
+                        style={
+                          Object {
+                            "opacity": 1,
+                          }
+                        }
+                      >
+                         Unmount me! 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    Simple Transition
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-motion
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://github.com/chenglou/react-motion/blob/master/demos/demo0-simple-transition/index.html"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://github.com/chenglou/react-motion/blob/master/demos/demo0-simple-transition/index.html
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <button
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      Toggle
+                    </button>
+                    <div
+                      className="sc-gzVnrw cIcbfg"
+                    >
+                      <div
+                        className="demo0"
+                      >
+                        <div
+                          className="demo0-block"
+                          style={
+                            Object {
+                              "WebkitTransform": "translate3d(0px, 0, 0)",
+                              "transform": "translate3d(0px, 0, 0)",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <div
+                  className="sc-bxivhb diTrAk"
+                >
+                  <h1>
+                    Animated Value
+                  </h1>
+                  <div
+                    className="sc-ifAKCX gxohuR"
+                  >
+                    <div
+                      className="data sc-bwzfXH kajHfT"
+                    >
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        animation
+                      </a>
+                      <a
+                        className="light false sc-bdVaJa emDXLY"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        #
+                        react-motion
+                      </a>
+                    </div>
+                    
+                    <ul
+                      className="data sc-htpNat jkiVGe"
+                    >
+                      <li
+                        className="false false "
+                      >
+                        <a
+                          href="https://github.com/chenglou/react-motion"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://github.com/chenglou/react-motion
+                        </a>
+                        <div
+                          className="expendBtn"
+                          onClick={[Function]}
+                        >
+                          ...
+                        </div>
+                      </li>
+                      <li
+                        className="isExpendable false "
+                      >
+                        <a
+                          href="https://react.rocks/tag/react-motion"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          https://react.rocks/tag/react-motion
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="content"
+                  >
+                    <div
+                      className="sc-EHOje enfYfd"
+                    >
+                      0
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div>
         </div>
         <nav
           className="sc-VigVT bJnPWW"

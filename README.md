@@ -11,8 +11,25 @@ yarn start
 
 ## Adding a new example
 - Add new component in src/components/lab
+- In new component @render: 
+```js
+<Example data={ this.props.data }>...your code...</Example>
+```
 - Import new component in src/api/examples.js
 - Update EXAMPLES_SOURCE
+- Tip : active color of your demo should be 'violet'
+
+## e2e tests (nightwatch)
+Install
+```sh
+yarn postinstall
+```
+
+Launch e2e test
+```sh
+yarn e2e
+```
+
 
 
 <br><br><br>

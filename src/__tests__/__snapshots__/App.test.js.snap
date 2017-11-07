@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<main
+  className="App"
+>
+  <div
+    className="Layout"
+  >
+    <header
+      className="App-header"
+    >
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <h1
+        className="App-title"
+      >
+        JT React Lab
+      </h1>
+    </header>
+    <div
+      className="sc-iwsKbI gIVEvE"
+    >
+      <div
+        className="sc-jTzLTM fprOSV"
+      >
+        <nav
+          className="sc-gqjmRU ghNqmd"
+        >
+          <ul>
+            <li
+              className="list"
+            >
+              ≡ 
+              <a
+                href="/examples/list"
+                onClick={[Function]}
+              >
+                List view (
+                7
+                )
+              </a>
+            </li>
+            <span>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/animation-list"
+                    onClick={[Function]}
+                  >
+                    Animation List
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/transitiongroup-gsap"
+                    onClick={[Function]}
+                  >
+                    TransitionGroup / GSAP
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/transitiongroup-animejs"
+                    onClick={[Function]}
+                  >
+                    TransitionGroup / Anime.js
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/unmount-animation"
+                    onClick={[Function]}
+                  >
+                    Unmount Animation
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/unmount-animation-with-rm"
+                    onClick={[Function]}
+                  >
+                    Unmount Animation with RM
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/simple-transition"
+                    onClick={[Function]}
+                  >
+                    Simple Transition
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  › 
+                  <a
+                    href="/examples/animated-value"
+                    onClick={[Function]}
+                  >
+                    Animated Value
+                  </a>
+                </li>
+              </div>
+            </span>
+          </ul>
+        </nav>
+        <div
+          className="content"
+        >
+          <div />
+        </div>
+        <nav
+          className="sc-VigVT bJnPWW"
+        >
+          <ul>
+            <span>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    animation
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    anime.js
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    gsap
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    react-motion
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    react-transition-group
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    transition-events
+                  </a>
+                </li>
+              </div>
+              <div
+                className="sc-gZMcBi gBCTZz"
+              >
+                <li>
+                  <a
+                    className="inSideNav false sc-bdVaJa emDXLY"
+                    href=""
+                    onClick={[Function]}
+                  >
+                    #
+                    unmounting
+                  </a>
+                </li>
+              </div>
+            </span>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</main>
+`;

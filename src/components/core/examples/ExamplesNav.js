@@ -35,7 +35,7 @@ const Nav = styled.nav`
 `
 
 const ExamplesNav = ({ examples }) => (
-  <Nav>
+  <Nav id="ExamplesNav">
     <ul>
       <li className="list">
         ≡ <Link to={ `${EXAMPLES_URL}list` }>List view ({examples.length})</Link>

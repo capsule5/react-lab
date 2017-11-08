@@ -32,7 +32,7 @@ const Nav = styled.nav`
 
 
 const TagsNav = ({ availableTags, onSelectTag, onDeselectTag }) => (
-  <Nav>
+  <Nav id="TagsNav">
     <ul>
       <TransitionGroup>
         {

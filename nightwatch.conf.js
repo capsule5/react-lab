@@ -5,7 +5,7 @@ module.exports = {
   src_folders: [ "src/__e2e__" ],
   output_folder: "./__e2e__reports",
   custom_commands_path: "",
-  custom_assertions_path: "",
+  custom_assertions_path: [ "./__e2e__custom/assertions" ],
   selenium: {
     start_process: true,
     server_path: "./node_modules/nightwatch/bin/selenium.jar",

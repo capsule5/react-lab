@@ -3,7 +3,7 @@
 const selectors = {
   firstExample: "#ExamplesNav span div:first-child li a",
   examplesWrapper: "#ExamplesWrapper div span",
-  exampleContent: ".example-content",
+  exampleContent: "#ExamplesWrapper .example-content",
 }
 
 module.exports = {
@@ -21,15 +21,10 @@ module.exports = {
         browser.assert.ok(result.value.length > 1, "Examples nav has more than 1 link")
       })
   },
-  "Tags Nav renders": (browser) => {
-    browser
-      .assert.visible("#TagsNav", "Testing if Tags Nav renders")
-      .assert.cssClassPresent("#TagsNav span div li a", "inSideNav")
-  },
-  "Examples Wrapper renders": (browser) => {
+  "Examples Wrapper renders with at least 1 example": (browser) => {
     browser
       .assert.visible(selectors.examplesWrapper, "Testing if Examples Wrapper renders")
-      .assert.elementPresent("#ExamplesWrapper .example-content")
+      .assert.elementPresent(selectors.exampleContent)
   },
   "First example link updates URL and displays 1 example": (browser) => {
     browser
@@ -48,6 +43,7 @@ module.exports = {
       .elements("css selector", selectors.exampleContent, (result) => {
         browser.assert.ok(result.value.length > 1, `All examples are displayed (${result.value.length})`)
       })
+      .saveScreenshot("__e2e__screenshots/list.png")
   },
   after: browser => browser.end(),
 }

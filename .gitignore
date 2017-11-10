@@ -22,3 +22,4 @@ yarn-error.log*
 
 selenium-debug.log
 /__e2e__reports
+/__e2e__screenshots

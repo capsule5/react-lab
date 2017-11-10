@@ -10,7 +10,7 @@ import ExamplesRouter from "./ExamplesRouter"
 
 const Wrapper = styled.div`
   display:flex;
-  .content{
+  #ExamplesWrapper{
     flex:1
   }
 `
@@ -19,7 +19,7 @@ const Examples = ({ examples, availableTags }) => (
   <Layout>
     <Wrapper>
       <ExamplesNav examples={ examples } />
-      <div className="content">
+      <div id="ExamplesWrapper">
         <ExamplesRouter examples={ examples } />
       </div>
       <TagsNav availableTags={ availableTags } />

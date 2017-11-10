@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     font-size:25px;
   }
   
-  .content{
+  .example-content{
     padding:20px;
     border: 1px solid #EEE; 
   }
@@ -47,7 +47,7 @@ const Example = ({ data, children }) => {
         { desc && desc.length > 0 && <div className="data">{desc}</div> }
         <Links links={ links } />
       </Header>
-      <div className="content">{ children}</div>
+      <div className="example-content">{ children}</div>
     </Wrapper>
   )
 }

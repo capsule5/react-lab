@@ -1,5 +1,7 @@
 // http://nightwatchjs.org/api
 
+const SCREENSHOTS_PATH = "__e2e__screenshots/"
+
 const selectors = {
   firstExample: "#ExamplesNav span div:first-child li a",
   examplesWrapper: "#ExamplesWrapper div span",
@@ -43,7 +45,7 @@ module.exports = {
       .elements("css selector", selectors.exampleContent, (result) => {
         browser.assert.ok(result.value.length > 1, `All examples are displayed (${result.value.length})`)
       })
-      .saveScreenshot("__e2e__screenshots/list.png")
+      .saveScreenshot(`${SCREENSHOTS_PATH}list.png`)
   },
   after: browser => browser.end(),
 }

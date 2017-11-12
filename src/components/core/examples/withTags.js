@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { selectTag, deselectTag } from "redux/tags"
+import { withRouter } from "react-router-dom"
+import { compose } from "utils/helpers"
 
 export default (WrappedComponent) => {
   class withTags extends Component {
@@ -13,6 +15,7 @@ export default (WrappedComponent) => {
 
     onSelectTag(tag, e) {
       e.preventDefault()
+      this.props.history.push("/examples/list")
       this.props.selectTag(tag)
     }
 
@@ -47,11 +50,17 @@ export default (WrappedComponent) => {
   })
 
   withTags.propTypes = {
+    history: PropTypes.object.isRequired,
     selectedTags: PropTypes.array.isRequired,
     selectTag: PropTypes.func.isRequired,
     deselectTag: PropTypes.func.isRequired,
   }
+
+  const enhance = compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
+  )
   
-  return connect(mapStateToProps, mapDispatchToProps)(withTags)
+  return enhance(withTags)
 }
 

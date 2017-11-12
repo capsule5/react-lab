@@ -16,6 +16,10 @@ const Nav = styled.nav`
     list-style:none;
     padding:0;
     margin:0;
+    &.isSticky{
+      position:fixed;
+      transform:translateY(-${props => props.scroll.headerHeight}px);
+    }
   }
   li{
     margin-bottom:1px;
@@ -31,9 +35,9 @@ const Nav = styled.nav`
 `
 
 
-const TagsNav = ({ availableTags, onSelectTag, onDeselectTag }) => (
-  <Nav id="TagsNav">
-    <ul>
+const TagsNav = ({ availableTags, onSelectTag, onDeselectTag, scroll }) => (
+  <Nav id="TagsNav" scroll={ scroll }>
+    <ul className={ scroll.isScrolled ? "isSticky" : "" }>
       <TransitionGroup>
         {
           availableTags.map(tag => (
@@ -60,6 +64,7 @@ TagsNav.propTypes = {
   availableTags: PropTypes.array.isRequired,
   onSelectTag: PropTypes.func.isRequired,
   onDeselectTag: PropTypes.func.isRequired,
+  scroll: PropTypes.object.isRequired,
 }
 
 export default withTags(TagsNav)

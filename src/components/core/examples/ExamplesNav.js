@@ -15,6 +15,10 @@ const Nav = styled.nav`
     list-style:none;
     padding:0;
     margin:0;
+    &.isSticky{
+      position:fixed;
+      transform:translateY(-${props => props.scroll.headerHeight}px);
+    }
   }
   li{
     margin-bottom:1px;
@@ -34,9 +38,9 @@ const Nav = styled.nav`
   }
 `
 
-const ExamplesNav = ({ examples }) => (
-  <Nav id="ExamplesNav">
-    <ul>
+const ExamplesNav = ({ examples, scroll }) => (
+  <Nav id="ExamplesNav" scroll={ scroll }>
+    <ul className={ scroll.isScrolled ? "isSticky" : "" }>
       <li className="list">
         ≡ <Link to={ `${EXAMPLES_URL}list` }>List view ({examples.length})</Link>
       </li>
@@ -55,6 +59,7 @@ const ExamplesNav = ({ examples }) => (
 
 ExamplesNav.propTypes = {
   examples: PropTypes.array.isRequired,
+  scroll: PropTypes.object.isRequired,
 }
 
 export default ExamplesNav

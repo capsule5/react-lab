@@ -22,7 +22,7 @@ yarn start
 ## e2e tests (nightwatch)
 Install
 ```sh
-yarn postinstall
+node nightwatch.conf.js
 ```
 
 Launch e2e test

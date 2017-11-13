@@ -1,7 +1,9 @@
+const TESTS_CONF = require("../../conf")
+
 module.exports = {
   before: (browser) => {
     browser
-      .url("http://localhost:3001/examples/list")
+      .url(`${TESTS_CONF.launch_url}/examples/list`)
       .waitForElementVisible("#root > main.App")
   },
   "Tags Nav renders": (browser) => {

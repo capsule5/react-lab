@@ -1,8 +1,9 @@
-// http://nightwatchjs.org/api
+const TESTS_CONF = require("../conf")
+
 module.exports = {
   before: (browser) => {
     browser
-      .url("http://localhost:3001/")
+      .url(TESTS_CONF.launch_url)
       .waitForElementVisible("body")
       .assert.urlContains("examples/list") // since redirect
   },

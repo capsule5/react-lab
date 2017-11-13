@@ -2,10 +2,10 @@ const SCREENSHOT_PATH = "./screenshots/"
 const BINPATH = "./node_modules/nightwatch/bin/"
 
 module.exports = {
-  src_folders: [ "src/__e2e__" ],
-  output_folder: "./__e2e__reports",
+  src_folders: [ "src/_tests_/e2e/tests" ],
+  output_folder: "src/_tests_/e2e/reports",
   custom_commands_path: "",
-  custom_assertions_path: [ "__e2e__custom/assertions" ],
+  custom_assertions_path: [ "src/_tests_/e2e/custom/assertions" ],
   selenium: {
     start_process: true,
     server_path: "./node_modules/nightwatch/bin/selenium.jar",
@@ -19,7 +19,7 @@ module.exports = {
     default: {
       screenshots: {
         enabled: true,
-        path: "./screenshots", // save screenshots here
+        path: "src/_tests_/e2e/screenshots", // save screenshots here
       },
       globals: {
         waitForConditionTimeout: 5000, // sometimes internet is slow so wait.

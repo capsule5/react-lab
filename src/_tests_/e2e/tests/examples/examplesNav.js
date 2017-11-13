@@ -1,6 +1,4 @@
-// http://nightwatchjs.org/api
-
-const SCREENSHOTS_PATH = "__e2e__screenshots/"
+const TESTS_CONF = require("../../conf")
 
 const selectors = {
   firstExample: "#ExamplesNav span div:first-child li a",
@@ -11,7 +9,7 @@ const selectors = {
 module.exports = {
   before: (browser) => {
     browser
-      .url("http://localhost:3001/examples/list")
+      .url(`${TESTS_CONF.launch_url}/examples/list`)
       .waitForElementVisible("#root > main.App")
   },
   "Examples Nav renders": (browser) => {
@@ -45,7 +43,7 @@ module.exports = {
       .elements("css selector", selectors.exampleContent, (result) => {
         browser.assert.ok(result.value.length > 1, `All examples are displayed (${result.value.length})`)
       })
-      .saveScreenshot(`${SCREENSHOTS_PATH}list.png`)
+      .saveScreenshot(`${TESTS_CONF.screenshots_path}list.png`)
   },
   after: browser => browser.end(),
 }

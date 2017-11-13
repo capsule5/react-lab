@@ -11,6 +11,7 @@ import TransitionGroupGsap from "../components/lab/transition-group-gsap/Transit
 import AnimationList from "../components/lab/animation-list/AnimationList"
 
 export const EXAMPLES_URL = "/examples/"
+const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/src/components/lab/"
 
 
 const EXAMPLES_SOURCE = [
@@ -27,6 +28,7 @@ const EXAMPLES_SOURCE = [
     links: [
       "https://greensock.com/gsap",
     ],
+    github: "animation-list/AnimationList",
   },
   {
     component: TransitionGroupGsap,
@@ -43,6 +45,7 @@ const EXAMPLES_SOURCE = [
       "https://reactjs.org/docs/animation.html",
       "https://greensock.com/gsap",
     ],
+    github: "transition-group-gsap/TransitionGroupGsap",
   },
   {
     component: TransitionGroupAnimeJs,
@@ -59,11 +62,12 @@ const EXAMPLES_SOURCE = [
       "https://reactjs.org/docs/animation.html",
       "http://animejs.com/",
     ],
+    github: "transition-group-anime-js/TransitionGroupAnimeJs",
   },
   {
     component: UnmountAnimation,
     title: "Unmount Animation",
-    desc: "Based on transition events",
+    desc: "Based on transition event onTransitionEnd",
     tags: [
       TAGS.animation,
       TAGS.unmounting,
@@ -73,6 +77,7 @@ const EXAMPLES_SOURCE = [
       "https://stackoverflow.com/questions/40064249/react-animate-mount-and-unmount-of-a-single-component",
       "https://reactjs.org/docs/events.html#transition-events",
     ],
+    github: "unmount-animation/UnmountAnimation",
   },
   {
     component: RMUnmountAnimation,
@@ -84,6 +89,7 @@ const EXAMPLES_SOURCE = [
       TAGS.unmounting,
     ],
     links: [],
+    github: "rm-unmount-animation/RMUnmountAnimation",
   },
   {
     component: RMSimpleTransition,
@@ -96,6 +102,7 @@ const EXAMPLES_SOURCE = [
     links: [
       "https://github.com/chenglou/react-motion/blob/master/demos/demo0-simple-transition/index.html",
     ],
+    github: "rm-simple-transition/RMSimpleTransition",
   },
   {
     component: RMAnimatedValue,
@@ -109,6 +116,7 @@ const EXAMPLES_SOURCE = [
       "https://github.com/chenglou/react-motion",
       "https://react.rocks/tag/react-motion",
     ],
+    github: "rm-animated-value/RMAnimatedValue",
   },
 ]
 
@@ -117,5 +125,6 @@ export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
   ...example,
   id: slugify(example.title),
   path: `${EXAMPLES_URL}${slugify(example.title)}`,
-  links: keyIndex(example.links, 1),
+  links: example.links && keyIndex(example.links, 1),
+  github: example.github && `${GITHUB_URL}${example.github}.js`,
 }))

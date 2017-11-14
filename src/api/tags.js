@@ -6,6 +6,7 @@ const TAGS_SOURCE = {
   reacttransitiongroup: "react-transition-group",
   animesjs: "anime.js",
   gsap: "gsap",
+  ui: "ui",
 }
 
 const withIds = (obj) => {

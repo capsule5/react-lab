@@ -9,12 +9,22 @@ import RMUnmountAnimation from "../components/lab/rm-unmount-animation/RMUnmount
 import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/TransitionGroupAnimeJs"
 import TransitionGroupGsap from "../components/lab/transition-group-gsap/TransitionGroupGsap"
 import AnimationList from "../components/lab/animation-list/AnimationList"
-
-export const EXAMPLES_URL = "/examples/"
-const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/src/components/lab/"
+import ModalX from "../components/lab/modal-x/ModalX"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: ModalX,
+    title: "Modal",
+    desc: "",
+    tags: [
+      TAGS.ui,
+      TAGS.unmounting,
+      TAGS.transitionevents,
+    ],
+    links: [],
+    github: "modal-x/ModalX",
+  },
   {
     component: AnimationList,
     title: "Animation List",
@@ -120,6 +130,8 @@ const EXAMPLES_SOURCE = [
   },
 ]
 
+export const EXAMPLES_URL = "/examples/"
+const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/src/components/lab/"
 
 export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
   ...example,

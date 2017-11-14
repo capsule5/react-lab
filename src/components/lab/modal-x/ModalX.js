@@ -2,6 +2,7 @@ import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import Example from "components/core/examples/example/Example"
 import Modal from "./Modal"
+import RMAnimatedValue from "../rm-animated-value/RMAnimatedValue"
 
 class ModalX extends PureComponent {
   constructor(props) {
@@ -23,7 +24,12 @@ class ModalX extends PureComponent {
     return (
       <Example data={ this.props.data }>
         <button onClick={ this.openModal }>open modal</button>
-        <Modal isMounted={ this.state.isMounted } closeModal={ this.closeModal }>Test</Modal>
+        <Modal isMounted={ this.state.isMounted } closeModal={ this.closeModal }>
+          <RMAnimatedValue data={ {
+            title: "Component X",
+            desc: "Unmount me!" } }
+          />
+        </Modal>
       </Example>
     )
   }

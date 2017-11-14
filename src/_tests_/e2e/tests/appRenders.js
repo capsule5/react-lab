@@ -5,7 +5,6 @@ module.exports = {
     browser
       .url(TESTS_CONF.launch_url)
       .waitForElementVisible("body")
-      .assert.urlContains("examples/list") // since redirect
   },
   "App has rendered": (browser) => {
     browser

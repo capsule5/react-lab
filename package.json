@@ -1,6 +1,6 @@
 {
-  "name": "animation",
-  "version": "0.1.0",
+  "name": "react-lab",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "animejs": "^2.2.0",
@@ -34,6 +34,7 @@
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
+    "pre-git": "^3.16.0",
     "promise": "8.0.1",
     "react": "^16.0.0",
     "react-dev-utils": "^4.1.0",
@@ -67,7 +68,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "e2e": "nightwatch --config nightwatch.conf.js"
+    "e2e": "nightwatch --config nightwatch.conf.js",
+    "commit": "commit-wizard"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -114,5 +116,18 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [],
+      "pre-push": ["yarn e2e"],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
   }
 }

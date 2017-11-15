@@ -122,7 +122,7 @@
   },
   "config": {
     "pre-git": {
-      "commit-msg": "simple",
+      "commit-msg": "",
       "pre-commit": [],
       "pre-push": ["yarn e2e"],
       "post-commit": [],

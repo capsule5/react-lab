@@ -26,8 +26,8 @@ class ModalX extends PureComponent {
         <button onClick={ this.openModal }>open modal</button>
         <Modal isMounted={ this.state.isMounted } closeModal={ this.closeModal }>
           <RMAnimatedValue data={ {
-            title: "Component X",
-            desc: "Unmount me!" } }
+            title: "Title",
+            desc: "This component will be unmounted on modal close" } }
           />
         </Modal>
       </Example>

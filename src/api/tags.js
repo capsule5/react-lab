@@ -7,6 +7,7 @@ const TAGS_SOURCE = {
   animesjs: "anime.js",
   gsap: "gsap",
   ui: "ui",
+  pattern: "pattern",
 }
 
 const withIds = (obj) => {

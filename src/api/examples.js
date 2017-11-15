@@ -10,9 +10,20 @@ import TransitionGroupAnimeJs from "../components/lab/transition-group-anime-js/
 import TransitionGroupGsap from "../components/lab/transition-group-gsap/TransitionGroupGsap"
 import AnimationList from "../components/lab/animation-list/AnimationList"
 import ModalX from "../components/lab/modal-x/ModalX"
+import RenderPropsVsHoc from "../components/lab/render-props-vs-hoc/RenderPropsVsHoc"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: RenderPropsVsHoc,
+    title: "RenderProps vs HOC",
+    desc: "Comparing RenderProps and HOC patterns with a scroll watch example",
+    tags: [
+      TAGS.pattern,
+    ],
+    links: [ "https://medium.com/tandemly/im-breaking-up-with-higher-order-components-44b0df2db052" ],
+    github: "render-props-vs-hoc/RenderPropsVsHoc",
+  },
   {
     component: ModalX,
     title: "Modal",

@@ -157,7 +157,7 @@ const EXAMPLES_SOURCE = [
 ]
 
 export const EXAMPLES_URL = "/examples/"
-const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/src/components/lab/"
+const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/webapp/src/components/lab/"
 
 export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
   ...example,

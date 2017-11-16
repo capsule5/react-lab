@@ -11,9 +11,24 @@ import TransitionGroupGsap from "../components/lab/transition-group-gsap/Transit
 import AnimationList from "../components/lab/animation-list/AnimationList"
 import ModalX from "../components/lab/modal-x/ModalX"
 import RenderPropsVsHoc from "../components/lab/render-props-vs-hoc/RenderPropsVsHoc"
+import GraphQL from "../components/lab/graphql/GraphQL"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: GraphQL,
+    title: "Express / GraphQL / Apollo",
+    desc: "Loading data from server",
+    tags: [
+      TAGS.api,
+      TAGS.graphql,
+    ],
+    links: [
+      "https://www.howtographql.com/",
+      "https://github.com/graphql/express-graphql/issues/14",
+    ],
+    github: "graphql/GraphQL",
+  },
   {
     component: RenderPropsVsHoc,
     title: "RenderProps vs HOC",

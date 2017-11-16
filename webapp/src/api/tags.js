@@ -8,6 +8,8 @@ const TAGS_SOURCE = {
   gsap: "gsap",
   ui: "ui",
   pattern: "pattern",
+  api: "api",
+  graphql: "graphql",
 }
 
 const withIds = (obj) => {

@@ -1,0 +1,21 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": "jobteaser",
+  "globals": {
+    "$": true,
+    "_": true,
+    "JT": true,
+    "Mentreprises": true,
+    "dataLayer": true
+  },
+  "rules": {
+    "no-console": 1,
+    "no-param-reassign": 1,
+    "react/prefer-stateless-function":0
+  }
+}

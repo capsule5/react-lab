@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const ShowPosition = ({ y }) => (
-  <p>
+  <p style={ { color: "violet", fontSize: 20 } }>
     {y}
   </p>
 )

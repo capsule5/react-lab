@@ -2,8 +2,10 @@
   "name": "react-lab",
   "version": "1.0.0",
   "private": true,
+  "author": "sebap",
   "dependencies": {
     "animejs": "^2.2.0",
+    "apollo-client-preset": "^1.0.3",
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
@@ -27,6 +29,8 @@
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "fs-extra": "3.0.1",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
     "gsap": "^1.20.3",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
@@ -34,9 +38,9 @@
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
-    "pre-git": "^3.16.0",
     "promise": "8.0.1",
     "react": "^16.0.0",
+    "react-apollo": "^2.0.1",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
     "react-key-index": "^0.1.1",
@@ -119,15 +123,5 @@
   },
   "release": {
     "analyzeCommits": "simple-commit-message"
-  },
-  "config": {
-    "pre-git": {
-      "commit-msg": "",
-      "pre-commit": [],
-      "pre-push": ["yarn e2e"],
-      "post-commit": [],
-      "post-checkout": [],
-      "post-merge": []
-    }
   }
 }

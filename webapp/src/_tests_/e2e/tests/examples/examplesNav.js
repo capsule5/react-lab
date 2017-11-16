@@ -43,7 +43,7 @@ module.exports = {
       .elements("css selector", selectors.exampleContent, (result) => {
         browser.assert.ok(result.value.length > 1, `All examples are displayed (${result.value.length})`)
       })
-      // .saveScreenshot(`${TESTS_CONF.screenshots_path}list.png`)
+      .saveScreenshot(`${TESTS_CONF.screenshots_path}examples.png`)
   },
   after: browser => browser.end(),
 }

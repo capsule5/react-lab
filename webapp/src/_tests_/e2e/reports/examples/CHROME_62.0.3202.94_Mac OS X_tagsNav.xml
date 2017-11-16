@@ -5,9 +5,9 @@
 
   <testsuite name="examples.tagsNav"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="1" time="3.527" timestamp="Wed, 15 Nov 2017 16:39:16 GMT">
+    tests="1" time="1.719" timestamp="Thu, 16 Nov 2017 23:46:03 GMT">
   
-    <testcase name="Tags Nav renders" classname="examples.tagsNav" time="3.527" assertions="3">
+    <testcase name="Tags Nav renders" classname="examples.tagsNav" time="1.719" assertions="3">
 
     
 

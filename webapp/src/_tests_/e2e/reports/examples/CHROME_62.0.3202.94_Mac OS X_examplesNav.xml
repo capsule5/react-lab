@@ -5,9 +5,9 @@
 
   <testsuite name="examples.examplesNav"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="4" time="4.250" timestamp="Wed, 15 Nov 2017 16:39:11 GMT">
+    tests="4" time="2.924" timestamp="Thu, 16 Nov 2017 23:46:00 GMT">
   
-    <testcase name="Examples Nav renders" classname="examples.examplesNav" time="3.675" assertions="5">
+    <testcase name="Examples Nav renders" classname="examples.examplesNav" time="1.770" assertions="5">
 
     
 
@@ -20,21 +20,21 @@
     
     </testcase>
   
-    <testcase name="Examples Wrapper renders with at least 1 example" classname="examples.examplesNav" time="0.1340" assertions="2">
+    <testcase name="Examples Wrapper renders with at least 1 example" classname="examples.examplesNav" time="0.06900" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="First example link updates URL and displays 1 example" classname="examples.examplesNav" time="0.2320" assertions="2">
+    <testcase name="First example link updates URL and displays 1 example" classname="examples.examplesNav" time="0.1770" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="'See list' link updates URL and displays all examples" classname="examples.examplesNav" time="0.2090" assertions="2">
+    <testcase name="'See list' link updates URL and displays all examples" classname="examples.examplesNav" time="0.9080" assertions="2">
 
     
 

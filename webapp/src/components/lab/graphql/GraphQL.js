@@ -46,17 +46,24 @@ class GraphQL extends PureComponent {
     </ul>)
   }
 
+  renderMisc() {
+    if (this.props.allLinksQuery && this.props.allLinksQuery.allLinks) {
+      return (
+        <div className="graphql-misc">
+          <p>---</p>
+          <a href="http://localhost:3002/graphiql">graphiql</a>
+          <a href="http://localhost:3002/graphiql?variables=null&query=mutation%7B%0A%20%20createLink(%0A%20%20%20%20url%3A%22http%3A%2F%2Ftest.com%22%2C%0A%20%20%20%20description%3A%22blabla%22%0A%20%20)%7B%0A%20%20%20%20id%0A%20%20%20%20url%0A%20%20%20%20description%0A%20%20%7D%0A%7D">add a link mutation</a>
+        </div>)
+    }
+  }
+
   render() {
     return (
       <Example data={ this.props.data }>
         <Wrapper>
           <p>Links from API:</p>
           <div className="graphql-links">{ this.renderLinks()}</div>
-          <div className="graphql-misc">
-            <p>---</p>
-            <a href="http://localhost:3002/graphiql">graphiql</a>
-            <a href="http://localhost:3002/graphiql?variables=null&query=mutation%7B%0A%20%20createLink(%0A%20%20%20%20url%3A%22http%3A%2F%2Ftest.com%22%2C%0A%20%20%20%20description%3A%22blabla%22%0A%20%20)%7B%0A%20%20%20%20id%0A%20%20%20%20url%0A%20%20%20%20description%0A%20%20%7D%0A%7D">add a link mutation</a>
-          </div>
+          {this.renderMisc()}
         </Wrapper>
       </Example>
     )

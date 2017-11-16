@@ -2,6 +2,7 @@
   "name": "react-lab",
   "version": "1.0.0",
   "private": true,
+  "author": "sebap",
   "dependencies": {
     "animejs": "^2.2.0",
     "autoprefixer": "7.1.2",

@@ -31,11 +31,3 @@ const PORT = 3002
 app.listen(PORT, () => {
   console.log(`JT React Lab GraphQL server running on port ${PORT}.`)
 });
-
-/* 
-
-$ node ./src/index.js
-> http://localhost:3002/graphiql
-   > docs (top right) 
-   
-*/

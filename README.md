@@ -1,25 +1,44 @@
-## Quick start
+![Screenshot](webapp/src/_tests_/e2e/screenshots/examples.png)
+
+## Webapp
+
 Install dependencies
 ```sh
-yarn
+$ cd webapp
+$ yarn
 ```
 
 Launch server
 ```sh
-yarn start
+$ yarn start
+```
+
+## API (express/GraphQL)
+
+Install dependencies
+```sh
+$ cd api
+$ yarn
+```
+Launch GraphQL server at localhost:3002
+```sh
+$ node ./src/index.js
 ```
 
 ## Adding a new example
-- Add new component in src/components/lab
+- Add new component in webapp/src/components/lab
 - In new component @render: 
 ```js
 <Example data={ this.props.data }>...your code...</Example>
 ```
-- Import new component in src/api/examples.js
+- Import new component in webapp/src/api/examples.js
 - Update EXAMPLES_SOURCE
 - Tip : active color of your demo should be 'violet'
 
 ## e2e tests (nightwatch)
+```sh
+$ cd webapp
+```
 Install
 ```sh
 node nightwatch.conf.js

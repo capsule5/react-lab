@@ -9,6 +9,18 @@ import styled from "styled-components"
 import Example from "components/core/examples/example/Example"
 import { graphql } from "react-apollo"
 import gql from "graphql-tag"
+import { compose } from "utils/helpers"
+
+const LINK_SEEDS = [
+  {
+    url: "http://localhost:3002/graphiql",
+    description: "GraphiQL",
+  },
+  {
+    url: "http://localhost:3002/graphiql?variables=null&query=mutation%7B%0A%20%20createLink(%0A%20%20%20%20url%3A%22http%3A%2F%2Ftest.com%22%2C%0A%20%20%20%20description%3A%22blabla%22%0A%20%20)%7B%0A%20%20%20%20id%0A%20%20%20%20url%0A%20%20%20%20description%0A%20%20%7D%0A%7D",
+    description: "Try a mutation",
+  },
+]
 
 const Wrapper = styled.div`
   .graphql-links{
@@ -23,27 +35,57 @@ class GraphQL extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {}
+
+    this.createLink = this.createLink.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const linksQuery = nextProps.allLinksQuery
+    if (linksQuery && linksQuery.allLinks) {
+      if (linksQuery.allLinks.length === 0) {
+        this.seedDB()
+      }
+    }
+  }
+
+  seedDB() {
+    LINK_SEEDS.map(link => this.createLink(link.description, link.url))
   }
 
   renderLinks() {
-    // loading
-    if (this.props.allLinksQuery && this.props.allLinksQuery.loading) {
-      return <div>Loading</div>
-    }
-  
-    // error
-    if (this.props.allLinksQuery && this.props.allLinksQuery.error) {
-      return <div> Error - start server <span className="graphql-bash">$ node ./src/index.js</span> </div>
+    const { allLinksQuery } = this.props
+    
+    if (allLinksQuery) {
+      // loading
+      if (allLinksQuery.loading) {
+        return <div>Loading</div>
+      }
+
+      // error
+      if (allLinksQuery.error) {
+        return <div> Error - start server <span className="graphql-bash">$ node ./src/index.js</span> </div>
+      }
+
+      // ok
+      return (<ul>
+        {
+          allLinksQuery.allLinks && allLinksQuery.allLinks.map(link => (
+            <li key={ link.url }><a href={ link.url }>{link.description}</a></li>
+          ))
+        }
+      </ul>)
     }
 
-    // ok
-    return (<ul>
-      {
-        this.props.allLinksQuery && this.props.allLinksQuery.allLinks && this.props.allLinksQuery.allLinks.map(link => (
-          <li key={ link.url }>#{link.id} <a href={ link.url }>{link.description}</a></li>
-        ))
-      }
-    </ul>)
+    return null
+  }
+
+  createLink(description, url) {
+    this.props.createLinkMutation({
+      variables: {
+        description,
+        url,
+      },
+    })
   }
 
   render() {
@@ -58,13 +100,10 @@ class GraphQL extends PureComponent {
   }
 }
 
-GraphQL.defaultProps = {
-  allLinksQuery: null,
-}
-
 GraphQL.propTypes = {
   data: PropTypes.object.isRequired,
-  allLinksQuery: PropTypes.any,
+  allLinksQuery: PropTypes.any.isRequired,
+  createLinkMutation: PropTypes.any.isRequired,
 }
 
 
@@ -77,5 +116,19 @@ query AllLinksQuery {
   }
 }
 `
+const CREATE_LINK_MUTATION = gql`
+  mutation CreateLinkMutation($description: String!, $url: String!) {
+    createLink(
+      description: $description,
+      url: $url,
+    ) {
+      url
+      description
+    }
+  }
+`
 
-export default graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" })(GraphQL)
+export default compose(
+  graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" }),
+  graphql(CREATE_LINK_MUTATION, { name: "createLinkMutation" }),
+)(GraphQL)

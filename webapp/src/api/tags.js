@@ -10,6 +10,9 @@ const TAGS_SOURCE = {
   pattern: "pattern",
   api: "api",
   graphql: "graphql",
+  apollo: "apollo",
+  mongodb: "mongodb",
+  express: "express",
 }
 
 const withIds = (obj) => {

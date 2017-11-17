@@ -17,11 +17,14 @@ import GraphQL from "../components/lab/graphql/GraphQL"
 const EXAMPLES_SOURCE = [
   {
     component: GraphQL,
-    title: "Express / GraphQL / Apollo",
-    desc: "Loading data from server",
+    title: "GraphQL / Apollo",
+    desc: "Seed/Load MongoDB through GraphQL mutation/query",
     tags: [
       TAGS.api,
       TAGS.graphql,
+      TAGS.apollo,
+      TAGS.express,
+      TAGS.mongodb,
     ],
     links: [
       "https://www.howtographql.com/",

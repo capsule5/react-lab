@@ -39,7 +39,7 @@ The first argument in a resolver (called root) is an object with the current dat
 It should be null for Query and Mutation, but for other types it will already have whatever your other resolvers have returned for them.
 */
 
-
+const { ObjectID } = require('mongodb');
 
 module.exports = {
   Query: {
@@ -52,6 +52,9 @@ module.exports = {
     createLink: async (root, data, { mongo: { Links } }) => {
       const response = await Links.insert(data); // 3
       return Object.assign({ id: response.insertedIds[0] }, data); // 4
+    },
+    deleteLink: async (root, data, { mongo: { Links } }) => {
+      const response = await Links.deleteOne({ "_id": ObjectID(data.id) });
     },
   },
 

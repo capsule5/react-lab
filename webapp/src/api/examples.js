@@ -18,7 +18,7 @@ const EXAMPLES_SOURCE = [
   {
     component: GraphQL,
     title: "GraphQL / Apollo",
-    desc: "Seed/Load MongoDB through GraphQL mutation/query",
+    desc: "Get/Create/Delete a MongoDB links collection through GraphQL mutation/query",
     tags: [
       TAGS.api,
       TAGS.graphql,

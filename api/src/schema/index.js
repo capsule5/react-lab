@@ -14,7 +14,8 @@ const typeDefs = `
   }
 
   type Mutation {
-    createLink(url: String!, description: String!): Link
+    createLink(url: String!, description: String!): Link,
+    deleteLink(id: ID!): Link,
   }
 `;
 

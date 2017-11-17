@@ -37,6 +37,7 @@ class GraphQL extends PureComponent {
     this.state = {}
 
     this.createLink = this.createLink.bind(this)
+    this.deleteLink = this.deleteLink.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -70,7 +71,13 @@ class GraphQL extends PureComponent {
       return (<ul>
         {
           allLinksQuery.allLinks && allLinksQuery.allLinks.map(link => (
-            <li key={ link.url }><a href={ link.url }>{link.description}</a></li>
+            <li key={ link.url }>
+              <a href={ link.url }>{link.description}</a>
+              <button onClick={ () => {
+                this.deleteLink(link.id)
+              } }
+              >delete</button>
+            </li>
           ))
         }
       </ul>)
@@ -88,11 +95,21 @@ class GraphQL extends PureComponent {
     })
   }
 
+  deleteLink(id) {
+    this.props.deleteLinkMutation({
+      variables: {
+        id,
+      },
+    })
+
+    this.props.allLinksQuery.refetch()
+  }
+
   render() {
     return (
       <Example data={ this.props.data }>
         <Wrapper>
-          <p>Links from API:</p>
+          <p>A list of links:</p>
           <div className="graphql-links">{ this.renderLinks()}</div>
         </Wrapper>
       </Example>
@@ -104,6 +121,7 @@ GraphQL.propTypes = {
   data: PropTypes.object.isRequired,
   allLinksQuery: PropTypes.any.isRequired,
   createLinkMutation: PropTypes.any.isRequired,
+  deleteLinkMutation: PropTypes.any.isRequired,
 }
 
 
@@ -128,7 +146,18 @@ const CREATE_LINK_MUTATION = gql`
   }
 `
 
+const DELETE_LINK_MUTATION = gql`
+  mutation DeleteLinkMutation($id: ID!) {
+    deleteLink(
+      id: $id
+    ) {
+      id
+    }
+  }
+`
+
 export default compose(
   graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" }),
   graphql(CREATE_LINK_MUTATION, { name: "createLinkMutation" }),
+  graphql(DELETE_LINK_MUTATION, { name: "deleteLinkMutation" }),
 )(GraphQL)

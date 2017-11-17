@@ -14,10 +14,11 @@ const TAGS_SOURCE = {
 
 const withIds = (obj) => {
   Object.keys(obj).forEach((key) => {
-    obj[key] = { value: obj[key], id: obj[key] }
+    obj[key] = { value: obj[key], id: key }
   })
 
   return obj
 }
+
 
 export const TAGS = withIds(TAGS_SOURCE)

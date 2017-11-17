@@ -14,15 +14,26 @@ export const examplesSelector = createSelector(
   }
 )
 
+
 export const availableTagsSelector = createSelector(
   selectedTagsState,
   examplesSelector,
   (selectedTags, examples) => {
+    const sortByValue = (a, b) => {
+      if (a.value < b.value) {
+        return -1
+      }
+      if (a.value > b.value) {
+        return 1
+      }
+      return 0
+    }
+
     const availableTags = examples
       .map(e => e.tags) // get only tags 
       .reduce((a, b) => a.concat(b), []) // concat all tags
       .filter((tag, index, self) => self.findIndex(t => t.value === tag.value) === index) // remove duplicated tags 
-      .sort((a, b) => a.value > b.value) // sort tags by value
+      .sort(sortByValue)
 
     // compare with selectedTags & add isSelected key
     availableTags.forEach((tag) => {

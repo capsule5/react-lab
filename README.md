@@ -4,25 +4,26 @@
 
 Install dependencies
 ```sh
-$ cd webapp
-$ yarn
+cd webapp
+yarn
 ```
 
 Launch server
 ```sh
-$ yarn start
+yarn start
 ```
 
-## API (express/GraphQL)
+## API (Express/MongoDB/GraphQL)
+<i>Note: only required for some lab components</i>
 
 Install dependencies
 ```sh
-$ cd api
-$ yarn
+cd api
+yarn
 ```
 Launch GraphQL server at localhost:3002
 ```sh
-$ node ./src/index.js
+node ./src/index.js
 ```
 
 ## Adding a new example
@@ -33,11 +34,11 @@ $ node ./src/index.js
 ```
 - Import new component in webapp/src/api/examples.js
 - Update EXAMPLES_SOURCE
-- Tip : active color of your demo should be 'violet'
+- Tip : active color of your demo should be CSS 'violet'
 
 ## e2e tests (nightwatch)
 ```sh
-$ cd webapp
+cd webapp
 ```
 Install
 ```sh
@@ -49,9 +50,14 @@ Launch e2e test
 yarn e2e
 ```
 
+## Build
+```sh
+yarn build
+(yarn global add serve)
+serve -s build
+```
 
-
-<br><br><br>
+<br><br><hr><br><br>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

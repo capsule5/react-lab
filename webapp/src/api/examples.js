@@ -1,5 +1,4 @@
-import { slugify } from "strman"
-import keyIndex from "react-key-index"
+import { slugify, keyIndex } from "utils/helpers"
 import { TAGS } from "./tags"
 
 import RMAnimatedValue from "../components/lab/rm-animated-value/RMAnimatedValue"

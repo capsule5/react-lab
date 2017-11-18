@@ -11,6 +11,19 @@ import { graphql } from "react-apollo"
 import gql from "graphql-tag"
 import { compose } from "utils/helpers"
 
+// Styles
+const Wrapper = styled.div`
+  p{ margin-top:0;}
+  .graphql-links{
+    li{ margin-bottom:5px;}
+    a{ color:violet;}
+    color:violet
+  }
+  .graphql-bash{background:#EEE;  padding:5px; font-size:12px;}
+  .graphql-note{ font-size: 12px;}
+`
+
+// Seeds
 const LINK_SEEDS = [
   {
     url: "http://localhost:3002/graphiql",
@@ -22,109 +35,7 @@ const LINK_SEEDS = [
   },
 ]
 
-const Wrapper = styled.div`
-  .graphql-links{
-    li{ margin-bottom:5px;}
-    a{ color:violet;}
-    color:violet
-  }
-  .graphql-bash{background:#EEE;  padding:5px; font-size:12px;}
-`
-
-class GraphQL extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {}
-
-    this.createLink = this.createLink.bind(this)
-    this.deleteLink = this.deleteLink.bind(this)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const linksQuery = nextProps.allLinksQuery
-    if (linksQuery && linksQuery.allLinks) {
-      if (linksQuery.allLinks.length === 0) {
-        this.seedDB()
-      }
-    }
-  }
-
-  seedDB() {
-    LINK_SEEDS.map(link => this.createLink(link.description, link.url))
-  }
-
-  renderLinks() {
-    const { allLinksQuery } = this.props
-    
-    if (allLinksQuery) {
-      // loading
-      if (allLinksQuery.loading) {
-        return <div>Loading</div>
-      }
-
-      // error
-      if (allLinksQuery.error) {
-        return <div> Error - start server <span className="graphql-bash">$ node ./src/index.js</span> </div>
-      }
-
-      // ok
-      return (<ul>
-        {
-          allLinksQuery.allLinks && allLinksQuery.allLinks.map(link => (
-            <li key={ link.url }>
-              <a href={ link.url }>{link.description}</a>
-              <button onClick={ () => {
-                this.deleteLink(link.id)
-              } }
-              >delete</button>
-            </li>
-          ))
-        }
-      </ul>)
-    }
-
-    return null
-  }
-
-  createLink(description, url) {
-    this.props.createLinkMutation({
-      variables: {
-        description,
-        url,
-      },
-    })
-  }
-
-  deleteLink(id) {
-    this.props.deleteLinkMutation({
-      variables: {
-        id,
-      },
-    })
-
-    this.props.allLinksQuery.refetch()
-  }
-
-  render() {
-    return (
-      <Example data={ this.props.data }>
-        <Wrapper>
-          <p>A list of links:</p>
-          <div className="graphql-links">{ this.renderLinks()}</div>
-        </Wrapper>
-      </Example>
-    )
-  }
-}
-
-GraphQL.propTypes = {
-  data: PropTypes.object.isRequired,
-  allLinksQuery: PropTypes.any.isRequired,
-  createLinkMutation: PropTypes.any.isRequired,
-  deleteLinkMutation: PropTypes.any.isRequired,
-}
-
-
+// GraphQL
 const ALL_LINKS_QUERY = gql`
 query AllLinksQuery {
   allLinks {
@@ -155,6 +66,103 @@ const DELETE_LINK_MUTATION = gql`
     }
   }
 `
+
+class GraphQL extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.createLink = this.createLink.bind(this)
+    this.deleteLink = this.deleteLink.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const linksQuery = nextProps.allLinksQuery
+    if (linksQuery && linksQuery.allLinks) {
+      if (linksQuery.allLinks.length === 0) {
+        this.seedDB()
+      }
+    }
+  }
+
+  seedDB() {
+    LINK_SEEDS.map(link => this.createLink(link.description, link.url))
+  }
+
+  createLink(description, url) {
+    this.props.createLinkMutation({
+      variables: {
+        description,
+        url,
+      },
+      refetchQueries: [ { query: ALL_LINKS_QUERY } ], // allows quick sync with db
+    })
+  }
+
+  deleteLink(id) {
+    this.props.deleteLinkMutation({
+      variables: {
+        id,
+      },
+      refetchQueries: [ { query: ALL_LINKS_QUERY } ],
+    })
+
+    // this.props.allLinksQuery.refetch()
+  }
+
+  renderLinks() {
+    const { allLinksQuery } = this.props
+
+    if (allLinksQuery) {
+      // loading
+      if (allLinksQuery.loading) {
+        return <div>Loading</div>
+      }
+
+      // error
+      if (allLinksQuery.error) {
+        return <div> Error - start server <span className="graphql-bash">$ node ./src/index.js</span> </div>
+      }
+
+      // ok
+      return (<ul>
+        {
+          allLinksQuery.allLinks && allLinksQuery.allLinks.map(link => (
+            <li key={ link.url }>
+              <a href={ link.url }>{link.description}</a>
+              <button onClick={ () => {
+                this.deleteLink(link.id)
+              } }
+              >delete</button>
+            </li>
+          ))
+        }
+      </ul>)
+    }
+
+    return null
+  }
+
+  render() {
+    return (
+      <Example data={ this.props.data }>
+        <Wrapper>
+          <p>A list of links:</p>
+          <div className="graphql-links">{ this.renderLinks()}</div>
+          <div className="graphql-note">
+            ( In this example, DB will be automatically seeded with seedDB() if links collection is empty )
+          </div>
+        </Wrapper>
+      </Example>
+    )
+  }
+}
+
+GraphQL.propTypes = {
+  data: PropTypes.object.isRequired,
+  allLinksQuery: PropTypes.any.isRequired,
+  createLinkMutation: PropTypes.any.isRequired,
+  deleteLinkMutation: PropTypes.any.isRequired,
+}
 
 export default compose(
   graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" }),

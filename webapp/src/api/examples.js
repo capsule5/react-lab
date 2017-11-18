@@ -29,6 +29,7 @@ const EXAMPLES_SOURCE = [
     links: [
       "https://www.howtographql.com/",
       "https://github.com/graphql/express-graphql/issues/14",
+      "https://dev-blog.apollodata.com/react-graphql-tutorial-mutations-764d7ec23c15",
     ],
     github: "graphql/GraphQL",
   },

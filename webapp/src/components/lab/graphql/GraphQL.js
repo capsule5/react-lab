@@ -27,11 +27,11 @@ const Wrapper = styled.div`
 const LINK_SEEDS = [
   {
     url: "http://localhost:3002/graphiql",
-    description: "GraphiQL",
+    description: "Visit GraphiQL at localhost:3002/graphiql",
   },
   {
     url: "http://localhost:3002/graphiql?variables=null&query=mutation%7B%0A%20%20createLink(%0A%20%20%20%20url%3A%22http%3A%2F%2Ftest.com%22%2C%0A%20%20%20%20description%3A%22blabla%22%0A%20%20)%7B%0A%20%20%20%20id%0A%20%20%20%20url%0A%20%20%20%20description%0A%20%20%7D%0A%7D",
-    description: "Try a mutation",
+    description: "Try this mutation to add a link",
   },
 ]
 
@@ -120,7 +120,7 @@ class GraphQL extends PureComponent {
 
       // error
       if (allLinksQuery.error) {
-        return <div> Error - start server <span className="graphql-bash">$ node ./src/index.js</span> </div>
+        return <div> Error - start API server in /api <span className="graphql-bash">$ node ./src/index.js</span> </div>
       }
 
       // ok
@@ -143,14 +143,20 @@ class GraphQL extends PureComponent {
   }
 
   render() {
+    const { allLinksQuery } = this.props
+
     return (
       <Example data={ this.props.data }>
         <Wrapper>
           <p>A list of links:</p>
           <div className="graphql-links">{ this.renderLinks()}</div>
-          <div className="graphql-note">
-            ( In this example, DB will be automatically seeded with seedDB() if links collection is empty )
-          </div>
+          {
+            allLinksQuery.allLinks &&
+            <div className="graphql-note">
+              In this example, DB will be automatically seeded with seedDB() if links collection is empty <br />
+              We also simulate a 200ms latency on the express server
+            </div>
+          }
         </Wrapper>
       </Example>
     )
@@ -165,7 +171,7 @@ GraphQL.propTypes = {
 }
 
 export default compose(
-  graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" }),
+  graphql(ALL_LINKS_QUERY, { name: "allLinksQuery", options: { pollInterval: 5000 } }), // pollInterval refetch the query every 5s
   graphql(CREATE_LINK_MUTATION, { name: "createLinkMutation" }),
   graphql(DELETE_LINK_MUTATION, { name: "deleteLinkMutation" }),
 )(GraphQL)

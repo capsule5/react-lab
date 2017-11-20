@@ -5,7 +5,7 @@ const MONGO_URL = 'mongodb://localhost:27017/jtreactlab';
 module.exports = async () => {
   const db = await MongoClient.connect(MONGO_URL);
 
-  // db.collection('links').drop()
+  // db.collection('files').drop()
 
   // db.collection('links').insert(
   //   [{
@@ -18,5 +18,8 @@ module.exports = async () => {
   //   }]
   // )
 
-  return { Links: db.collection('links') };
+  return { 
+    Links: db.collection('links'), 
+    Files: db.collection('files') 
+  };
 }

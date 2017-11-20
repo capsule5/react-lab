@@ -24,6 +24,86 @@
 //   },
 // };
 
+const { ObjectID } = require('mongodb');
+const { GraphQLUpload } = require('apollo-upload-server')
+const { createWriteStream } = require('fs')
+const mkdirp = require('mkdirp')
+const shortid = require('shortid')
+
+
+
+
+// UPLOAD FILE
+//------------------
+const uploadDir = 'uploads'
+const uploadPath = '../webapp/public'
+
+const processUpload = async (file,Files) => {
+  const { stream, filename, mimetype, encoding } = await file
+  const { id, path } = await storeUpload({ stream, filename })
+  return recordFile(Files, { id, filename, mimetype, encoding, path })
+}
+
+const storeUpload = async ({ stream, filename }) => {
+  const id = shortid.generate()
+  
+  const publicPath = `${uploadDir}/${id}-${filename}`
+  const upload = `${uploadPath}/${publicPath}`
+
+  return new Promise((resolve, reject) =>
+    stream
+      .pipe(createWriteStream(upload))
+      .on('finish', () => resolve({ id, path:publicPath }))
+      .on('error', reject)
+  )
+}
+
+const recordFile = async (Files,file) => {
+  const response = await Files.insert(file);
+  return Object.assign({ id: response.insertedIds[0] }, file);
+}
+//------------------
+
+
+
+
+module.exports = {
+  Query: {
+    allLinks: async (root, data, { mongo: { Links } }) => { // 1
+      return await Links.find({}).toArray(); // 2
+    },
+    allFiles: async (root, data, { mongo: { Files } }) => {
+      return await Files.find({}).toArray();
+    },
+  },
+
+  Mutation: {
+    // Links
+    createLink: async (root, data, { mongo: { Links } }) => {
+      const response = await Links.insert(data); // 3
+      return Object.assign({ id: response.insertedIds[0] }, data); // 4
+    },
+    deleteLink: async (root, data, { mongo: { Links } }) => {
+      const response = await Links.deleteOne({ "_id": ObjectID(data.id) });
+    },
+    // Files
+    uploadFile: (root, data, { mongo: { Files } }) => processUpload(data.file, Files),
+    deleteFile: async (root, data, { mongo: { Files } }) => {
+      const response = await Files.deleteOne({ "_id": ObjectID(data.id) });
+    },
+  },
+
+  Upload: GraphQLUpload,
+
+  Link: {
+    id: root => root._id || root.id, // 5
+  },
+
+  File: {
+    id: root => root._id || root.id,
+  },
+};
+
 /*
 1 - The context object you’ve specified in that call to graphqlExpress is the third argument passed down to each resolver.
 2 - For the allLinks query all you need is to call MongoDB’s find function in the Links collection, and then turn the results into an array.
@@ -38,27 +118,3 @@ The server will now trigger that function whenever this field is requested, so y
 The first argument in a resolver (called root) is an object with the current data for that type. 
 It should be null for Query and Mutation, but for other types it will already have whatever your other resolvers have returned for them.
 */
-
-const { ObjectID } = require('mongodb');
-
-module.exports = {
-  Query: {
-    allLinks: async (root, data, { mongo: { Links } }) => { // 1
-      return await Links.find({}).toArray(); // 2
-    },
-  },
-
-  Mutation: {
-    createLink: async (root, data, { mongo: { Links } }) => {
-      const response = await Links.insert(data); // 3
-      return Object.assign({ id: response.insertedIds[0] }, data); // 4
-    },
-    deleteLink: async (root, data, { mongo: { Links } }) => {
-      const response = await Links.deleteOne({ "_id": ObjectID(data.id) });
-    },
-  },
-
-  Link: {
-    id: root => root._id || root.id, // 5
-  },
-};

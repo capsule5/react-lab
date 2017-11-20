@@ -24,7 +24,8 @@ const start = async () => {
     if (req.method === 'OPTIONS') {
       res.sendStatus(200);
     } else {
-      setTimeout(next, 200) // simulates network latency of 200ms
+      next()
+      //setTimeout(next, 200) // simulates network latency of 200ms
     }
   });
   app.use('/graphql', bodyParser.json(), apolloUploadExpress(), graphqlExpress({

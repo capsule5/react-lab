@@ -13,6 +13,7 @@ const TAGS_SOURCE = {
   apollo: "apollo",
   mongodb: "mongodb",
   express: "express",
+  uploading: "uploading",
 }
 
 const withIds = (obj) => {

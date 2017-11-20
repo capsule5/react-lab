@@ -11,8 +11,11 @@
     "apollo-upload-server": "^4.0.0-alpha.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "fs": "^0.0.1-security",
     "graphql": "^0.11.7",
     "graphql-tools": "^2.7.2",
-    "mongodb": "^2.2.33"
+    "mkdirp": "^0.5.1",
+    "mongodb": "^2.2.33",
+    "shortid": "^2.2.8"
   }
 }

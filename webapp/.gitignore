@@ -23,3 +23,5 @@ yarn-error.log*
 selenium-debug.log
 /src/_tests_/e2e/reports
 #/src/_tests_/e2e/screenshots
+
+/public/uploads/*

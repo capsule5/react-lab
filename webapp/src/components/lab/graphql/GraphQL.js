@@ -153,8 +153,7 @@ class GraphQL extends PureComponent {
           {
             allLinksQuery.allLinks &&
             <div className="graphql-note">
-              In this example, DB will be automatically seeded with seedDB() if links collection is empty <br />
-              It simulate a 200ms latency on the express server
+              In this example, DB will be automatically seeded with seedDB() if links collection is empty
             </div>
           }
         </Wrapper>

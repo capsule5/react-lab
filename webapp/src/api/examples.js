@@ -17,20 +17,25 @@ import UploadImage from "../components/lab/upload-image/UploadImage"
 const EXAMPLES_SOURCE = [
   {
     component: UploadImage,
-    title: "UploadImage / Apollo",
+    title: "GraphQL / Apollo upload",
     desc: "",
     tags: [
       TAGS.api,
+      TAGS.graphql,
       TAGS.apollo,
       TAGS.express,
       TAGS.mongodb,
+      TAGS.uploading,
     ],
-    links: [],
+    links: [
+      "https://github.com/jaydenseric/apollo-upload-client",
+      "https://github.com/jaydenseric/apollo-upload-server",
+    ],
     github: "upload-image/UploadImage",
   },
   {
     component: GraphQL,
-    title: "GraphQL / Apollo",
+    title: "GraphQL / Apollo basics",
     desc: "Get/Create/Delete a MongoDB links collection through GraphQL mutation/query",
     tags: [
       TAGS.api,

@@ -11,9 +11,23 @@ import AnimationList from "../components/lab/animation-list/AnimationList"
 import ModalX from "../components/lab/modal-x/ModalX"
 import RenderPropsVsHoc from "../components/lab/render-props-vs-hoc/RenderPropsVsHoc"
 import GraphQL from "../components/lab/graphql/GraphQL"
+import UploadImage from "../components/lab/upload-image/UploadImage"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: UploadImage,
+    title: "UploadImage / Apollo",
+    desc: "",
+    tags: [
+      TAGS.api,
+      TAGS.apollo,
+      TAGS.express,
+      TAGS.mongodb,
+    ],
+    links: [],
+    github: "upload-image/UploadImage",
+  },
   {
     component: GraphQL,
     title: "GraphQL / Apollo",

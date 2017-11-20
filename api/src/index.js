@@ -7,6 +7,8 @@ const {graphqlExpress, graphiqlExpress} = require('apollo-server-express');
 const schema = require('./schema');
 // to connect to MongoDB
 const connectMongo = require('./mongo-connector');
+const {apolloUploadExpress} = require('apollo-upload-server');
+
 
 const start = async () => {
 
@@ -25,7 +27,7 @@ const start = async () => {
       setTimeout(next, 200) // simulates network latency of 200ms
     }
   });
-  app.use('/graphql', bodyParser.json(), graphqlExpress({
+  app.use('/graphql', bodyParser.json(), apolloUploadExpress(), graphqlExpress({
     // Put the MongoDB collections into the GraphQL context object
     context: { mongo }, 
     schema

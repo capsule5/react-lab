@@ -170,7 +170,7 @@ GraphQL.propTypes = {
 }
 
 export default compose(
-  graphql(ALL_LINKS_QUERY, { name: "allLinksQuery", options: { pollInterval: 5000 } }), // pollInterval refetch the query every 5s
+  graphql(ALL_LINKS_QUERY, { name: "allLinksQuery" }), // , options: { pollInterval: 5000 } pollInterval refetch the query every 5s
   graphql(CREATE_LINK_MUTATION, { name: "createLinkMutation" }),
   graphql(DELETE_LINK_MUTATION, { name: "deleteLinkMutation" }),
 )(GraphQL)

@@ -7,7 +7,6 @@ export default (WrappedComponent) => {
     constructor(props) {
       super(props)
       this.state = {
-        scrollY: 0,
         isScrolled: false,
       }
       this.handleScroll = this.handleScroll.bind(this)
@@ -23,7 +22,6 @@ export default (WrappedComponent) => {
   
     handleScroll() {
       this.setState({
-        scrollY: window.scrollY,
         isScrolled: window.scrollY > HEADER_HEIGHT,
       })
     }
@@ -31,6 +29,7 @@ export default (WrappedComponent) => {
     render() {
       return (
         <WrappedComponent
+          { ...this.props }
           scroll={ { ...this.state, headerHeight: HEADER_HEIGHT } }
         />
       )

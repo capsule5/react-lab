@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { EXAMPLES_URL } from "api/examples"
 import TransitionGroup from "react-transition-group/TransitionGroup"
 import ItemAnimated from "./ItemAnimated"
+import withScroll from "../withScroll"
 
 const Nav = styled.nav`
   text-align:left;
@@ -62,4 +63,4 @@ ExamplesNav.propTypes = {
   scroll: PropTypes.object.isRequired,
 }
 
-export default ExamplesNav
+export default withScroll(ExamplesNav)

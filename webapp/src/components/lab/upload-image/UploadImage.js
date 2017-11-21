@@ -112,7 +112,6 @@ class UploadImage extends PureComponent {
               >×</CloseBtn>
               <img src={ `http://localhost:3001/${file.path}` } alt={ file.path } height="100" />
             </Img>
-            
           ))
         }
       </ImgsWrapper>)

@@ -7,7 +7,6 @@ import Layout from "../Layout"
 import ExamplesNav from "./ExamplesNav"
 import TagsNav from "./tags-nav/TagsNav"
 import ExamplesRouter from "./ExamplesRouter"
-import withScroll from "../withScroll"
 
 
 const Wrapper = styled.div`
@@ -17,14 +16,14 @@ const Wrapper = styled.div`
   }
 `
 
-const Examples = ({ examples, availableTags, scroll }) => (
+const Examples = ({ examples, availableTags }) => (
   <Layout>
     <Wrapper>
-      <ExamplesNav examples={ examples } scroll={ scroll } />
+      <ExamplesNav examples={ examples } />
       <div id="ExamplesWrapper">
         <ExamplesRouter examples={ examples } />
       </div>
-      <TagsNav availableTags={ availableTags } scroll={ scroll } />
+      <TagsNav availableTags={ availableTags } />
     </Wrapper>
   </Layout>
 )
@@ -32,11 +31,9 @@ const Examples = ({ examples, availableTags, scroll }) => (
 Examples.propTypes = {
   availableTags: PropTypes.array.isRequired,
   examples: PropTypes.array.isRequired,
-  scroll: PropTypes.object.isRequired,
 }
 
 const enhance = compose(
-  withScroll,
   withExamples
 )
 

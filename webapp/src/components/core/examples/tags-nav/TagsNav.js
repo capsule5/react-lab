@@ -2,10 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import TransitionGroup from "react-transition-group/TransitionGroup"
+import { compose } from "utils/helpers"
 import ItemAnimated from "../ItemAnimated"
 import withTags from "../withTags"
 import ButtonTag from "../ButtonTag"
-
+import withScroll from "../../withScroll"
 
 const Nav = styled.nav`
   text-align:left;
@@ -18,7 +19,7 @@ const Nav = styled.nav`
     margin:0;
     &.isSticky{
       position:fixed;
-      transform:translateY(-${props => props.scroll.headerHeight}px);
+      transform:translateY(-${props => props.headerHeight}px);
     }
   }
   li{
@@ -36,7 +37,7 @@ const Nav = styled.nav`
 
 
 const TagsNav = ({ availableTags, onSelectTag, onDeselectTag, scroll }) => (
-  <Nav id="TagsNav" scroll={ scroll }>
+  <Nav id="TagsNav" headerHeight={ scroll.headerHeight }>
     <ul className={ scroll.isScrolled ? "isSticky" : "" }>
       <TransitionGroup>
         {
@@ -67,4 +68,7 @@ TagsNav.propTypes = {
   scroll: PropTypes.object.isRequired,
 }
 
-export default withTags(TagsNav)
+export default compose(
+  withTags,
+  withScroll
+)(TagsNav)

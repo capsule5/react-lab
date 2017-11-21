@@ -16,7 +16,7 @@ const start = async () => {
   const mongo = await connectMongo();
 
   var app = express();
-
+  app.use('/uploads',express.static('uploads'))
   //enables cors
   app.use("/graphql", function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -28,6 +28,7 @@ const start = async () => {
       //setTimeout(next, 200) // simulates network latency of 200ms
     }
   });
+  
   app.use('/graphql', bodyParser.json(), apolloUploadExpress(), graphqlExpress({
     // Put the MongoDB collections into the GraphQL context object
     context: { mongo }, 
@@ -36,6 +37,7 @@ const start = async () => {
   app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
   }));
+  
 
 
   const PORT = 3002
@@ -43,6 +45,6 @@ const start = async () => {
     console.log(`JT React Lab GraphQL server running on port ${PORT}.`)
   });
 
-  };
+};
 
 start();

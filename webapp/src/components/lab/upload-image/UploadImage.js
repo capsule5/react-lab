@@ -13,9 +13,21 @@ const ImgsWrapper = styled.div`
 
 const Img = styled.div`
   display: block;
-  height:100px;
+  height:300px;
   margin:0 5px 5px 0;
   position: relative;
+
+  img.upload-img{
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    cursor:pointer;
+    transition:opacity .3s ease-out;
+    &:hover{
+      opacity:1;
+    }
+  }
 `
 
 const CloseBtn = styled.div`
@@ -32,6 +44,7 @@ const CloseBtn = styled.div`
   background:#FFF;
   border-radius:2px;
   cursor: pointer;
+  z-index:2;
   &:hover{
     color: #CCC;
   }
@@ -104,15 +117,19 @@ class UploadImage extends PureComponent {
       // ok
       return (<ImgsWrapper>
         {
-          allFilesQuery.allFiles && allFilesQuery.allFiles.map(file => (
-            <Img key={ file.id }>
-              <CloseBtn onClick={ () => {
-                this.deteteFile(file.id)
-              } }
-              >×</CloseBtn>
-              <img src={ `http://localhost:3001/${file.path}` } alt={ file.path } height="100" />
-            </Img>
-          ))
+          allFilesQuery.allFiles && allFilesQuery.allFiles.map((file) => {
+            const pathSVG = `${file.path.split(".")[0]}.svg`
+            return (
+              <Img key={ file.id }>
+                <CloseBtn onClick={ () => {
+                  this.deteteFile(file.id)
+                } }
+                >×</CloseBtn>
+                <img src={ `http://localhost:3002/${pathSVG}` } alt={ file.path } height="300" className="upload upload-svg" />
+                <img src={ `http://localhost:3002/${file.path}` } alt={ file.path } height="300" className="upload upload-img" />
+              </Img>
+            )
+          })
         }
       </ImgsWrapper>)
     }
@@ -121,16 +138,26 @@ class UploadImage extends PureComponent {
   }
 
   render() {
+    const { allFilesQuery } = this.props
     return (
       <Example data={ this.props.data }>
         {this.renderFiles()}
-        <input
-          type="file"
-          required
-          onChange={ ({ target }) =>
-            target.validity.valid && this.uploadFile(target.files[0])
-          }
-        />
+        {
+          allFilesQuery.allFiles &&
+          <div>
+            <input
+              type="file"
+              required
+              onChange={ ({ target }) =>
+                target.validity.valid && this.uploadFile(target.files[0])
+              }
+            />
+            <div className="note">
+              Note: you will need potrace (sudo apt-get potrace) to generate SVG
+            </div>
+          </div>
+        }
+        
       </Example>
     )
   }

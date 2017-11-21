@@ -10,12 +10,15 @@
     "apollo-server-express": "^1.2.0",
     "apollo-upload-server": "^4.0.0-alpha.1",
     "body-parser": "^1.18.2",
+    "child_process": "^1.0.2",
     "express": "^4.16.2",
     "fs": "^0.0.1-security",
     "graphql": "^0.11.7",
     "graphql-tools": "^2.7.2",
     "mkdirp": "^0.5.1",
     "mongodb": "^2.2.33",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "svgo": "^1.0.3",
+    "util": "^0.10.3"
   }
 }

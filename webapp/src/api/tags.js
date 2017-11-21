@@ -14,6 +14,7 @@ const TAGS_SOURCE = {
   mongodb: "mongodb",
   express: "express",
   uploading: "uploading",
+  svg: "svg",
 }
 
 const withIds = (obj) => {

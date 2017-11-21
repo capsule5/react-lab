@@ -18,7 +18,7 @@ const EXAMPLES_SOURCE = [
   {
     component: UploadImage,
     title: "GraphQL / Apollo upload",
-    desc: "",
+    desc: "Upload image & generate SVG",
     tags: [
       TAGS.api,
       TAGS.graphql,
@@ -26,6 +26,7 @@ const EXAMPLES_SOURCE = [
       TAGS.express,
       TAGS.mongodb,
       TAGS.uploading,
+      TAGS.svg,
     ],
     links: [
       "https://github.com/jaydenseric/apollo-upload-client",

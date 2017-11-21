@@ -29,33 +29,59 @@ const { GraphQLUpload } = require('apollo-upload-server')
 const { createWriteStream } = require('fs')
 const mkdirp = require('mkdirp')
 const shortid = require('shortid')
-
-
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 
 // UPLOAD FILE
 //------------------
-const uploadDir = 'uploads'
-const uploadPath = '../webapp/public'
+const uploadPath= 'uploads'
 
 const processUpload = async (file,Files) => {
   const { stream, filename, mimetype, encoding } = await file
-  const { id, path } = await storeUpload({ stream, filename })
+  const { id, path, fname } = await storeUpload({ stream, filename })
+  const svg = await generateSVG(id, filename, path, fname)
   return recordFile(Files, { id, filename, mimetype, encoding, path })
 }
 
 const storeUpload = async ({ stream, filename }) => {
   const id = shortid.generate()
   
-  const publicPath = `${uploadDir}/${id}-${filename}`
-  const upload = `${uploadPath}/${publicPath}`
+  const path = `${uploadPath}/${id}-${filename}`
+  const fname = `${id}-${filename.split(".")[0]}`
 
   return new Promise((resolve, reject) =>
     stream
-      .pipe(createWriteStream(upload))
-      .on('finish', () => resolve({ id, path:publicPath }))
+      .pipe(createWriteStream(path))
+      .on('finish', () => {
+        
+        return resolve({ id, path, fname })
+      })
       .on('error', reject)
   )
+}
+
+const generateSVG = async (id, filename, path, fname) => {
+
+  const file = `${id}-${filename}`
+
+  const cmd = `convert ${uploadPath}/${file} ${uploadPath}/temp.ppm`
+  const cmd2 = `potrace -s ${uploadPath}/temp.ppm -o ${uploadPath}/${fname}.svg --color=#cccccc --flat -u 1 --longcoding --turdsize=100 --opttolerance 0.4 --turnpolicy majority`
+  //const cmd3 = `svgo temp ${uploadPath}/${fname}.svg` // optimize svg size
+  const cmdF = `${cmd} && ${cmd2}`
+  
+  const {err, stdout, stderr} = await exec(cmdF)
+
+  if (err) {
+    console.log('err', err);
+    // node couldn't execute the command
+    return;
+  }
+  // the *entire* stdout and stderr (buffered)
+  console.log(`stdout: ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+
+  return;
 }
 
 const recordFile = async (Files,file) => {

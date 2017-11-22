@@ -5,6 +5,8 @@ import Example from "components/core/examples/example/Example"
 import { graphql } from "react-apollo"
 import gql from "graphql-tag"
 import { compose } from "utils/helpers"
+import TransitionGroup from "react-transition-group/TransitionGroup"
+import ItemAnimated from "components/core/examples/ItemAnimated"
 
 const ImgsWrapper = styled.div`
   display: flex;
@@ -116,21 +118,25 @@ class UploadImage extends PureComponent {
 
       // ok
       return (<ImgsWrapper>
-        {
-          allFilesQuery.allFiles && allFilesQuery.allFiles.map((file) => {
-            const pathSVG = `${file.path.split(".")[0]}.svg`
-            return (
-              <Img key={ file.id }>
-                <CloseBtn onClick={ () => {
-                  this.deteteFile(file.id)
-                } }
-                >×</CloseBtn>
-                <img src={ `http://localhost:3002/${pathSVG}` } alt={ file.path } height="300" className="upload upload-svg" />
-                <img src={ `http://localhost:3002/${file.path}` } alt={ file.path } height="300" className="upload upload-img" />
-              </Img>
-            )
-          })
-        }
+        <TransitionGroup>
+          {
+            allFilesQuery.allFiles && allFilesQuery.allFiles.map((file) => {
+              const pathSVG = `${file.path.split(".")[0]}.svg`
+              return (
+                <ItemAnimated key={ file.id } display="inline-block">
+                  <Img>
+                    <CloseBtn onClick={ () => {
+                      this.deteteFile(file.id)
+                    } }
+                    >×</CloseBtn>
+                    <img src={ `http://localhost:3002/${pathSVG}` } alt={ file.path } height="300" className="upload upload-svg" />
+                    <img src={ `http://localhost:3002/${file.path}` } alt={ file.path } height="300" className="upload upload-img" />
+                  </Img>
+                </ItemAnimated>
+              )
+            })
+          }
+        </TransitionGroup>
       </ImgsWrapper>)
     }
 

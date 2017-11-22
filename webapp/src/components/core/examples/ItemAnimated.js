@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   opacity:0;
   height:0;
   overflow:hidden;
+  display:${props => props.display}
 `
 
 const animateIn = (DOMNode) => {
@@ -36,15 +37,20 @@ class ItemAnimated extends React.Component {
   }
   render () {
     return (
-      <Wrapper>
+      <Wrapper display={ this.props.display }>
         {this.props.children}
       </Wrapper>
     )
   }
 }
 
+ItemAnimated.defaultProps = {
+  display: "block",
+}
+
 ItemAnimated.propTypes = {
   children: PropTypes.any.isRequired,
+  display: PropTypes.string,
 }
 
 export default ItemAnimated

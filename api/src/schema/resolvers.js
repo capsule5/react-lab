@@ -78,8 +78,8 @@ const generateSVG = async (id, filename, path, fname) => {
     return;
   }
   // the *entire* stdout and stderr (buffered)
-  console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
+  // console.log(`stdout: ${stdout}`);
+  // console.log(`stderr: ${stderr}`);
 
   return;
 }

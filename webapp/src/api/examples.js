@@ -17,8 +17,8 @@ import UploadImage from "../components/lab/upload-image/UploadImage"
 const EXAMPLES_SOURCE = [
   {
     component: UploadImage,
-    title: "GraphQL / Apollo upload",
-    desc: "Upload image & generate SVG",
+    title: "Image upload to SVG",
+    desc: "Upload image with graphQL & generate SVG with potrace on server side",
     tags: [
       TAGS.api,
       TAGS.graphql,
@@ -27,10 +27,16 @@ const EXAMPLES_SOURCE = [
       TAGS.mongodb,
       TAGS.uploading,
       TAGS.svg,
+      TAGS.animation,
+      TAGS.reacttransitiongroup,
+      TAGS.gsap,
+      TAGS.unmounting,
     ],
     links: [
       "https://github.com/jaydenseric/apollo-upload-client",
       "https://github.com/jaydenseric/apollo-upload-server",
+      "https://twitter.com/Martin_Adams/status/918481838347292678",
+      "https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js",
     ],
     github: "upload-image/UploadImage",
   },

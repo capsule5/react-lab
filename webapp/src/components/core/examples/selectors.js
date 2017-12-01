@@ -38,6 +38,7 @@ export const availableTagsSelector = createSelector(
     // compare with selectedTags & add isSelected key
     availableTags.forEach((tag) => {
       tag.isSelected = selectedTags.map(t => t.value).includes(tag.value)
+      tag.relatedExamplesLength = examples.filter(e => e.tags.map(ta => ta.value).includes(tag.value)).length
     })
 
     return availableTags

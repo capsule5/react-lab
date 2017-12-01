@@ -48,6 +48,7 @@ const TagsNav = ({ availableTags, onSelectTag, onDeselectTag, scroll }) => (
                   className="inSideNav"
                   key={ tag.id }
                   tag={ tag }
+                  relatedExamplesLength={ tag.relatedExamplesLength }
                   isSelected={ tag.isSelected }
                   onSelectTag={ onSelectTag }
                   onDeselectTag={ onDeselectTag }

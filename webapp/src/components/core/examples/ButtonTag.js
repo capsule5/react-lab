@@ -37,9 +37,14 @@ const Wrapper = styled.a`
       text-decoration:none;
     }
   }
+
+  .exLength{
+    font-size:11px;
+    color:#999;
+  }
 `
 
-const ButtonTag = ({ tag, className, isSelected, onSelectTag, onDeselectTag }) => (
+const ButtonTag = ({ tag, className, isSelected, onSelectTag, onDeselectTag, relatedExamplesLength }) => (
 
   <Wrapper
     href=""
@@ -47,9 +52,13 @@ const ButtonTag = ({ tag, className, isSelected, onSelectTag, onDeselectTag }) =
     className={ `${className} ${isSelected && "isSelected"}` }
   >
     #{tag.value}
+    {relatedExamplesLength && <span className="exLength"> ({relatedExamplesLength})</span>}
   </Wrapper>
 )
 
+ButtonTag.defaultProps = {
+  relatedExamplesLength: null,
+}
 
 ButtonTag.propTypes = {
   className: PropTypes.string.isRequired,
@@ -57,6 +66,7 @@ ButtonTag.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   onSelectTag: PropTypes.func.isRequired,
   onDeselectTag: PropTypes.func.isRequired,
+  relatedExamplesLength: PropTypes.number,
 }
 
 export default ButtonTag

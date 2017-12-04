@@ -12,9 +12,22 @@ import ModalX from "../components/lab/modal-x/ModalX"
 import RenderPropsVsHoc from "../components/lab/render-props-vs-hoc/RenderPropsVsHoc"
 import GraphQL from "../components/lab/graphql/GraphQL"
 import UploadImage from "../components/lab/upload-image/UploadImage"
+import FormValidationHoc from "../components/lab/form-validation-hoc/FormValidationHoc"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: FormValidationHoc,
+    title: "Form validation",
+    desc: "",
+    tags: [
+      TAGS.form,
+    ],
+    links: [
+      "https://medium.com/javascript-inside/some-thoughts-on-forms-in-react-9ca2d9078c20",
+    ],
+    github: "form-validation-hoc/FormValidationHoc",
+  },
   {
     component: UploadImage,
     title: "Image upload to SVG",

@@ -13,9 +13,26 @@ import RenderPropsVsHoc from "../components/lab/render-props-vs-hoc/RenderPropsV
 import GraphQL from "../components/lab/graphql/GraphQL"
 import UploadImage from "../components/lab/upload-image/UploadImage"
 import FormValidationHoc from "../components/lab/form-validation-hoc/FormValidationHoc"
+import FormikBasics from "../components/lab/formik-basics/FormikBasics"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: FormikBasics,
+    title: "Formik Basics",
+    desc: "Form validation with formik & yup",
+    tags: [
+      TAGS.form,
+      TAGS.formik,
+      TAGS.yup,
+    ],
+    links: [
+      "https://github.com/jaredpalmer/formik",
+      "https://github.com/jquense/yup",
+      "https://codesandbox.io/s/zKrK5YLDZ",
+    ],
+    github: "formik-basics/FormikBasics",
+  },
   {
     component: FormValidationHoc,
     title: "Form validation",

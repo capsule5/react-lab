@@ -16,6 +16,8 @@ const TAGS_SOURCE = {
   uploading: "uploading",
   svg: "svg",
   form: "form",
+  formik: "formik",
+  yup: "yup",
 }
 
 const withIds = (obj) => {

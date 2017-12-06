@@ -19,6 +19,8 @@ const Nav = styled.nav`
     &.isSticky{
       position:fixed;
       transform:translateY(-${props => props.scroll.headerHeight}px);
+      height: calc(100% - 60px);
+      overflow: auto;
     }
   }
   li{

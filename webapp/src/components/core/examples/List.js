@@ -12,6 +12,7 @@ class List extends PureComponent {
         {
           this.props.examples.map((ex) => {
             const { component, ...moreData } = ex
+            
             return (
               <ItemAnimated key={ ex.id }>
                 <ex.component data={ moreData } />

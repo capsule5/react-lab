@@ -34,6 +34,7 @@ const EXAMPLES_SOURCE = [
     github: "formik-basics/FormikBasics",
   },
   {
+    isDisabled: true,
     component: FormValidationHoc,
     title: "Form validation",
     desc: "",
@@ -218,10 +219,12 @@ const EXAMPLES_SOURCE = [
 export const EXAMPLES_URL = "/examples/"
 const GITHUB_URL = "https://github.com/jobteaser/react-lab/blob/master/webapp/src/components/lab/"
 
-export const EXAMPLES = EXAMPLES_SOURCE.map(example => ({
-  ...example,
-  id: slugify(example.title),
-  path: `${EXAMPLES_URL}${slugify(example.title)}`,
-  links: example.links && keyIndex(example.links, 1),
-  github: example.github && `${GITHUB_URL}${example.github}.js`,
-}))
+export const EXAMPLES = EXAMPLES_SOURCE
+  .filter(example => !example.isDisabled)
+  .map(example => ({
+    ...example,
+    id: slugify(example.title),
+    path: `${EXAMPLES_URL}${slugify(example.title)}`,
+    links: example.links && keyIndex(example.links, 1),
+    github: example.github && `${GITHUB_URL}${example.github}.js`,
+  }))

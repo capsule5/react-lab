@@ -25,7 +25,7 @@ export const setSelectedTags = tags => ({
 
 
 export const selectTag = tag => (dispatch, getState) => {
-  const newTags = getState().tags.selected.slice()
+  const newTags = [ ...getState().tags.selected ]
   if (!newTags.some(t => t.value === tag.value)) {
     newTags.push(tag)
     dispatch(setSelectedTags(newTags))

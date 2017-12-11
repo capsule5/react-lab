@@ -18,6 +18,8 @@ const TAGS_SOURCE = {
   form: "form",
   formik: "formik",
   yup: "yup",
+  game: "game",
+  perf: "perf",
 }
 
 const withIds = (obj) => {

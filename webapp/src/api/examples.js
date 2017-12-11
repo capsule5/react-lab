@@ -14,9 +14,23 @@ import GraphQL from "../components/lab/graphql/GraphQL"
 import UploadImage from "../components/lab/upload-image/UploadImage"
 import FormValidationHoc from "../components/lab/form-validation-hoc/FormValidationHoc"
 import FormikBasics from "../components/lab/formik-basics/FormikBasics"
+import LifeGame from "../components/lab/lifegame/LifeGame"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: LifeGame,
+    title: "Game of life",
+    desc: "Draw some cells, make it live",
+    tags: [
+      TAGS.perf,
+      TAGS.game,
+    ],
+    links: [
+      "https://www.youtube.com/watch?v=S-W0NX97DB0",
+    ],
+    github: "lifegame/LifeGame",
+  },
   {
     component: FormikBasics,
     title: "Formik Basics",

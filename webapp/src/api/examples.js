@@ -21,13 +21,15 @@ const EXAMPLES_SOURCE = [
   {
     component: LifeGame,
     title: "Game of life",
-    desc: "Draw some cells, make it live",
+    desc: "Draw some cells or drag them in and make it live!",
     tags: [
       TAGS.perf,
       TAGS.game,
+      TAGS.cellularautomata,
     ],
     links: [
       "https://www.youtube.com/watch?v=S-W0NX97DB0",
+      "http://www.conwaylife.com/ref/lexicon/lex_g.htm#gosperglidergun",
     ],
     github: "lifegame/LifeGame",
   },

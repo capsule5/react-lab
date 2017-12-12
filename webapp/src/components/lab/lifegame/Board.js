@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 import Row from "./Row"
 
@@ -7,14 +7,20 @@ const Wrapper = styled.table`
   border:1px solid #eee;
 `
 
-class Board extends React.Component {
+class Board extends Component {
   render() {
-    const { cells, toggleCell } = this.props
+    const { cells, toggleCell, addPattern } = this.props
     return (
       <Wrapper>
         <tbody>
           {cells.map((row, y) => (
-            <Row key={ `row${y}` } row={ row } y={ y } toggleCell={ toggleCell } />
+            <Row
+              key={ `row${y}` }
+              row={ row }
+              y={ y }
+              toggleCell={ toggleCell }
+              addPattern={ addPattern }
+            />
           ))}
         </tbody>
       </Wrapper>

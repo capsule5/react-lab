@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { PureComponent } from "react"
 import styled from "styled-components"
 import { LGCONF } from "./lg.conf"
 
@@ -19,22 +19,21 @@ const Wrapper = styled.td`
     //border:1px solid #F6F6F6;
     width: ${LGCONF.cellSize}px;
     height: ${LGCONF.cellSize}px;
-    background:#FFF;
-    cursor:pointer;
+    padding:0;
+    //background:#FFF;
+    cursor:crosshair;
     user-select: none; 
     //transition:background .1s;
     &.isAlive{
       background:rgba(${props => props.color.join(",")});
-      &:hover{
-        background:rgba(${props => props.color.join(",")});
+      opacity:1;
+       &.isBirth{
+       opacity:.7;
       }
-    }
-    &:hover{
-      background:black;
     }
 `
 
-class Cell extends Component {
+class Cell extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,17 +45,13 @@ class Cell extends Component {
     clearTimeout(this.to)
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.isAlive !== this.props.isAlive || nextProps.color !== this.props.color
-  }
-
   render() {
-    const { isAlive, toggleCell, color, x, y, addPattern } = this.props
+    const { isAlive, isBirth, color, toggleCell, x, y, addPattern } = this.props
 
     return (
       <Wrapper
         color={ color || startColor }
-        className={ isAlive ? "isAlive" : "" }
+        className={ `${isAlive ? "isAlive" : ""} ${isBirth ? "isBirth" : ""}` }
         onMouseDown={ (e) => {
           e.preventDefault()
           if (!this.state.isDragOver) toggleCell(x, y, startColor)

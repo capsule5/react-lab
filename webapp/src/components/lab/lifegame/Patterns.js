@@ -4,7 +4,7 @@ import { LGCONF } from "./lg.conf"
 
 const Wrapper = styled.div`
 
-  height:${LGCONF.cellsY * (LGCONF.cellSize + 2)}px;
+  height:${LGCONF.cellsY * (LGCONF.cellSize)}px;
   overflow:auto;
   padding-right:20px;
 
@@ -18,12 +18,15 @@ const Wrapper = styled.div`
   table{
     cursor:pointer;
     border-collapse:collapse;
-    border:1px solid #eee;
+    &:hover{ 
+      td.isAlive{
+        background:#CCC;
+      }
+    }
     td{
       border:1px solid #fff;
       width: 6px;
       height: 6px;
-      background:#FFF;
       &.isAlive{
         background:#000;
       }
@@ -76,16 +79,6 @@ const patterns = [
       [ 0, 0, 1, 0, 0, 0 ],
     ],
   },
-  // {
-  //   name: "piston",
-  //   code: [
-  //     [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 ],
-  //     [ 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0 ],
-  //     [ 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1 ],
-  //     [ 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0 ],
-  //     [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 ],
-  //   ],
-  // },
   {
     name: "pulsar",
     code: [
@@ -139,6 +132,23 @@ const patterns = [
       [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
       [ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ],
       [ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ],
+    ],
+  },
+  {
+    name: "canada goose",
+    code: [
+      [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+      [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 ],
+      [ 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1 ],
+      [ 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0 ],
+      [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
+      [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ],
+      [ 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0 ],
+      [ 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0 ],
+      [ 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0 ],
+      [ 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 ],
+      [ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+      [ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
     ],
   },
 ]

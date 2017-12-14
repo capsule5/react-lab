@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
-
+  font-size: 12px;
   display:flex;
   align-items:center;
   margin-bottom:10px;
@@ -21,15 +21,16 @@ const Wrapper = styled.div`
       cursor:default;
     }
   }
+
   .count{
     //padding-left: 20px;
-    font-size: 12px;
   }
 `
 
 class Menu extends React.PureComponent {
   render() {
     const { isLive, count, start, stop, reset, next, previous, historyLength } = this.props
+
     return (
       <Wrapper>
         <div className="button" onClick={ isLive ? stop : start }><i className="material-icons">{isLive ? "stop" : "play_arrow"}</i></div>

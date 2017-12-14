@@ -4,7 +4,7 @@ import Cell from "./Cell"
 
 class Row extends Component {
   shouldComponentUpdate(nextProps) {
-    return JSON.stringify(nextProps.row.map(cell => cell.isAlive)) !== JSON.stringify(this.props.row.map(cell => cell.isAlive))
+    return (JSON.stringify(nextProps.row.map(cell => JSON.stringify(cell))) !== JSON.stringify(this.props.row.map(cell => JSON.stringify(cell))))
   }
 
   render() {
@@ -17,6 +17,7 @@ class Row extends Component {
             key={ `cell${y}_${x}` }
             isAlive={ cell.isAlive }
             color={ cell.color }
+            isBirth={ cell.isBirth }
             toggleCell={ toggleCell }
             x={ x }
             y={ y }

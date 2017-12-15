@@ -2,19 +2,6 @@ import React, { PureComponent } from "react"
 import styled from "styled-components"
 import { LGCONF } from "./lg.conf"
 
-
-let isMouseDown = 0
-let startColor = [ 0, 0, 0, 1 ]
-document.body.onmousedown = (e) => {
-  if (e.target.localName === "td") {
-    isMouseDown = 1
-    startColor = LGCONF.colors[Math.floor(Math.random() * (LGCONF.colors.length))]
-  }
-}
-document.body.onmouseup = () => {
-  isMouseDown = 0
-}
-
 const Wrapper = styled.td`
     //border:1px solid #F6F6F6;
     width: ${LGCONF.cellSize}px;
@@ -50,20 +37,20 @@ class Cell extends PureComponent {
 
     return (
       <Wrapper
-        color={ color || startColor }
+        color={ color || LGCONF.startColor }
         className={ `${isAlive ? "isAlive" : ""} ${isBirth ? "isBirth" : ""}` }
         onMouseDown={ (e) => {
           e.preventDefault()
-          if (!this.state.isDragOver) toggleCell(x, y, startColor)
+          if (!this.state.isDragOver) toggleCell(x, y, LGCONF.startColor)
         } }
         onMouseOver={ () => {
-          if (isMouseDown && !this.state.isDragOver) toggleCell(x, y, startColor)
+          if (LGCONF.isMouseDown && !this.state.isDragOver) toggleCell(x, y, LGCONF.startColor)
         } }
         onDrop={ (e) => {
           e.preventDefault()
           const pattern = JSON.parse(e.dataTransfer.getData("pattern"))
           addPattern(x - Math.floor((pattern[0].length / 2)), y - Math.floor((pattern.length / 2)), pattern)
-          isMouseDown = false
+          LGCONF.isMouseDown = false
           this.to = setTimeout(() => {
             this.setState({ isDragOver: false })
           }, 50)

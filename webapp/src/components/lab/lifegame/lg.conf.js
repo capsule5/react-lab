@@ -2,7 +2,7 @@ export const LGCONF = {
   cellsX: 50,
   cellsY: 50,
   cellSize: 8, // px
-  speed: 70,
+  speed: 60,
   historyMax: 20,
   colors: [
     [ 255, 0, 128, 1 ],
@@ -18,6 +18,8 @@ export const LGCONF = {
     [ 0, 255, 255, 1 ],
     [ 0, 255, 128, 1 ],
   ],
+  isMouseDown: 0,
+  startColor: [ 0, 0, 0, 1 ],
 }
 
 // [ 255, 102, 102, 1 ],
@@ -46,3 +48,14 @@ export const LGCONF = {
 // [ 255, 102, 179, 1 ],
 // [ 255, 102, 140, 1 ],
 // [ 255, 102, 102, 1 ],
+
+
+document.body.onmousedown = (e) => {
+  if (e.target.localName === "td" || e.target.localName === "canvas") {
+    LGCONF.isMouseDown = 1
+    LGCONF.startColor = LGCONF.colors[Math.floor(Math.random() * (LGCONF.colors.length))]
+  }
+}
+document.body.onmouseup = () => {
+  LGCONF.isMouseDown = 0
+}

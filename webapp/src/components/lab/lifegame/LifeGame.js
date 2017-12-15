@@ -9,6 +9,7 @@ import Board from "./Board"
 import Menu from "./Menu"
 import Params from "./Params"
 import Patterns from "./Patterns"
+import BoardKonva from "./BoardKonva"
 
 
 const Wrapper = styled.div`
@@ -34,6 +35,7 @@ class LifeGame extends PureComponent {
       theme: "light",
       edgeColor: [ 240, 240, 240, 1 ],
       edge: "wall",
+      board: "HTMLTable",
     }
     this.tick = this.tick.bind(this)
     this.start = this.start.bind(this)
@@ -47,6 +49,7 @@ class LifeGame extends PureComponent {
     this.themeChange = this.themeChange.bind(this)
     this.updateEdgeColor = this.updateEdgeColor.bind(this)
     this.edgeChange = this.edgeChange.bind(this)
+    this.boardChange = this.boardChange.bind(this)
     this.ti = null
   }
 
@@ -80,7 +83,7 @@ class LifeGame extends PureComponent {
       this.setState({ isLive: true, theme: "dark" })
       this.ti = setInterval(this.tick, LGCONF.speed)
       this.updateEdgeColor()
-      this.ti2 = setInterval(this.updateEdgeColor, 1000)
+      this.ti2 = setInterval(this.updateEdgeColor, 5000)
     }
   }
 
@@ -259,8 +262,14 @@ class LifeGame extends PureComponent {
     })
   }
 
+  boardChange(e) {
+    this.setState({
+      board: e.target.value,
+    })
+  }
+
   render() {
-    const { cells, count, isLive, history, blendMode, theme, edge, edgeColor } = this.state
+    const { cells, count, isLive, history, blendMode, theme, edge, edgeColor, board } = this.state
     return (
       <Example data={ this.props.data }>
         <Wrapper>
@@ -275,26 +284,39 @@ class LifeGame extends PureComponent {
               isLive={ isLive }
               historyLength={ history.length }
             />
-            <Board
-              cells={ cells }
-              toggleCell={ this.toggleCell }
-              addPattern={ this.addPattern }
-              theme={ theme }
-              edgeColor={ edgeColor }
-            />
-            <Params
-              blendChange={ this.blendChange }
-              blendMode={ blendMode }
-              themeChange={ this.themeChange }
-              theme={ theme }
-              edgeChange={ this.edgeChange }
-              edge={ edge }
-            />
+            {
+              board === "canvas" ?
+                <BoardKonva
+                  cells={ cells }
+                  toggleCell={ this.toggleCell }
+                  addPattern={ this.addPattern }
+                  theme={ theme }
+                  edgeColor={ edgeColor }
+                  isLive={ isLive }
+                /> :
+                <Board
+                  cells={ cells }
+                  toggleCell={ this.toggleCell }
+                  addPattern={ this.addPattern }
+                  theme={ theme }
+                  edgeColor={ edgeColor }
+                />
+            }
           </div>
           <div className="patterns">
             <Patterns addPattern={ this.addPattern } />
           </div>
         </Wrapper>
+        <Params
+          blendChange={ this.blendChange }
+          blendMode={ blendMode }
+          themeChange={ this.themeChange }
+          theme={ theme }
+          edgeChange={ this.edgeChange }
+          edge={ edge }
+          board={ board }
+          boardChange={ this.boardChange }
+        />
       </Example>
     )
   }

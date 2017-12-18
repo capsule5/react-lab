@@ -4,11 +4,12 @@ import Cell from "./Cell"
 
 class Row extends Component {
   shouldComponentUpdate(nextProps) {
-    return (JSON.stringify(nextProps.row.map(cell => JSON.stringify(cell))) !== JSON.stringify(this.props.row.map(cell => JSON.stringify(cell))))
+    return (JSON.stringify(nextProps.row.map(cell => JSON.stringify(cell))) !== JSON.stringify(this.props.row.map(cell => JSON.stringify(cell)))) ||
+          nextProps.size !== this.props.size
   }
 
   render() {
-    const { row, y, toggleCell, addPattern } = this.props
+    const { row, y, toggleCell, addPattern, size } = this.props
 
     return (
       <tr>
@@ -22,6 +23,7 @@ class Row extends Component {
             x={ x }
             y={ y }
             addPattern={ addPattern }
+            size={ size }
           />
         )) }
       </tr>

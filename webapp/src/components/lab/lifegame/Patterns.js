@@ -1,10 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { LGCONF } from "./lg.conf"
 
 const Wrapper = styled.div`
 
-  height:${LGCONF.cellsY * (LGCONF.cellSize)}px;
+  height:${props => props.size * (500 / props.size)}px;
   overflow:auto;
   padding-right:20px;
 
@@ -157,7 +156,7 @@ const patterns = [
 class Patterns extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper size={ this.props.size }>
         {patterns.map(pattern => (
           <div key={ `${pattern.name}` } className="pattern-box">
             <div className="name">{pattern.name}</div>
@@ -169,8 +168,8 @@ class Patterns extends React.Component {
                 }
               }
               onClick={ () => {
-                const x = LGCONF.cellsX / 2 - Math.floor((pattern.code[0].length / 2)) // eslint-disable-line
-                const y = LGCONF.cellsY / 2 - Math.floor((pattern.code.length / 2)) // eslint-disable-line
+                const x = this.props.size / 2 - Math.floor((pattern.code[0].length / 2)) // eslint-disable-line
+                const y = this.props.size / 2 - Math.floor((pattern.code.length / 2)) // eslint-disable-line
                 this.props.addPattern(x, y, pattern.code)
               } }
             >

@@ -26,10 +26,12 @@ const EXAMPLES_SOURCE = [
       TAGS.perf,
       TAGS.game,
       TAGS.cellularautomata,
+      TAGS.canvas,
     ],
     links: [
       "https://www.youtube.com/watch?v=S-W0NX97DB0",
       "http://www.conwaylife.com/ref/lexicon/lex_g.htm#gosperglidergun",
+      "https://github.com/lavrton/react-konva",
     ],
     github: "lifegame/LifeGame",
   },

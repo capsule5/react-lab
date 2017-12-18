@@ -21,6 +21,7 @@ const TAGS_SOURCE = {
   game: "game",
   perf: "perf",
   cellularautomata: "cellular-automata",
+  canvas: "canvas",
 }
 
 const withIds = (obj) => {

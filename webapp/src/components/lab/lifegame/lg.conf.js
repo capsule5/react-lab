@@ -1,8 +1,4 @@
 export const LGCONF = {
-  cellsX: 50,
-  cellsY: 50,
-  cellSize: 8, // px
-  speed: 60,
   historyMax: 20,
   colors: [
     [ 255, 0, 128, 1 ],
@@ -20,6 +16,48 @@ export const LGCONF = {
   ],
   isMouseDown: 0,
   startColor: [ 0, 0, 0, 1 ],
+  params: {
+    size: {
+      20: 20,
+      50: 50,
+      100: 100,
+    },
+    rendering: {
+      HTMLTable: "HTMLTable",
+      canvas: "canvas",
+    },
+    speed: {
+      20: 20,
+      50: 50,
+      100: 100,
+      200: 200,
+    },
+    edge: {
+      torus: "torus",
+      wall: "wall",
+    },
+    theme: {
+      light: "light",
+      dark: "dark",
+    },
+    blendMode: {
+      normal: "normal",
+      screen: "screen",
+      overlay: "overlay",
+      darken: "darken",
+      lighten: "lighten",
+      colorDodge: "colorDodge",
+      colorBurn: "colorBurn",
+      hardLight: "hardLight",
+      softLight: "softLight",
+      difference: "difference",
+      exclusion: "exclusion",
+      hue: "hue",
+      saturation: "saturation",
+      color: "color",
+      luminosity: "luminosity",
+    },
+  },
 }
 
 // [ 255, 102, 102, 1 ],

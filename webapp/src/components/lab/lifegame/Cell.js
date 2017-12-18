@@ -4,8 +4,8 @@ import { LGCONF } from "./lg.conf"
 
 const Wrapper = styled.td`
     //border:1px solid #F6F6F6;
-    width: ${LGCONF.cellSize}px;
-    height: ${LGCONF.cellSize}px;
+    width: ${props => 500 / props.size}px;
+    height: ${props => 500 / props.size}px;
     padding:0;
     //background:#FFF;
     cursor:crosshair;
@@ -33,10 +33,11 @@ class Cell extends PureComponent {
   }
 
   render() {
-    const { isAlive, isBirth, color, toggleCell, x, y, addPattern } = this.props
+    const { isAlive, isBirth, color, toggleCell, x, y, addPattern, size } = this.props
 
     return (
       <Wrapper
+        size={ size }
         color={ color || LGCONF.startColor }
         className={ `${isAlive ? "isAlive" : ""} ${isBirth ? "isBirth" : ""}` }
         onMouseDown={ (e) => {

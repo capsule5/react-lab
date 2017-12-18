@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { Stage, Layer } from "react-konva"
 import styled from "styled-components"
 import CellKonva from "./CellKonva"
-import { LGCONF } from "./lg.conf"
 
 
 const Wrapper = styled.div`
@@ -13,11 +12,12 @@ const Wrapper = styled.div`
 
 class BoardKonva extends Component {
   render() {
-    const { cells, toggleCell, addPattern, theme, isLive } = this.props
-    // console.log("[stab]", { cells, toggleCell, addPattern, theme, edgeColor })
+    const { cells, toggleCell, addPattern, theme, isLive, size } = this.props
+
+    const sizePx = size * (500 / size)
     return (
       <Wrapper theme={ theme } >
-        <Stage width={ LGCONF.cellsX * LGCONF.cellSize } height={ LGCONF.cellsY * LGCONF.cellSize }>
+        <Stage width={ sizePx } height={ sizePx }>
           <Layer>
             {
               cells.map((row, y) => (
@@ -33,6 +33,7 @@ class BoardKonva extends Component {
                       x={ x }
                       y={ y }
                       addPattern={ addPattern }
+                      size={ size }
                     />
                   )
                 })

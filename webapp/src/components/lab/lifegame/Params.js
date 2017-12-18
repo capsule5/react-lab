@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { LGCONF } from "./lg.conf"
 
 const Wrapper = styled.div`
   font-size: 12px;
@@ -12,88 +13,48 @@ const Wrapper = styled.div`
   }
 `
 
-const blendModes = [
-  "normal",
-  "multiply",
-  "screen",
-  "overlay",
-  "darken",
-  "lighten",
-  "colorDodge",
-  "colorBurn",
-  "hardLight",
-  "softLight",
-  "difference",
-  "exclusion",
-  "hue",
-  "saturation",
-  "color",
-  "luminosity",
-]
-
-const themes = [
-  "light",
-  "dark",
-]
-
-const edges = [
-  "torus",
-  "wall",
-]
-
-const boards = [
-  "HTMLTable",
-  "canvas",
-]
-
 class Params extends React.PureComponent {
-  render() {
-    const { blendMode, blendChange, themeChange, theme, edgeChange, edge, boardChange, board } = this.props
+  renderParams() {
+    const { onParamChange, paramsValues } = this.props
+    const params = []
+    Object.keys(LGCONF.params).forEach((param) => {
+      const options = LGCONF.params[param]
+      params.push(
+        <div className="options" key={ param }>
+          {param}
+          <select
+            name={ param }
+            id={ param }
+            onChange={ (e) => {
+              onParamChange(param, e.target.value)
+            } }
+            value={ paramsValues[param] }
+          >
+            {
+              this.renderParam(options)
+            }
+          </select>
+        </div>
+      )
+    })
+    return params.map(param => param)
+  }
 
+  renderParam(param) {
+    const values = []
+    Object.keys(param).forEach((key) => {
+      const value = param[key]
+      values.push(<option value={ key } key={ key } > {value}</option>)
+    })
+    return values.map(value => value)
+  }
+
+  render() {
     return (
       <Wrapper>
-        <div className="options">
-          board
-          <select name="boards" id="boards" onChange={ boardChange } value={ board }>
-            {
-              boards.map((bo, i) => (
-                <option value={ bo } key={ `bo${i}` }>{bo}</option>
-              ))
-            }
-          </select>
-        </div>
-        <div className="options">
-          theme
-          <select name="theme" id="theme" onChange={ themeChange } value={ theme }>
-            {
-              themes.map((th, i) => (
-                <option value={ th } key={ `th${i}` }>{th}</option>
-              ))
-            }
-          </select>
-        </div>
-
-        <div className="options">
-          edges
-          <select name="edges" id="edges" onChange={ edgeChange } value={ edge }>
-            {
-              edges.map((edg, i) => (
-                <option value={ edg } key={ `edg${i}` }>{edg}</option>
-              ))
-            }
-          </select>
-        </div>
-        <div className="options">
-          blend
-          <select name="blendMode" id="blendMode" onChange={ blendChange } value={ blendMode }>
-            {
-              blendModes.map((blend, i) => (
-                <option value={ blend } key={ `blend${i}` }>{blend}</option>
-              ))
-            }
-          </select>
-        </div>
-        
+        {
+          this.renderParams()
+        }
       </Wrapper>
     )
   }

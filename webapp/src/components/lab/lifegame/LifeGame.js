@@ -28,14 +28,18 @@ class LifeGame extends PureComponent {
     super(props)
     this.state = {
       isLive: false,
-      cells: this.initCells(),
+      cells: null,
       history: [],
       count: 0,
-      blendMode: "hue",
-      theme: "light",
       edgeColor: [ 240, 240, 240, 1 ],
-      edge: "wall",
-      board: "HTMLTable",
+      params: {
+        blendMode: LGCONF.params.blendMode.hue,
+        theme: LGCONF.params.theme.light,
+        edge: LGCONF.params.edge.wall,
+        rendering: LGCONF.params.rendering.HTMLTable,
+        speed: LGCONF.params.speed["50"],
+        size: LGCONF.params.size["50"],
+      },
     }
     this.tick = this.tick.bind(this)
     this.start = this.start.bind(this)
@@ -45,17 +49,40 @@ class LifeGame extends PureComponent {
     this.next = this.next.bind(this)
     this.previous = this.previous.bind(this)
     this.addPattern = this.addPattern.bind(this)
-    this.blendChange = this.blendChange.bind(this)
-    this.themeChange = this.themeChange.bind(this)
     this.updateEdgeColor = this.updateEdgeColor.bind(this)
-    this.edgeChange = this.edgeChange.bind(this)
-    this.boardChange = this.boardChange.bind(this)
+    this.onParamChange = this.onParamChange.bind(this)
+    this.blend = this.blend.bind(this)
+    this.initCells = this.initCells.bind(this)
     this.ti = null
+  }
+  componentWillMount() {
+    this.initCells()
   }
 
   componentWillUnmount() {
     clearInterval(this.ti)
     clearInterval(this.ti2)
+  }
+
+
+  initCells() {
+    const { params } = this.state
+
+    const cells = []
+    for (let y = 0; y < params.size; y++) {
+      const row = []
+      for (let x = 0; x < params.size; x++) {
+        const cell = {
+          isAlive: false,
+          color: null,
+          isBirth: false,
+        }
+        row.push(cell)
+      }
+      cells.push(row)
+    }
+
+    this.setState({ cells })
   }
 
   next() {
@@ -80,8 +107,8 @@ class LifeGame extends PureComponent {
 
   start() {
     if (!this.state.isLive) {
-      this.setState({ isLive: true, theme: "dark" })
-      this.ti = setInterval(this.tick, LGCONF.speed)
+      this.setState({ isLive: true })
+      this.ti = setInterval(this.tick, this.state.params.speed)
       this.updateEdgeColor()
       this.ti2 = setInterval(this.updateEdgeColor, 5000)
     }
@@ -97,32 +124,17 @@ class LifeGame extends PureComponent {
   reset() {
     this.stop()
     this.setState({
-      cells: this.initCells(),
+      cells: [],
       count: 0,
       history: [],
       edgeColor: [ 240, 240, 240, 1 ],
     })
+    this.initCells()
   }
 
-  initCells() {
-    const cells = []
-    for (let y = 0; y < LGCONF.cellsY; y++) {
-      const row = []
-      for (let x = 0; x < LGCONF.cellsX; x++) {
-        const cell = {
-          isAlive: false,
-          color: null,
-          isBirth: false,
-        }
-        row.push(cell)
-      }
-      cells.push(row)
-    }
-    return cells
-  }
 
   getNeighbours(x, y) {
-    const { cells, edge } = this.state
+    const { cells, params } = this.state
     const neighbours = { count: 0, color: null }
     // let isEdge = false
     const cellsAround = [
@@ -141,11 +153,11 @@ class LifeGame extends PureComponent {
       let ax = x + cellsAround[c].dx
       let ay = y + cellsAround[c].dy
 
-      if (edge === "torus") {
-        if (ax < 0) ax = LGCONF.cellsX - 1
-        else if (ax === LGCONF.cellsX) ax = 0
-        if (ay < 0) ay = LGCONF.cellsY - 1
-        else if (ay === LGCONF.cellsX) ay = 0
+      if (params.edge === LGCONF.params.edge.torus) {
+        if (ax < 0) ax = params.size - 1
+        else if (ax === params.size) ax = 0
+        if (ay < 0) ay = params.size - 1
+        else if (ay === params.size) ay = 0
       }
 
       if (cells[ay] && cells[ay][ax] && cells[ay][ax].isAlive) {
@@ -170,7 +182,7 @@ class LifeGame extends PureComponent {
 
 
   tick() {
-    const { cells, count } = this.state
+    const { cells, count, params } = this.state
     const nextCells = cells.map(row => row.map(c => ({ ...c })))
     // const nextCells = recursiveDeepCopy(this.state.cells)
     const nextHistory = this.state.history.map(c => [ ...c ])
@@ -179,8 +191,8 @@ class LifeGame extends PureComponent {
       nextHistory.push(recursiveDeepCopy(nextCells))
     }
 
-    for (let y = 0; y < LGCONF.cellsY; y++) {
-      for (let x = 0; x < LGCONF.cellsX; x++) {
+    for (let y = 0; y < params.size; y++) {
+      for (let x = 0; x < params.size; x++) {
         const isAlive = cells[y][x].isAlive
         const neighbours = this.getNeighbours(x, y)
         let cell = nextCells[y][x]
@@ -198,7 +210,7 @@ class LifeGame extends PureComponent {
         } else if (neighbours.count === 3) {
           // birth
           // cell born at edge get edgeColor
-          const isEdge = x === 0 || x === LGCONF.cellsX - 1 || y === 0 || y === LGCONF.cellsY - 1
+          const isEdge = x === 0 || x === params.size - 1 || y === 0 || y === params.size - 1
           cell = { isAlive: true, isBirth: true, color: isEdge ? this.state.edgeColor : neighbours.color }
         }
         nextCells[y][x] = cell
@@ -241,35 +253,26 @@ class LifeGame extends PureComponent {
   }
 
   blend(c1, c2) {
-    return BlendToRGB(blender[this.state.blendMode](RGBToBlend(c1), RGBToBlend(c2)))
+    return BlendToRGB(blender[this.state.params.blendMode](RGBToBlend(c1), RGBToBlend(c2)))
   }
 
-  blendChange(e) {
+  onParamChange(param, value) {
+    // console.log("[stab]", { param, value })
+    const isLive = this.state.isLive
+    if (isLive) this.stop()
+    const newParams = { ...this.state.params }
+    newParams[param] = LGCONF.params[param][value]
     this.setState({
-      blendMode: e.target.value,
-    })
-  }
-
-  themeChange(e) {
-    this.setState({
-      theme: e.target.value,
-    })
-  }
-
-  edgeChange(e) {
-    this.setState({
-      edge: e.target.value,
-    })
-  }
-
-  boardChange(e) {
-    this.setState({
-      board: e.target.value,
+      params: newParams,
+    }, () => {
+      // console.log("[stab]", { state: this.state.params })
+      if (isLive) this.start()
+      if (param === "size") this.reset()
     })
   }
 
   render() {
-    const { cells, count, isLive, history, blendMode, theme, edge, edgeColor, board } = this.state
+    const { cells, count, isLive, history, edgeColor, params } = this.state
     return (
       <Example data={ this.props.data }>
         <Wrapper>
@@ -285,37 +288,33 @@ class LifeGame extends PureComponent {
               historyLength={ history.length }
             />
             {
-              board === "canvas" ?
+              params.rendering === LGCONF.params.rendering.canvas ?
                 <BoardKonva
                   cells={ cells }
                   toggleCell={ this.toggleCell }
                   addPattern={ this.addPattern }
-                  theme={ theme }
+                  theme={ params.theme }
                   edgeColor={ edgeColor }
                   isLive={ isLive }
+                  size={ params.size }
                 /> :
                 <Board
                   cells={ cells }
                   toggleCell={ this.toggleCell }
                   addPattern={ this.addPattern }
-                  theme={ theme }
+                  theme={ params.theme }
                   edgeColor={ edgeColor }
+                  size={ params.size }
                 />
             }
           </div>
           <div className="patterns">
-            <Patterns addPattern={ this.addPattern } />
+            <Patterns addPattern={ this.addPattern } size={ params.size } />
           </div>
         </Wrapper>
         <Params
-          blendChange={ this.blendChange }
-          blendMode={ blendMode }
-          themeChange={ this.themeChange }
-          theme={ theme }
-          edgeChange={ this.edgeChange }
-          edge={ edge }
-          board={ board }
-          boardChange={ this.boardChange }
+          onParamChange={ this.onParamChange }
+          paramsValues={ params }
         />
       </Example>
     )

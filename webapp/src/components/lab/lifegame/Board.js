@@ -11,7 +11,7 @@ const Wrapper = styled.table`
 
 class Board extends Component {
   render() {
-    const { cells, toggleCell, addPattern, theme, edgeColor } = this.props
+    const { cells, toggleCell, addPattern, theme, edgeColor, size } = this.props
     return (
       <Wrapper theme={ theme } edgeColor={ edgeColor }>
         <tbody>
@@ -22,6 +22,7 @@ class Board extends Component {
               y={ y }
               toggleCell={ toggleCell }
               addPattern={ addPattern }
+              size={ size }
             />
           ))}
         </tbody>

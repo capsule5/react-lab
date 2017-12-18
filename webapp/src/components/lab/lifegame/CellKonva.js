@@ -8,10 +8,12 @@ class CellKonva extends PureComponent {
   }
 
   render() {
-    const { isAlive, x, y, color, toggleCell } = this.props
+    const { isAlive, x, y, color, toggleCell, isBirth, size } = this.props
 
-    const colorString = isAlive ? color.slice(0, -1).join(",") : "255,255,255"
-    const cSize = LGCONF.cellSize
+    const c = isBirth ? color.slice(0, -1) : color
+    if (isBirth) c.push(0.5)
+    const colorString = isAlive ? c.join(",") : "255,255,255,0"
+    const cSize = 500 / size
 
     return (
       <Rect
@@ -19,7 +21,7 @@ class CellKonva extends PureComponent {
         y={ y * cSize }
         width={ cSize }
         height={ cSize }
-        fill={ `rgb(${colorString})` }
+        fill={ `rgba(${colorString})` }
         onClick={ () => {
           toggleCell(x, y, LGCONF.startColor)
         } }

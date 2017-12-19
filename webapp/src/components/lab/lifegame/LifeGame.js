@@ -10,6 +10,7 @@ import Menu from "./Menu"
 import Params from "./Params"
 import Patterns from "./Patterns"
 import BoardKonva from "./BoardKonva"
+import BoardDiv from "./BoardDiv"
 
 
 const Wrapper = styled.div`
@@ -271,8 +272,48 @@ class LifeGame extends PureComponent {
     })
   }
 
+  renderBoard() {
+    const { cells, isLive, params } = this.state
+    switch (params.rendering) {
+      case LGCONF.params.rendering.canvas:
+        return (
+          <BoardKonva
+            cells={ cells }
+            toggleCell={ this.toggleCell }
+            addPattern={ this.addPattern }
+            theme={ params.theme }
+            isLive={ isLive }
+            size={ params.size }
+          />
+        )
+      case LGCONF.params.rendering.HTMLDiv:
+        return (
+          <BoardDiv
+            cells={ cells }
+            toggleCell={ this.toggleCell }
+            addPattern={ this.addPattern }
+            theme={ params.theme }
+            isLive={ isLive }
+            size={ params.size }
+          />
+        )
+      case LGCONF.params.rendering.HTMLTable:
+        return (
+          <Board
+            cells={ cells }
+            toggleCell={ this.toggleCell }
+            addPattern={ this.addPattern }
+            theme={ params.theme }
+            size={ params.size }
+          />
+        )
+      default:
+        return null
+    }
+  }
+
   render() {
-    const { cells, count, isLive, history, edgeColor, params } = this.state
+    const { count, isLive, history, params } = this.state
     return (
       <Example data={ this.props.data }>
         <Wrapper>
@@ -288,24 +329,7 @@ class LifeGame extends PureComponent {
               historyLength={ history.length }
             />
             {
-              params.rendering === LGCONF.params.rendering.canvas ?
-                <BoardKonva
-                  cells={ cells }
-                  toggleCell={ this.toggleCell }
-                  addPattern={ this.addPattern }
-                  theme={ params.theme }
-                  edgeColor={ edgeColor }
-                  isLive={ isLive }
-                  size={ params.size }
-                /> :
-                <Board
-                  cells={ cells }
-                  toggleCell={ this.toggleCell }
-                  addPattern={ this.addPattern }
-                  theme={ params.theme }
-                  edgeColor={ edgeColor }
-                  size={ params.size }
-                />
+              this.renderBoard()
             }
           </div>
           <div className="patterns">

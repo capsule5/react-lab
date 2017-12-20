@@ -16,19 +16,36 @@ import FormValidationHoc from "../components/lab/form-validation-hoc/FormValidat
 import FormikBasics from "../components/lab/formik-basics/FormikBasics"
 import LifeGame from "../components/lab/lifegame/LifeGame"
 import AlgoliaSearch from "../components/lab/algolia-search/AlgoliaSearch"
+import CSSTransitionGroup from "../components/lab/css-transition-group/CSSTransitionGroup"
 
 
 const EXAMPLES_SOURCE = [
   {
+    component: CSSTransitionGroup,
+    title: "CSS Transition Group",
+    desc: "Add and remove items with some react-animations (animate.css like)",
+    tags: [
+      TAGS.animation,
+      TAGS.reacttransitiongroup,
+    ],
+    links: [
+      "https://reactjs.org/docs/animation.html",
+    ],
+    github: "css-transition-group/CSSTransitionGroup",
+  },
+  {
     component: AlgoliaSearch,
-    title: "Algolia Search",
-    desc: "",
+    title: "Algolia / InstantSearch",
+    desc: "Searching with Algolia using react-instantsearch package",
     tags: [
       TAGS.search,
+      TAGS.algolia,
     ],
     links: [
       "https://community.algolia.com/react-instantsearch/Getting_started.html",
       "https://www.algolia.com/doc/",
+      "https://community.algolia.com/react-instantsearch/widgets/",
+      "https://community.algolia.com/react-instantsearch/storybook/ ",
     ],
     github: "algolia-search/AlgoliaSearch",
   },

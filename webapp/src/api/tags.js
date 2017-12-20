@@ -23,6 +23,7 @@ const TAGS_SOURCE = {
   cellularautomata: "cellular-automata",
   canvas: "canvas",
   search: "search",
+  algolia: "algolia",
 }
 
 const withIds = (obj) => {

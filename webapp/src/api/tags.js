@@ -22,6 +22,7 @@ const TAGS_SOURCE = {
   perf: "perf",
   cellularautomata: "cellular-automata",
   canvas: "canvas",
+  search: "search",
 }
 
 const withIds = (obj) => {

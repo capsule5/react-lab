@@ -51,6 +51,7 @@
     "react-apollo": "^2.0.1",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
+    "react-instantsearch": "^4.3.0",
     "react-konva": "^1.6.4",
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.4",

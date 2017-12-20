@@ -15,9 +15,23 @@ import UploadImage from "../components/lab/upload-image/UploadImage"
 import FormValidationHoc from "../components/lab/form-validation-hoc/FormValidationHoc"
 import FormikBasics from "../components/lab/formik-basics/FormikBasics"
 import LifeGame from "../components/lab/lifegame/LifeGame"
+import AlgoliaSearch from "../components/lab/algolia-search/AlgoliaSearch"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: AlgoliaSearch,
+    title: "Algolia Search",
+    desc: "",
+    tags: [
+      TAGS.search,
+    ],
+    links: [
+      "https://community.algolia.com/react-instantsearch/Getting_started.html",
+      "https://www.algolia.com/doc/",
+    ],
+    github: "algolia-search/AlgoliaSearch",
+  },
   {
     component: LifeGame,
     title: "Game of life",

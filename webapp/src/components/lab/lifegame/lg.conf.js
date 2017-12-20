@@ -90,7 +90,6 @@ export const LGCONF = {
 
 
 document.body.onmousedown = (e) => {
-  console.log("[stab]", { target: e.target })
   if (e.target.localName === "td" || e.target.localName === "canvas" || e.target.classList[0] === "cell") {
     LGCONF.isMouseDown = 1
     LGCONF.startColor = LGCONF.colors[Math.floor(Math.random() * (LGCONF.colors.length))]

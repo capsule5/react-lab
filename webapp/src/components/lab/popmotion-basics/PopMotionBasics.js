@@ -3,12 +3,15 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Example from "components/core/examples/example/Example"
 import ExTween from "./ExTween"
-
+import ExDragPhysics from "./ExDragPhysics"
 
 const Wrapper = styled.div`
- 
+hr{
+  height: 1px;
+  border: 0;
+  background-color: #EEE;
+}
 `
-
 
 class PopMotionBasics extends PureComponent {
   constructor(props) {
@@ -21,6 +24,8 @@ class PopMotionBasics extends PureComponent {
       <Example data={ this.props.data }>
         <Wrapper>
           <ExTween />
+          <hr />
+          <ExDragPhysics />
         </Wrapper>
       </Example>
     )

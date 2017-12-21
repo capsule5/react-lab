@@ -17,9 +17,22 @@ import FormikBasics from "../components/lab/formik-basics/FormikBasics"
 import LifeGame from "../components/lab/lifegame/LifeGame"
 import AlgoliaSearch from "../components/lab/algolia-search/AlgoliaSearch"
 import CSSTransitionGroup from "../components/lab/css-transition-group/CSSTransitionGroup"
+import PopMotionBasics from "../components/lab/popmotion-basics/PopMotionBasics"
 
 
 const EXAMPLES_SOURCE = [
+  {
+    component: PopMotionBasics,
+    title: "Popmotion Basics",
+    desc: "",
+    tags: [
+      TAGS.animation,
+    ],
+    links: [
+      "https://popmotion.io/api/react/",
+    ],
+    github: "popmotion-basics/PopMotionBasics",
+  },
   {
     component: CSSTransitionGroup,
     title: "CSS Transition Group",

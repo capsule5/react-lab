@@ -43,6 +43,7 @@
     "konva": "^1.7.6",
     "nightwatch": "^0.9.16",
     "object-assign": "4.1.1",
+    "popmotion-react": "^2.1.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
     "promise": "8.0.1",

@@ -27,6 +27,7 @@ const EXAMPLES_SOURCE = [
     desc: "",
     tags: [
       TAGS.animation,
+      TAGS.popmotion,
     ],
     links: [
       "https://popmotion.io/api/react/",

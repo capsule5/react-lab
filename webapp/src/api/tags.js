@@ -24,6 +24,7 @@ const TAGS_SOURCE = {
   canvas: "canvas",
   search: "search",
   algolia: "algolia",
+  popmotion: "popmotion",
 }
 
 const withIds = (obj) => {

@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Example from "components/core/examples/example/Example"
 import ExTween from "./ExTween"
 import ExDragPhysics from "./ExDragPhysics"
+import ExFrames from "./ExFrames"
 
 const Wrapper = styled.div`
 hr{
@@ -26,6 +27,8 @@ class PopMotionBasics extends PureComponent {
           <ExTween />
           <hr />
           <ExDragPhysics />
+          <hr />
+          <ExFrames />
         </Wrapper>
       </Example>
     )

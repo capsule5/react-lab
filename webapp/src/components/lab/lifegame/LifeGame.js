@@ -11,6 +11,7 @@ import Params from "./Params"
 import Patterns from "./Patterns"
 import BoardKonva from "./BoardKonva"
 import BoardDiv from "./BoardDiv"
+import BoardThree from "./BoardThree"
 
 
 const Wrapper = styled.div`
@@ -37,7 +38,7 @@ class LifeGame extends PureComponent {
         blendMode: LGCONF.params.blendMode.hue,
         theme: LGCONF.params.theme.light,
         edge: LGCONF.params.edge.wall,
-        rendering: LGCONF.params.rendering.HTMLTable,
+        rendering: LGCONF.params.rendering.Three,
         speed: LGCONF.params.speed["50"],
         size: LGCONF.params.size["50"],
       },
@@ -300,6 +301,16 @@ class LifeGame extends PureComponent {
       case LGCONF.params.rendering.HTMLTable:
         return (
           <Board
+            cells={ cells }
+            toggleCell={ this.toggleCell }
+            addPattern={ this.addPattern }
+            theme={ params.theme }
+            size={ params.size }
+          />
+        )
+      case LGCONF.params.rendering.Three:
+        return (
+          <BoardThree
             cells={ cells }
             toggleCell={ this.toggleCell }
             addPattern={ this.addPattern }

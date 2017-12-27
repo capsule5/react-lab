@@ -23,6 +23,7 @@ export const LGCONF = {
       100: 100,
     },
     rendering: {
+      Three: "Three",
       HTMLTable: "HTMLTable",
       HTMLDiv: "HTMLDiv",
       canvas: "canvas",

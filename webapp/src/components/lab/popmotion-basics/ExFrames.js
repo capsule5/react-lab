@@ -29,7 +29,7 @@ const stateChangeHandlers = {
 const ExFrames = () => (
   <MotionValue
     initialState="stop"
-    v={ { background: "violet" } }
+    v={ { background: "#9B65DE" } }
     onStateChange={ stateChangeHandlers }
   >
     {({ v, state, setRef, setStateTo }) => (

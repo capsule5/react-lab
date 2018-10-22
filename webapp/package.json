@@ -78,7 +78,6 @@
     "yup": "^0.23.0"
   },
   "devDependencies": {
-    "eslint-config-jobteaser": "git+https://cc3d3b982bb51ac158a4f9fce180c689dd87edc5:x-oauth-basic@github.com/jobteaser/eslint-config-jobteaser.git",
     "selenium-download": "^2.0.10",
     "selenium-standalone": "^6.11.0"
   },
